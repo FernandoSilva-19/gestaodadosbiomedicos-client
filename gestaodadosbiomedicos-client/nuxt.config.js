@@ -16,41 +16,6 @@ export default {
     ]
   },
 
-  ssr: false, // Disable Server Side rendering
-  // Auth module configuration (https://auth.nuxtjs.org/)
-  auth: {
-    redirect: {
-      login: '/auth/login',
-      logout: '/',
-      home: '/'
-    },
-    watchLoggedIn: true,
-    strategies: {
-      local: {
-        endpoints: {
-          login: {
-            url: '/api/auth/login',
-            method: 'post',
-            propertyName: 'token'
-          },
-          logout: false,
-          user: {
-            url: '/api/auth/user',
-            method: 'get',
-            propertyName: ''
-          }
-        },
-        // tokenRequired: true, -> default
-        // tokenType: 'bearer' -> default
-      }
-    }
-  },
-  router: {
-    middleware: [
-      'auth'
-    ]
-  },
-
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
@@ -69,9 +34,7 @@ export default {
 
   modules: [
     'bootstrap-vue/nuxt',
-    '@nuxtjs/axios',
-    '@nuxtjs/toast',
-    '@nuxtjs/auth'
+    '@nuxtjs/axios'
   ],
   axios: {
     proxy: true,
