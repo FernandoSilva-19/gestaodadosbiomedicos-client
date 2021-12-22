@@ -16,6 +16,7 @@ export default {
     ]
   },
 
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
   ],
@@ -32,11 +33,8 @@ export default {
   ],
 
   modules: [
-    // Doc: https://bootstrap-vue.js.org/docs/
-    // if you choosed Bootstrap Vue...
     'bootstrap-vue/nuxt',
-    // if you enabled axios module upon the app generation
-    '@nuxtjs/axios',
+    '@nuxtjs/axios'
   ],
   axios: {
     proxy: true,
