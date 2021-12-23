@@ -2,17 +2,17 @@
 <div>
     <h1>Editar Admin</h1>
   <form @submit.prevent="edit">
-      <b-input v-model="password" :state="isPasswordValid" required
+      <b-input v-model="admin.password" :state="isPasswordValid" required
                placeholder="Introduz a tua password" />
-      <b-input v-model.trim="name" :state="isNameValid" required
+      <b-input v-model.trim="admin.name" :state="isNameValid" required
                placeholder="Introduz o teu nome" />
-      <b-input ref="email" v-model.trim="email" type="email"
+      <b-input ref="email" v-model.trim="admin.email" type="email"
                :state="isEmailValid" required placeholder="Introduz o teu e-mail" />
 
     <p class="text-danger" v-show="errorMsg">{{ errorMsg }}</p>
     <nuxt-link to="/admins">Return</nuxt-link>
     <button type="reset">Reset</button>
-    <button @click.prevent="edit">Edit</button>
+    <button @click.prevent="edit(admin)">Edit</button>
   </form>
 </div>
 </template>
@@ -20,21 +20,19 @@
 export default {
   data() {
     return {
-      i: 0,
-      username: null,
-      password: null,
-      name: null,
-      email: null,
+      admin:{},
       errorMsg: false,
     };
   },
-  mounted(){
-    this.username = this.$route.params.data.username
-    this.password = this.$route.params.data.password
-    this.name = this.$route.params.data.name
-    this.email = this.$route.params.data.email
-      },
+  created() {
+    this.$axios
+      .$get(`/api/admins/${this.username}`)
+      .then((admin) => (this.admin = admin || {}))
+  },
   computed: {
+    username() {
+      return this.$route.params.username;
+    },
     isUsernameValid () {
       if (!this.username) {
         return null
@@ -84,11 +82,11 @@ export default {
     },
   },
   methods: {
-    edit() {
+    edit(admin) {
       this.$axios.$put("/api/admins/" + this.username, {
-          email: this.email,
-          name: this.name,
-          password: this.password,
+          email: admin.email,
+          name: admin.name,
+          password: admin.password,
           username: this.username,
         })
         .then(() => {
