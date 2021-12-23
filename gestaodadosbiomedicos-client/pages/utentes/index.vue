@@ -8,16 +8,16 @@
       <b-table striped over :items="utentes" :fields="fields">
         <template v-slot:cell(actions)="data">
           <nuxt-link
-            class="btn btn-secondary" size="sm"
+            class="btn btn-secondary btn-sm"
             :to="`/utentes/${data.item.username}`"
             >Details</nuxt-link
           >
           <nuxt-link
-            class="btn btn-primary" size="sm"
+            class="btn btn-primary btn-sm"
             :to="`/utentes/${data.item.username}/edit`"
             >Edit</nuxt-link
           >
-          <b-button class="btn btn-danger" @click="remove(data.item.username)">Delete</b-button>
+          <b-button class="btn btn-danger btn-sm" @click="remove(data.item.username)">Delete</b-button>
         </template>
       </b-table>
       <nuxt-link to="/">Back</nuxt-link>
