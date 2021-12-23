@@ -51,9 +51,9 @@
   {
     "name": "admins-username-details",
     "path": "/admins/:username/details",
-    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/admins/_username/details.vue",
+    "component": "C:\\\\Users\\\\ferna\\\\Desktop\\\\uni\\\\2021_2022\\\\projetoDAE\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\admins\\\\_username\\\\details.vue",
     "chunkName": "pages/admins/_username/details",
-    "_name": "_508c8500"
+    "_name": "_83856112"
   },
   {
     "name": "admins-username-edit",
@@ -65,9 +65,9 @@
   {
     "name": "profissionaisSaude-username-details",
     "path": "/profissionaisSaude/:username/details",
-    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/profissionaisSaude/_username/details.vue",
+    "component": "C:\\\\Users\\\\ferna\\\\Desktop\\\\uni\\\\2021_2022\\\\projetoDAE\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\profissionaisSaude\\\\_username\\\\details.vue",
     "chunkName": "pages/profissionaisSaude/_username/details",
-    "_name": "_c56a225e"
+    "_name": "_44d55408"
   },
   {
     "name": "profissionaisSaude-username-edit",

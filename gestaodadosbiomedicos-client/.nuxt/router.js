@@ -11,13 +11,13 @@ const _4a347874 = () => interopDefault(import('..\\pages\\admins\\create.vue' /*
 const _fb0abf2a = () => interopDefault(import('..\\pages\\auth\\login.vue' /* webpackChunkName: "pages/auth/login" */))
 const _7c7b59d7 = () => interopDefault(import('..\\pages\\profissionaisSaude\\create.vue' /* webpackChunkName: "pages/profissionaisSaude/create" */))
 const _3d273c80 = () => interopDefault(import('..\\pages\\utentes\\create.vue' /* webpackChunkName: "pages/utentes/create" */))
+const _83856112 = () => interopDefault(import('..\\pages\\admins\\_username\\details.vue' /* webpackChunkName: "pages/admins/_username/details" */))
 const _833545b6 = () => interopDefault(import('..\\pages\\admins\\_username\\edit.vue' /* webpackChunkName: "pages/admins/_username/edit" */))
+const _44d55408 = () => interopDefault(import('..\\pages\\profissionaisSaude\\_username\\details.vue' /* webpackChunkName: "pages/profissionaisSaude/_username/details" */))
 const _55990a34 = () => interopDefault(import('..\\pages\\profissionaisSaude\\_username\\edit.vue' /* webpackChunkName: "pages/profissionaisSaude/_username/edit" */))
 const _72b4c671 = () => interopDefault(import('..\\pages\\utentes\\_username\\details.vue' /* webpackChunkName: "pages/utentes/_username/details" */))
 const _48b7d86b = () => interopDefault(import('..\\pages\\utentes\\_username\\edit.vue' /* webpackChunkName: "pages/utentes/_username/edit" */))
 const _b2f17608 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
-const _c56a225e = () => interopDefault(import('../pages/profissionaisSaude/_username/details.vue' /* webpackChunkName: "pages/profissionaisSaude/_username/details" */))
-const _508c8500 = () => interopDefault(import('../pages/admins/_username/details.vue' /* webpackChunkName: "pages/admins/_username/details" */))
 
 const emptyFn = () => {}
 
@@ -60,7 +60,7 @@ export const routerOptions = {
     name: "utentes-create"
   }, {
     path: "/admins/:username/details",
-    component: _508c8500,
+    component: _83856112,
     name: "admins-username-details"
   }, {
     path: "/admins/:username/edit",
@@ -68,7 +68,7 @@ export const routerOptions = {
     name: "admins-username-edit"
   }, {
     path: "/profissionaisSaude/:username/details",
-    component: _c56a225e,
+    component: _44d55408,
     name: "profissionaisSaude-username-details"
   }, {
     path: "/profissionaisSaude/:username/edit",
