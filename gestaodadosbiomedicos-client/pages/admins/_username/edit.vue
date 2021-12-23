@@ -1,22 +1,18 @@
 <template>
 <div>
-    <h1>Editar profissional de saúde</h1>
+    <h1>Editar Admin</h1>
   <form @submit.prevent="edit">
-      <b-input v-model="password" :state="isPasswordValid" required
+      <b-input v-model="admin.password" :state="isPasswordValid" required
                placeholder="Introduz a tua password" />
-      <b-input v-model.trim="name" :state="isNameValid" required
+      <b-input v-model.trim="admin.name" :state="isNameValid" required
                placeholder="Introduz o teu nome" />
-      <b-input ref="email" v-model.trim="email" type="email"
+      <b-input ref="email" v-model.trim="admin.email" type="email"
                :state="isEmailValid" required placeholder="Introduz o teu e-mail" />
-      <div>
-        <b-select v-model="selectedOption" :options="options">
-        </b-select>
-      </div>
 
     <p class="text-danger" v-show="errorMsg">{{ errorMsg }}</p>
-    <nuxt-link to="/profissionaisSaude">Return</nuxt-link>
+    <nuxt-link to="/admins">Return</nuxt-link>
     <button type="reset">Reset</button>
-    <button @click.prevent="edit">Edit</button>
+    <button @click.prevent="edit(admin)">Edit</button>
   </form>
 </div>
 </template>
@@ -24,29 +20,19 @@
 export default {
   data() {
     return {
-      i: 0,
-      username: null,
-      password: null,
-      name: null,
-      email: null,
+      admin:{},
       errorMsg: false,
-      selectedOption: null,
-      options: [
-        {value: null, text: 'Seleciona um tipo'},
-        {value: 'CARDIOLOGISTA', text: 'Cardiologista'},
-        {value: 'NUTRICIONISTA', text: 'Nutricionista'},
-        {value: 'MEDICO_GERAL', text: 'Médico Geral'},
-      ]
     };
   },
-  mounted(){
-    this.username = this.$route.params.data.username
-    this.password = this.$route.params.data.password
-    this.name = this.$route.params.data.name
-    this.email = this.$route.params.data.email
-    this.selectedOption = this.$route.params.data.tipo
+  created() {
+    this.$axios
+      .$get(`/api/admins/${this.username}`)
+      .then((admin) => (this.admin = admin || {}))
   },
   computed: {
+    username() {
+      return this.$route.params.username;
+    },
     isUsernameValid () {
       if (!this.username) {
         return null
@@ -96,23 +82,22 @@ export default {
     },
   },
   methods: {
-    edit() {
-      this.$axios.$put("/api/profissionaisSaude/" + this.username, {
-          email: this.email,
-          name: this.name,
-          password: this.password,
+    edit(admin) {
+      this.$axios.$put("/api/admins/" + this.username, {
+          email: admin.email,
+          name: admin.name,
+          password: admin.password,
           username: this.username,
-          tipo: this.selectedOption
         })
         .then(() => {
-          this.$router.push("/profissionaisSaude");
+          this.$router.push("/admins");
         })
         .catch(error => {
           this.errorMsg = error.response.data
         })
-        
+
       //console.log("received: '"+ this.$route.params.data.email+"'")
-        
+
     },
   },
 };

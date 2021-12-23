@@ -12,7 +12,11 @@
             :to="`/utentes/${data.item.username}`"
             >Details</nuxt-link
           >
-          <b-button variant="primary" @click="edit(data.item)">Editar</b-button>
+          <nuxt-link
+            class="btn btn-primary" size="sm"
+            :to="`/utentes/${data.item.username}/edit`"
+            >Edit</nuxt-link
+          >
           <b-button class="btn btn-danger" @click="remove(data.item.username)">Delete</b-button>
         </template>
       </b-table>

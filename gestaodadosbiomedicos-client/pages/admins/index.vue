@@ -6,7 +6,11 @@
     <!-- try to remove :fields=”fields” to see the magic -->
     <b-table striped over :items="admins" :fields="fields">
         <template v-slot:cell(actions)="data">
-          <b-button variant="primary" size="sm" @click="edit(data.item)">Editar</b-button>
+         <nuxt-link
+            class="btn btn-primary" size="sm"
+            :to="`/admins/${data.item.username}/edit`"
+            >Edit</nuxt-link
+          >
           <b-button variant="danger" size="sm" @click="remove(data.item.username)">Remover</b-button>
         </template>
       </b-table>
