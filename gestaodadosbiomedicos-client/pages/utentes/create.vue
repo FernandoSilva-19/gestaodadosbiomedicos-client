@@ -10,12 +10,16 @@
                placeholder="Introduz o teu nome" />
       <b-input ref="email" v-model.trim="email" type="email"
                :state="isEmailValid" required placeholder="Introduz o teu e-mail" />
-      <b-select v-model="profissionalSaudeUsername" :options="profissionaisSaude"
-                :state="isProfissionalSaudeValid" required value-field="ProfissionalSaudeUsername" text-field="ProfissionalSaudeUsername">
-        <template v-slot:first>
-          <option :value="null" disabled>-- Selecione o profissional de saude --</option>
-        </template>
-      </b-select>
+    <b-select v-model="profissionalSaudeUsername">
+      <template v-slot:first>
+        <option :value="null" disabled>-- Selecione o profissional de saude --</option>
+      </template>
+      <template v-for="profissionalSaudeUsername in profissionaisSaude">
+        <option :key="profissionalSaudeUsername.username" :value="profissionalSaudeUsername.username">
+          {{ profissionalSaudeUsername.name }}
+        </option>
+      </template>
+    </b-select>
     <p class="text-danger" v-show="errorMsg">{{ errorMsg }}</p>
     <nuxt-link to="/utentes">Return</nuxt-link>
     <button type="reset">Reset</button>
