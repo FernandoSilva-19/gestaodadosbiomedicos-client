@@ -42,11 +42,25 @@
     "_name": "_0ab0fc34"
   },
   {
+    "name": "admins-username-details",
+    "path": "/admins/:username/details",
+    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/admins/_username/details.vue",
+    "chunkName": "pages/admins/_username/details",
+    "_name": "_508c8500"
+  },
+  {
     "name": "admins-username-edit",
     "path": "/admins/:username/edit",
     "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/admins/_username/edit.vue",
     "chunkName": "pages/admins/_username/edit",
     "_name": "_b95c5888"
+  },
+  {
+    "name": "profissionaisSaude-username-details",
+    "path": "/profissionaisSaude/:username/details",
+    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/profissionaisSaude/_username/details.vue",
+    "chunkName": "pages/profissionaisSaude/_username/details",
+    "_name": "_c56a225e"
   },
   {
     "name": "profissionaisSaude-username-edit",

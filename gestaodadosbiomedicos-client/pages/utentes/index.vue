@@ -9,15 +9,15 @@
         <template v-slot:cell(actions)="data">
           <nuxt-link
             class="btn btn-secondary btn-sm"
-            :to="`/utentes/${data.item.username}`"
-            >Details</nuxt-link
+            :to="`/utentes/${data.item.username}/details`"
+            >Detalhes</nuxt-link
           >
           <nuxt-link
             class="btn btn-primary btn-sm"
             :to="`/utentes/${data.item.username}/edit`"
-            >Edit</nuxt-link
+            >Editar</nuxt-link
           >
-          <b-button class="btn btn-danger btn-sm" @click="remove(data.item.username)">Delete</b-button>
+          <b-button class="btn btn-danger btn-sm" @click="remove(data.item.username)">Eliminar</b-button>
         </template>
       </b-table>
       <nuxt-link to="/">Back</nuxt-link>
@@ -39,10 +39,6 @@ export default {
     };
   },
   methods: {
-    edit(data){
-      this.$router.push({ name: 'utentes-edit', params: {data: data} })
-      //this.$emit('data',username)
-    },
     remove(username) {
       this.$axios.$delete("/api/utentes/" + username)
         .then(() => {
