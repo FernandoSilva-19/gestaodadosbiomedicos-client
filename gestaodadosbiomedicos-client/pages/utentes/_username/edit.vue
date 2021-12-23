@@ -3,26 +3,23 @@
     <h1>Editar Utente</h1>
     <form @submit.prevent="edit">
       <b-input
-        v-model="password"
+        v-model="utente.password"
         :state="isPasswordValid"
         required
-        placeholder="Introduz a tua password"
       />
       <b-input
-        v-model.trim="name"
+        v-model.trim="utente.name"
         :state="isNameValid"
         required
-        placeholder="Introduz o teu nome"
       />
       <b-input
         ref="email"
-        v-model.trim="email"
+        v-model.trim="utente.email"
         type="email"
         :state="isEmailValid"
         required
-        placeholder="Introduz o teu e-mail"
       />
-      <b-select v-model="profissionalSaudeUsername">
+      <b-select v-model="utente.profissionalSaudeUsername">
 
         <template v-for="profissionalSaudeUsername in profissionaisSaude">
           <option
@@ -37,7 +34,7 @@
       <p class="text-danger" v-show="errorMsg">{{ errorMsg }}</p>
       <nuxt-link to="/utentes">Return</nuxt-link>
       <button type="reset">Reset</button>
-      <button @click.prevent="edit">Edit</button>
+      <button @click.prevent="edit(utente)">Edit</button>
     </form>
   </div>
 </template>
@@ -45,27 +42,21 @@
 export default {
   data() {
     return {
-      i: 0,
-      username: null,
-      password: null,
-      name: null,
-      email: null,
-      profissionalSaudeUsername: null,
-      profissionaisSaude: this.$axios.$get("/api/profissionaisSaude").then((profissionaisSaude) => {
-      this.profissionaisSaude = profissionaisSaude;
-    }),
-      errorMsg: false,
+      utente: {},
+      profissionaisSaude: [],
     };
   },
-  mounted() {
-    this.username = this.$route.params.data.username;
-    this.password = this.$route.params.data.password;
-    this.name = this.$route.params.data.name;
-    this.email = this.$route.params.data.email;
-    this.profissionalSaudeUsername =
-      this.$route.params.data.profissionalSaudeUsername;
+  created() {
+    this.$axios
+      .$get(`/api/utentes/${this.username}`)
+      .then((utente) => (this.utente = utente || {})),
+      this.$axios.$get('api/profissionaisSaude').then(profissionaisSaude => { this.profissionaisSaude = profissionaisSaude
+    })
   },
   computed: {
+    username() {
+      return this.$route.params.username;
+    },
     isUsernameValid() {
       if (!this.username) {
         return null;
@@ -123,14 +114,14 @@ export default {
     },
   },
   methods: {
-    edit() {
+    edit(utente) {
       this.$axios
         .$put("/api/utentes/" + this.username, {
           username: this.username,
-          password: this.password,
-          name: this.name,
-          email: this.email,
-          profissionalSaudeUsername: this.profissionalSaudeUsername,
+          password: utente.password,
+          name: utente.name,
+          email: utente.email,
+          profissionalSaudeUsername: utente.profissionalSaudeUsername,
         })
         .then(() => {
           this.$router.push("/utentes");
