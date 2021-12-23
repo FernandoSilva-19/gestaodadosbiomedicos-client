@@ -6,10 +6,15 @@
     <!-- try to remove :fields=”fields” to see the magic -->
     <b-table striped over :items="profissionaisSaude" :fields="fields">
       <template v-slot:cell(actions)="data">
-       <nuxt-link
-            class="btn btn-primary" size="sm"
+          <nuxt-link
+            class="btn btn-secondary btn-sm"
+            :to="`/profissionaisSaude/${data.item.username}/details`"
+            >Detalhes</nuxt-link
+          >
+          <nuxt-link
+            class="btn btn-primary btn-sm"
             :to="`/profissionaisSaude/${data.item.username}/edit`"
-            >Edit</nuxt-link
+            >Editar</nuxt-link
           >
         <b-button variant="danger" size="sm" @click="remove(data.item.username)">Remover</b-button>
       </template>

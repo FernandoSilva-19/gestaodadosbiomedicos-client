@@ -4,17 +4,20 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _376c7cea = () => interopDefault(import('../pages/admins/index.vue' /* webpackChunkName: "pages/admins/index" */))
-const _6e6f408a = () => interopDefault(import('../pages/profissionaisSaude/index.vue' /* webpackChunkName: "pages/profissionaisSaude/index" */))
-const _22e7706c = () => interopDefault(import('../pages/utentes/index.vue' /* webpackChunkName: "pages/utentes/index" */))
-const _445129d8 = () => interopDefault(import('../pages/admins/create.vue' /* webpackChunkName: "pages/admins/create" */))
-const _77f7e263 = () => interopDefault(import('../pages/profissionaisSaude/create.vue' /* webpackChunkName: "pages/profissionaisSaude/create" */))
-const _0ab0fc34 = () => interopDefault(import('../pages/utentes/create.vue' /* webpackChunkName: "pages/utentes/create" */))
-const _62281070 = () => interopDefault(import('../pages/utentes/_username/index.vue' /* webpackChunkName: "pages/utentes/_username/index" */))
-const _b95c5888 = () => interopDefault(import('../pages/admins/_username/edit.vue' /* webpackChunkName: "pages/admins/_username/edit" */))
-const _a3ace7ea = () => interopDefault(import('../pages/profissionaisSaude/_username/edit.vue' /* webpackChunkName: "pages/profissionaisSaude/_username/edit" */))
-const _329844dc = () => interopDefault(import('../pages/utentes/_username/edit.vue' /* webpackChunkName: "pages/utentes/_username/edit" */))
-const _5acbdcff = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _78917410 = () => interopDefault(import('..\\pages\\admins\\index.vue' /* webpackChunkName: "pages/admins/index" */))
+const _0afe29c7 = () => interopDefault(import('..\\pages\\profissionaisSaude\\index.vue' /* webpackChunkName: "pages/profissionaisSaude/index" */))
+const _2f4800be = () => interopDefault(import('..\\pages\\utentes\\index.vue' /* webpackChunkName: "pages/utentes/index" */))
+const _4a347874 = () => interopDefault(import('..\\pages\\admins\\create.vue' /* webpackChunkName: "pages/admins/create" */))
+const _fb0abf2a = () => interopDefault(import('..\\pages\\auth\\login.vue' /* webpackChunkName: "pages/auth/login" */))
+const _7c7b59d7 = () => interopDefault(import('..\\pages\\profissionaisSaude\\create.vue' /* webpackChunkName: "pages/profissionaisSaude/create" */))
+const _3d273c80 = () => interopDefault(import('..\\pages\\utentes\\create.vue' /* webpackChunkName: "pages/utentes/create" */))
+const _83856112 = () => interopDefault(import('..\\pages\\admins\\_username\\details.vue' /* webpackChunkName: "pages/admins/_username/details" */))
+const _833545b6 = () => interopDefault(import('..\\pages\\admins\\_username\\edit.vue' /* webpackChunkName: "pages/admins/_username/edit" */))
+const _44d55408 = () => interopDefault(import('..\\pages\\profissionaisSaude\\_username\\details.vue' /* webpackChunkName: "pages/profissionaisSaude/_username/details" */))
+const _55990a34 = () => interopDefault(import('..\\pages\\profissionaisSaude\\_username\\edit.vue' /* webpackChunkName: "pages/profissionaisSaude/_username/edit" */))
+const _72b4c671 = () => interopDefault(import('..\\pages\\utentes\\_username\\details.vue' /* webpackChunkName: "pages/utentes/_username/details" */))
+const _48b7d86b = () => interopDefault(import('..\\pages\\utentes\\_username\\edit.vue' /* webpackChunkName: "pages/utentes/_username/edit" */))
+const _b2f17608 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -29,47 +32,59 @@ export const routerOptions = {
 
   routes: [{
     path: "/admins",
-    component: _376c7cea,
+    component: _78917410,
     name: "admins"
   }, {
     path: "/profissionaisSaude",
-    component: _6e6f408a,
+    component: _0afe29c7,
     name: "profissionaisSaude"
   }, {
     path: "/utentes",
-    component: _22e7706c,
+    component: _2f4800be,
     name: "utentes"
   }, {
     path: "/admins/create",
-    component: _445129d8,
+    component: _4a347874,
     name: "admins-create"
   }, {
+    path: "/auth/login",
+    component: _fb0abf2a,
+    name: "auth-login"
+  }, {
     path: "/profissionaisSaude/create",
-    component: _77f7e263,
+    component: _7c7b59d7,
     name: "profissionaisSaude-create"
   }, {
     path: "/utentes/create",
-    component: _0ab0fc34,
+    component: _3d273c80,
     name: "utentes-create"
   }, {
-    path: "/utentes/:username",
-    component: _62281070,
-    name: "utentes-username"
+    path: "/admins/:username/details",
+    component: _83856112,
+    name: "admins-username-details"
   }, {
     path: "/admins/:username/edit",
-    component: _b95c5888,
+    component: _833545b6,
     name: "admins-username-edit"
   }, {
+    path: "/profissionaisSaude/:username/details",
+    component: _44d55408,
+    name: "profissionaisSaude-username-details"
+  }, {
     path: "/profissionaisSaude/:username/edit",
-    component: _a3ace7ea,
+    component: _55990a34,
     name: "profissionaisSaude-username-edit"
   }, {
+    path: "/utentes/:username/details",
+    component: _72b4c671,
+    name: "utentes-username-details"
+  }, {
     path: "/utentes/:username/edit",
-    component: _329844dc,
+    component: _48b7d86b,
     name: "utentes-username-edit"
   }, {
     path: "/",
-    component: _5acbdcff,
+    component: _b2f17608,
     name: "index"
   }],
 
