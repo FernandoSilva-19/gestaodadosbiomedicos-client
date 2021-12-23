@@ -2,6 +2,7 @@
   <!-- easy components usage, already shipped with bootstrap css-->
   <div>
   <b-container>
+     <nuxt-link class="btn btn-success" to="/profissionaisSaude/create">Criar novo profissional de saúde</nuxt-link>
     <!-- try to remove :fields=”fields” to see the magic -->
     <b-table striped over :items="profissionaisSaude" :fields="fields">
       <template v-slot:cell(actions)="data">
@@ -9,9 +10,8 @@
         <b-button variant="danger" size="sm" @click="remove(data.item.username)">Remover</b-button>
       </template>
     </b-table>
-    
+     <nuxt-link to="/">Back</nuxt-link>
   </b-container>
-  <nuxt-link to="/profissionaisSaude/create">Criar novo profissional de saúde</nuxt-link>
   </div>
 </template>
 <script>

@@ -1,29 +1,18 @@
 <template>
 <div>
-    <h1>Criar um novo utente</h1>
-  <form @submit.prevent="create">
-     <b-input v-model.trim="username" :state="isUsernameValid" required
-               placeholder="Introduz o teu username" />
+    <h1>Editar Admin</h1>
+  <form @submit.prevent="edit">
       <b-input v-model="password" :state="isPasswordValid" required
                placeholder="Introduz a tua password" />
       <b-input v-model.trim="name" :state="isNameValid" required
                placeholder="Introduz o teu nome" />
       <b-input ref="email" v-model.trim="email" type="email"
                :state="isEmailValid" required placeholder="Introduz o teu e-mail" />
-      <b-select v-model="profissionalSaudeUsername">
-      <template v-slot:first>
-        <option :value="null" disabled>-- Selecione o profissional de saude --</option>
-      </template>
-      <template v-for="profissionalSaudeUsername in profissionaisSaude">
-        <option :key="profissionalSaudeUsername.username" :value="profissionalSaudeUsername.username">
-          {{ profissionalSaudeUsername.name }}
-        </option>
-      </template>
-      </b-select>
+
     <p class="text-danger" v-show="errorMsg">{{ errorMsg }}</p>
-    <nuxt-link to="/utentes">Return</nuxt-link>
+    <nuxt-link to="/admins">Return</nuxt-link>
     <button type="reset">Reset</button>
-    <button @click.prevent="create">Create</button>
+    <button @click.prevent="edit">Edit</button>
   </form>
 </div>
 </template>
@@ -31,19 +20,20 @@
 export default {
   data() {
     return {
+      i: 0,
       username: null,
       password: null,
       name: null,
       email: null,
-      profissionalSaudeUsername: null,
-      profissionaisSaude: [],
-      errorMsg: false
+      errorMsg: false,
     };
   },
-  created() {
-    this.$axios.$get('api/profissionaisSaude').then(profissionaisSaude => { this.profissionaisSaude = profissionaisSaude
-    })
-  },
+  mounted(){
+    this.username = this.$route.params.data.username
+    this.password = this.$route.params.data.password
+    this.name = this.$route.params.data.name
+    this.email = this.$route.params.data.email
+      },
   computed: {
     isUsernameValid () {
       if (!this.username) {
@@ -76,37 +66,40 @@ export default {
       return true
     },
     isEmailValid () {
-      if (!this.email) {
-        return null
-      }
+      if(this.i == 0){
+        this.i = 1
+        return true
+      } else{
+        if (!this.email) {
+          return null
+        }
+
       /* asks the component if it’s valid.
       We don’t need to use a regex for the e-mail.
       The input field already does the job for us, because it is of type“email” and
       validates that the user writes an e-mail that belongs to the domain of IPLeiria.*/
         return this.$refs.email.checkValidity()
-    },
-    isProfissionalSaudeValid () {
-      if (!this.profissionalSaudeUsername) {
-        return null
+
       }
-      return this.profissionaisSaude.some(profissionalSaude => this.profissionalSaudeUsername === profissionalSaude.username)
-    }
+    },
   },
   methods: {
-    create() {
-      this.$axios.$post("/api/utentes", {
+    edit() {
+      this.$axios.$put("/api/admins/" + this.username, {
           email: this.email,
           name: this.name,
           password: this.password,
-          profissionalSaudeUsername: this.profissionalSaudeUsername,
-          username: this.username
+          username: this.username,
         })
         .then(() => {
-          this.$router.push("/utentes");
+          this.$router.push("/admins");
         })
         .catch(error => {
           this.errorMsg = error.response.data
         })
+
+      //console.log("received: '"+ this.$route.params.data.email+"'")
+
     },
   },
 };
