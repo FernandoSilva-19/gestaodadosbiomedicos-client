@@ -16,6 +16,8 @@ const _55990a34 = () => interopDefault(import('..\\pages\\profissionaisSaude\\_u
 const _72b4c671 = () => interopDefault(import('..\\pages\\utentes\\_username\\details.vue' /* webpackChunkName: "pages/utentes/_username/details" */))
 const _48b7d86b = () => interopDefault(import('..\\pages\\utentes\\_username\\edit.vue' /* webpackChunkName: "pages/utentes/_username/edit" */))
 const _b2f17608 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
+const _c56a225e = () => interopDefault(import('../pages/profissionaisSaude/_username/details.vue' /* webpackChunkName: "pages/profissionaisSaude/_username/details" */))
+const _508c8500 = () => interopDefault(import('../pages/admins/_username/details.vue' /* webpackChunkName: "pages/admins/_username/details" */))
 
 const emptyFn = () => {}
 
@@ -57,9 +59,17 @@ export const routerOptions = {
     component: _3d273c80,
     name: "utentes-create"
   }, {
+    path: "/admins/:username/details",
+    component: _508c8500,
+    name: "admins-username-details"
+  }, {
     path: "/admins/:username/edit",
     component: _833545b6,
     name: "admins-username-edit"
+  }, {
+    path: "/profissionaisSaude/:username/details",
+    component: _c56a225e,
+    name: "profissionaisSaude-username-details"
   }, {
     path: "/profissionaisSaude/:username/edit",
     component: _55990a34,

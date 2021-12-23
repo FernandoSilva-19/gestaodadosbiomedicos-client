@@ -6,7 +6,12 @@
     <!-- try to remove :fields=”fields” to see the magic -->
     <b-table striped over :items="admins" :fields="fields">
         <template v-slot:cell(actions)="data">
-         <nuxt-link
+          <nuxt-link
+            class="btn btn-secondary btn-sm"
+            :to="`/admins/${data.item.username}/details`"
+            >Detalhes</nuxt-link
+          >
+          <nuxt-link
             class="btn btn-primary btn-sm"
             :to="`/admins/${data.item.username}/edit`"
             >Edit</nuxt-link
