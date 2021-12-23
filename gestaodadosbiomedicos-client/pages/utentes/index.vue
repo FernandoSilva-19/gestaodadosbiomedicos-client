@@ -9,7 +9,7 @@
         <template v-slot:cell(actions)="data">
           <nuxt-link
             class="btn btn-secondary btn-sm"
-            :to="`/utentes/${data.item.username}`"
+            :to="`/utentes/${data.item.username}/details`"
             >Details</nuxt-link
           >
           <nuxt-link
