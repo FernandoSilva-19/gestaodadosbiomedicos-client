@@ -7,13 +7,6 @@
     "_name": "_376c7cea"
   },
   {
-    "name": "create",
-    "path": "/create",
-    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/create.vue",
-    "chunkName": "pages/create",
-    "_name": "_26640d9f"
-  },
-  {
     "name": "profissionaisSaude",
     "path": "/profissionaisSaude",
     "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/profissionaisSaude/index.vue",
@@ -42,11 +35,39 @@
     "_name": "_77f7e263"
   },
   {
-    "name": "profissionaisSaude-edit",
-    "path": "/profissionaisSaude/edit",
-    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/profissionaisSaude/edit.vue",
-    "chunkName": "pages/profissionaisSaude/edit",
-    "_name": "_045b6031"
+    "name": "utentes-create",
+    "path": "/utentes/create",
+    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/utentes/create.vue",
+    "chunkName": "pages/utentes/create",
+    "_name": "_0ab0fc34"
+  },
+  {
+    "name": "utentes-username",
+    "path": "/utentes/:username",
+    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/utentes/_username/index.vue",
+    "chunkName": "pages/utentes/_username/index",
+    "_name": "_62281070"
+  },
+  {
+    "name": "admins-username-edit",
+    "path": "/admins/:username/edit",
+    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/admins/_username/edit.vue",
+    "chunkName": "pages/admins/_username/edit",
+    "_name": "_b95c5888"
+  },
+  {
+    "name": "profissionaisSaude-username-edit",
+    "path": "/profissionaisSaude/:username/edit",
+    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/profissionaisSaude/_username/edit.vue",
+    "chunkName": "pages/profissionaisSaude/_username/edit",
+    "_name": "_a3ace7ea"
+  },
+  {
+    "name": "utentes-username-edit",
+    "path": "/utentes/:username/edit",
+    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/utentes/_username/edit.vue",
+    "chunkName": "pages/utentes/_username/edit",
+    "_name": "_329844dc"
   },
   {
     "name": "index",
