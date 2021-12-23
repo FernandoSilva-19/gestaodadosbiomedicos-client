@@ -7,7 +7,7 @@
     <b-table striped over :items="profissionaisSaude" :fields="fields">
       <template v-slot:cell(actions)="data">
        <nuxt-link
-            class="btn btn-primary" size="sm"
+            class="btn btn-primary btn-sm"
             :to="`/profissionaisSaude/${data.item.username}/edit`"
             >Edit</nuxt-link
           >
