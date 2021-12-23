@@ -11,7 +11,7 @@
       <b-input ref="email" v-model.trim="email" type="email"
                :state="isEmailValid" required placeholder="Introduz o teu e-mail" />
       <b-select v-model="profissionalSaudeUsername" :options="profissionaisSaude"
-                :state="isProfissionalSaudeValid" required value-field="ProfissionalSaudeUsername" text-field="ProfissionalSaudeUsername">
+                :state="isProfissionalSaudeValid" required value-field="username" text-field="ProfissionalSaudeUsername">
         <template v-slot:first>
           <option :value="null" disabled>-- Selecione o profissional de saude --</option>
         </template>
