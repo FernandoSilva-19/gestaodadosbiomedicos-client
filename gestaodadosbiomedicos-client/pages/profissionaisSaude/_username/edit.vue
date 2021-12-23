@@ -3,25 +3,25 @@
     <h1>Editar profissional de saúde</h1>
     <form @submit.prevent="edit">
       <b-input
-        v-model="profissionaisSaude.password"
+        v-model="profissionalSaude.password"
         :state="isPasswordValid"
         required
       />
       <b-input
-        v-model.trim="profissionaisSaude.name"
+        v-model.trim="profissionalSaude.name"
         :state="isNameValid"
         required
       />
       <b-input
         ref="email"
-        v-model.trim="profissionaisSaude.email"
+        v-model.trim="profissionalSaude.email"
         type="email"
         :state="isEmailValid"
         required
       />
       <div>
         <b-select
-          v-model="profissionaisSaude.tipo"
+          v-model="profissionalSaude.tipo"
           :options="options"
         >
         </b-select>
@@ -30,7 +30,7 @@
       <p class="text-danger" v-show="errorMsg">{{ errorMsg }}</p>
       <nuxt-link to="/profissionaisSaude">Return</nuxt-link>
       <button type="reset">Reset</button>
-      <button @click.prevent="edit">Edit</button>
+      <button @click.prevent="edit(profissionalSaude)">Edit</button>
     </form>
   </div>
 </template>
@@ -39,7 +39,7 @@ export default {
   data() {
     return {
       errorMsg: false,
-      profissionaisSaude: {},
+      profissionalSaude: {},
       options: [
         {value: null, text: 'Seleciona um tipo'},
         {value: 'CARDIOLOGISTA', text: 'Cardiologista'},
@@ -51,7 +51,7 @@ export default {
   created() {
     this.$axios
       .$get(`/api/profissionaisSaude/${this.username}`)
-      .then((profissionaisSaude) => (this.profissionaisSaude = profissionaisSaude || {}))
+      .then((profissionalSaude) => (this.profissionalSaude = profissionalSaude || {}))
   },
   computed: {
     username() {
@@ -105,14 +105,14 @@ export default {
     },
   },
   methods: {
-    edit(profissionaisSaude) {
+    edit(profissionalSaude) {
       this.$axios
         .$put("/api/profissionaisSaude/" + this.username, {
-          email: profissionaisSaude.email,
-          name: profissionaisSaude.name,
-          password: profissionaisSaude.password,
+          email: profissionalSaude.email,
+          name: profissionalSaude.name,
+          password: profissionalSaude.password,
           username: this.username,
-          tipo: profissionaisSaude.tipo,
+          tipo: profissionalSaude.tipo,
         })
         .then(() => {
           this.$router.push("/profissionaisSaude");
