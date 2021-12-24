@@ -1,6 +1,6 @@
 <template>
 <div>
-    <h1>Criar um novo utente</h1>
+    <h1>Criar um novo profissional de saúde</h1>
   <form @submit.prevent="create">
      <b-input v-model.trim="username" :state="isUsernameValid" required
                placeholder="Introduz o teu username" />
@@ -10,18 +10,13 @@
                placeholder="Introduz o teu nome" />
       <b-input ref="email" v-model.trim="email" type="email"
                :state="isEmailValid" required placeholder="Introduz o teu e-mail" />
-      </template>
-      <b-select v-model="profissionalSaudeUsername">
-      <template v-slot:first>
-        <option :value="null" disabled>-- Selecione o profissional de saude --</option>
-      <template v-for="profissionalSaudeUsername in profissionaisSaude">
-        <option :key="profissionalSaudeUsername.username" :value="profissionalSaudeUsername.username">
-        </option>
-          {{ profissionalSaudeUsername.name }}
-      </template>
-      </b-select>
+      <div>
+        <b-select v-model="selectedOption" :options="options">
+        </b-select>
+      </div>
+
     <p class="text-danger" v-show="errorMsg">{{ errorMsg }}</p>
-    <nuxt-link to="/utentes">Return</nuxt-link>
+    <nuxt-link to="/profissionaisSaude">Return</nuxt-link>
     <button type="reset">Reset</button>
     <button @click.prevent="create">Create</button>
   </form>
@@ -35,14 +30,15 @@ export default {
       password: null,
       name: null,
       email: null,
-      profissionalSaudeUsername: null,
-      profissionaisSaude: [],
-      errorMsg: false
+      errorMsg: false,
+      selectedOption: null,
+      options: [
+        {value: null, text: 'Seleciona um tipo'},
+        {value: 'CARDIOLOGISTA', text: 'Cardiologista'},
+        {value: 'NUTRICIONISTA', text: 'Nutricionista'},
+        {value: 'MEDICO_GERAL', text: 'Médico Geral'},
+      ]
     };
-  },
-  created() {
-    this.$axios.$get('api/profissionaisSaude').then(profissionaisSaude => { this.profissionaisSaude = profissionaisSaude
-    })
   },
   computed: {
     isUsernameValid () {
@@ -76,6 +72,7 @@ export default {
       return true
     },
     isEmailValid () {
+      if(this.$refs.email) console.log("está definido")
       if (!this.email) {
         return null
       }
@@ -85,28 +82,23 @@ export default {
       validates that the user writes an e-mail that belongs to the domain of IPLeiria.*/
         return this.$refs.email.checkValidity()
     },
-    isProfissionalSaudeValid () {
-      if (!this.profissionalSaudeUsername) {
-        return null
-      }
-      return this.profissionaisSaude.some(profissionalSaude => this.profissionalSaudeUsername === profissionalSaude.username)
-    }
   },
   methods: {
     create() {
-      this.$axios.$post("/api/utentes", {
+      this.$axios.$post("/api/profissionaisSaude", {
           email: this.email,
           name: this.name,
           password: this.password,
-          profissionalSaudeUsername: this.profissionalSaudeUsername,
-          username: this.username
+          username: this.username,
+          tipo: this.selectedOption
         })
         .then(() => {
-          this.$router.push("/utentes");
+          this.$router.push("/profissionaisSaude");
         })
         .catch(error => {
           this.errorMsg = error.response.data
         })
+        
     },
   },
 };

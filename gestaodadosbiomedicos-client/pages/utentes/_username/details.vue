@@ -1,6 +1,6 @@
 <template>
   <b-container>
-    <h4>Utente Details:</h4>
+    <h4>Detalhes do Utente:</h4>
     <p>Username: {{ utente.username }}</p>
     <p>Name: {{ utente.name }}</p>
     <p>Email: {{ utente.email }}</p>

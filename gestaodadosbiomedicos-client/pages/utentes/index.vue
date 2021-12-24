@@ -1,23 +1,23 @@
 <template>
   <!-- easy components usage, already shipped with bootstrap css-->
   <div>
-    <nuxt-link class="btn btn-primary" to="utentes/create"
-      >Criar novo utente</nuxt-link>
     <b-container>
+      <nuxt-link class="btn btn-success" to="utentes/create"
+      >Criar novo utente</nuxt-link>
       <!-- try to remove :fields=”fields” to see the magic -->
       <b-table striped over :items="utentes" :fields="fields">
-        <template v-slot:cell(actions)="row">
+        <template v-slot:cell(actions)="data">
           <nuxt-link
-            class="btn btn-secondary"
-            :to="`/utentes/${row.item.username}`"
-            >Details</nuxt-link
+            class="btn btn-secondary btn-sm"
+            :to="`/utentes/${data.item.username}/details`"
+            >Detalhes</nuxt-link
           >
           <nuxt-link
-            class="btn btn-secondary"
-            :to="`/utentes/${row.item.username}/edit`"
-            >Edit</nuxt-link
+            class="btn btn-primary btn-sm"
+            :to="`/utentes/${data.item.username}/edit`"
+            >Editar</nuxt-link
           >
-          <button class="btn btn-danger" @click="remove(row.item.username)">Delete</button>
+          <b-button class="btn btn-danger btn-sm" @click="remove(data.item.username)">Eliminar</b-button>
         </template>
       </b-table>
       <nuxt-link to="/">Back</nuxt-link>
@@ -42,7 +42,7 @@ export default {
     remove(username) {
       this.$axios.$delete("/api/utentes/" + username)
         .then(() => {
-           this.$router.go();
+          this.$axios.$get('/api/utentes').then((utentes) => { this.utentes = utentes })
         })
         .catch(error => {
           this.errorMsg = error.response.data

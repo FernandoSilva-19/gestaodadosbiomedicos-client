@@ -1,6 +1,6 @@
 <template>
 <div>
-    <h1>Criar um novo utente</h1>
+    <h1>Criar um novo administrador</h1>
   <form @submit.prevent="create">
      <b-input v-model.trim="username" :state="isUsernameValid" required
                placeholder="Introduz o teu username" />
@@ -10,18 +10,9 @@
                placeholder="Introduz o teu nome" />
       <b-input ref="email" v-model.trim="email" type="email"
                :state="isEmailValid" required placeholder="Introduz o teu e-mail" />
-      </template>
-      <b-select v-model="profissionalSaudeUsername">
-      <template v-slot:first>
-        <option :value="null" disabled>-- Selecione o profissional de saude --</option>
-      <template v-for="profissionalSaudeUsername in profissionaisSaude">
-        <option :key="profissionalSaudeUsername.username" :value="profissionalSaudeUsername.username">
-        </option>
-          {{ profissionalSaudeUsername.name }}
-      </template>
-      </b-select>
+
     <p class="text-danger" v-show="errorMsg">{{ errorMsg }}</p>
-    <nuxt-link to="/utentes">Return</nuxt-link>
+    <nuxt-link to="/admins">Return</nuxt-link>
     <button type="reset">Reset</button>
     <button @click.prevent="create">Create</button>
   </form>
@@ -35,14 +26,8 @@ export default {
       password: null,
       name: null,
       email: null,
-      profissionalSaudeUsername: null,
-      profissionaisSaude: [],
       errorMsg: false
     };
-  },
-  created() {
-    this.$axios.$get('api/profissionaisSaude').then(profissionaisSaude => { this.profissionaisSaude = profissionaisSaude
-    })
   },
   computed: {
     isUsernameValid () {
@@ -85,24 +70,17 @@ export default {
       validates that the user writes an e-mail that belongs to the domain of IPLeiria.*/
         return this.$refs.email.checkValidity()
     },
-    isProfissionalSaudeValid () {
-      if (!this.profissionalSaudeUsername) {
-        return null
-      }
-      return this.profissionaisSaude.some(profissionalSaude => this.profissionalSaudeUsername === profissionalSaude.username)
-    }
   },
   methods: {
     create() {
-      this.$axios.$post("/api/utentes", {
+      this.$axios.$post("/api/admins", {
           email: this.email,
           name: this.name,
           password: this.password,
-          profissionalSaudeUsername: this.profissionalSaudeUsername,
           username: this.username
         })
         .then(() => {
-          this.$router.push("/utentes");
+          this.$router.push("/admins");
         })
         .catch(error => {
           this.errorMsg = error.response.data
