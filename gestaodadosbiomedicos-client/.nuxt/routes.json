@@ -3,98 +3,84 @@
     "name": "admins",
     "path": "/admins",
     "component": "C:\\\\Users\\\\ferna\\\\Desktop\\\\uni\\\\2021_2022\\\\projetoDAE\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\admins\\\\index.vue",
-    "chunkName": "pages/admins/index",
-    "_name": "_78917410"
+    "chunkName": "pages/admins/index"
   },
   {
     "name": "profissionaisSaude",
     "path": "/profissionaisSaude",
     "component": "C:\\\\Users\\\\ferna\\\\Desktop\\\\uni\\\\2021_2022\\\\projetoDAE\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\profissionaisSaude\\\\index.vue",
-    "chunkName": "pages/profissionaisSaude/index",
-    "_name": "_0afe29c7"
+    "chunkName": "pages/profissionaisSaude/index"
   },
   {
     "name": "utentes",
     "path": "/utentes",
     "component": "C:\\\\Users\\\\ferna\\\\Desktop\\\\uni\\\\2021_2022\\\\projetoDAE\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\utentes\\\\index.vue",
-    "chunkName": "pages/utentes/index",
-    "_name": "_2f4800be"
+    "chunkName": "pages/utentes/index"
   },
   {
     "name": "admins-create",
     "path": "/admins/create",
     "component": "C:\\\\Users\\\\ferna\\\\Desktop\\\\uni\\\\2021_2022\\\\projetoDAE\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\admins\\\\create.vue",
-    "chunkName": "pages/admins/create",
-    "_name": "_4a347874"
+    "chunkName": "pages/admins/create"
   },
   {
     "name": "auth-login",
     "path": "/auth/login",
     "component": "C:\\\\Users\\\\ferna\\\\Desktop\\\\uni\\\\2021_2022\\\\projetoDAE\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\auth\\\\login.vue",
-    "chunkName": "pages/auth/login",
-    "_name": "_fb0abf2a"
+    "chunkName": "pages/auth/login"
   },
   {
     "name": "profissionaisSaude-create",
     "path": "/profissionaisSaude/create",
     "component": "C:\\\\Users\\\\ferna\\\\Desktop\\\\uni\\\\2021_2022\\\\projetoDAE\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\profissionaisSaude\\\\create.vue",
-    "chunkName": "pages/profissionaisSaude/create",
-    "_name": "_7c7b59d7"
+    "chunkName": "pages/profissionaisSaude/create"
   },
   {
     "name": "utentes-create",
     "path": "/utentes/create",
     "component": "C:\\\\Users\\\\ferna\\\\Desktop\\\\uni\\\\2021_2022\\\\projetoDAE\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\utentes\\\\create.vue",
-    "chunkName": "pages/utentes/create",
-    "_name": "_3d273c80"
+    "chunkName": "pages/utentes/create"
   },
   {
     "name": "admins-username-details",
     "path": "/admins/:username/details",
     "component": "C:\\\\Users\\\\ferna\\\\Desktop\\\\uni\\\\2021_2022\\\\projetoDAE\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\admins\\\\_username\\\\details.vue",
-    "chunkName": "pages/admins/_username/details",
-    "_name": "_83856112"
+    "chunkName": "pages/admins/_username/details"
   },
   {
     "name": "admins-username-edit",
     "path": "/admins/:username/edit",
     "component": "C:\\\\Users\\\\ferna\\\\Desktop\\\\uni\\\\2021_2022\\\\projetoDAE\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\admins\\\\_username\\\\edit.vue",
-    "chunkName": "pages/admins/_username/edit",
-    "_name": "_833545b6"
+    "chunkName": "pages/admins/_username/edit"
   },
   {
     "name": "profissionaisSaude-username-details",
     "path": "/profissionaisSaude/:username/details",
     "component": "C:\\\\Users\\\\ferna\\\\Desktop\\\\uni\\\\2021_2022\\\\projetoDAE\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\profissionaisSaude\\\\_username\\\\details.vue",
-    "chunkName": "pages/profissionaisSaude/_username/details",
-    "_name": "_44d55408"
+    "chunkName": "pages/profissionaisSaude/_username/details"
   },
   {
     "name": "profissionaisSaude-username-edit",
     "path": "/profissionaisSaude/:username/edit",
     "component": "C:\\\\Users\\\\ferna\\\\Desktop\\\\uni\\\\2021_2022\\\\projetoDAE\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\profissionaisSaude\\\\_username\\\\edit.vue",
-    "chunkName": "pages/profissionaisSaude/_username/edit",
-    "_name": "_55990a34"
+    "chunkName": "pages/profissionaisSaude/_username/edit"
   },
   {
     "name": "utentes-username-details",
     "path": "/utentes/:username/details",
     "component": "C:\\\\Users\\\\ferna\\\\Desktop\\\\uni\\\\2021_2022\\\\projetoDAE\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\utentes\\\\_username\\\\details.vue",
-    "chunkName": "pages/utentes/_username/details",
-    "_name": "_72b4c671"
+    "chunkName": "pages/utentes/_username/details"
   },
   {
     "name": "utentes-username-edit",
     "path": "/utentes/:username/edit",
     "component": "C:\\\\Users\\\\ferna\\\\Desktop\\\\uni\\\\2021_2022\\\\projetoDAE\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\utentes\\\\_username\\\\edit.vue",
-    "chunkName": "pages/utentes/_username/edit",
-    "_name": "_48b7d86b"
+    "chunkName": "pages/utentes/_username/edit"
   },
   {
     "name": "index",
     "path": "/",
     "component": "C:\\\\Users\\\\ferna\\\\Desktop\\\\uni\\\\2021_2022\\\\projetoDAE\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\index.vue",
-    "chunkName": "pages/index",
-    "_name": "_b2f17608"
+    "chunkName": "pages/index"
   }
 ]
