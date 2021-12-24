@@ -6,9 +6,14 @@
     <p>Email: {{ profissionalSaude.email }}</p>
     <p>Tipo: {{ profissionalSaude.tipo }}</p>
     <b>Utentes do {{ profissionalSaude.name }}:</b>
-      <template v-for="utente in utentes">
-        <li>{{utente.name}}</li>
-      </template>
+        <b-table striped over :items="utentes" :fields="fields">
+           <template v-slot:cell(actions)="data">
+          <nuxt-link
+            class="btn btn-primary btn-sm"  to="/utentes">
+            Receitar prescrição</nuxt-link
+          >
+          </template>
+        </b-table>
     <nuxt-link to="/profissionaisSaude">Back</nuxt-link>
   </b-container>
 </template>
@@ -16,8 +21,9 @@
 export default {
   data() {
     return {
-      profissionalSaude: {},
-      utentes:{}
+      profissionalSaude: [],
+      utentes: [],
+      fields: ["name", "username", "email", "actions"],
     };
   },
   computed: {
@@ -28,10 +34,13 @@ export default {
   created() {
     this.$axios
       .$get(`/api/profissionaisSaude/${this.username}`)
-      .then((profissionalSaude) => (this.profissionalSaude = profissionalSaude || {})),
+      .then(
+        (profissionalSaude) =>
+          (this.profissionalSaude = profissionalSaude || {})
+      ),
       this.$axios
-      .$get(`/api/profissionaisSaude/${this.username}/utentes`)
-      .then((utentes) => (this.utentes = utentes || {}))
+        .$get(`/api/profissionaisSaude/${this.username}/utentes`)
+        .then((utentes) => (this.utentes = utentes || {}));
   },
 };
 </script>
