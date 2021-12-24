@@ -19,9 +19,9 @@ export default {
   data() {
     return {
       utenteUsername: "",
-      altura: "",
-      peso: "",
-      id: "",
+      altura: null,
+      peso: null,
+      id: null,
       date: "",
       errorMsg: false
     };
@@ -55,13 +55,13 @@ export default {
     add() {
       this.$axios.$post("/api/dadosutente", { // a testar, depois n vou passar assim o id nem a data como é obvio
           utenteUsername: this.utenteUsername,
-          peso: parseInt(this.peso),
-          altura: parseInt(this.altura),
-          id: 1,
+          peso: this.peso,
+          altura: this.altura,
+          id: 89,
           date: ""
         })
         .then(() => {
-          this.$router.push("/utentes/" + this.username + "/data");
+          this.$router.push("/utentes/" + this.utenteUsername + "/data");
         })
         .catch(error => {
           this.errorMsg = error.response.data
