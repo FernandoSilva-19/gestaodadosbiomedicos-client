@@ -6,13 +6,16 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav v-if="$auth.loggedIn">
           <li class="nav-item">
-            <nuxt-link class="nav-link" to="utentes">Utentes</nuxt-link>
+            <nuxt-link class="nav-link" to="/utentes">Utentes</nuxt-link>
           </li>
           <li class="nav-item">
-          <nuxt-link class="nav-link" to="profissionaisSaude">Profissionais de Saúde</nuxt-link>
+          <nuxt-link class="nav-link" to="/profissionaisSaude">Profissionais de Saúde</nuxt-link>
            </li>
           <li class="nav-item">
-            <nuxt-link class="nav-link" to="admins">Administradores</nuxt-link>
+            <nuxt-link class="nav-link" to="/admins">Administradores</nuxt-link>
+             </li>
+          <li class="nav-item">
+            <nuxt-link class="nav-link" :to="{ path: `/utentes/${$auth.user.sub}/data`}">Dados do utilizador</nuxt-link>
              </li>
         </b-navbar-nav>
         <!-- Right aligned nav items -->
