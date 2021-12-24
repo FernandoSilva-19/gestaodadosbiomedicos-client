@@ -5,7 +5,7 @@
     <p>Name: {{ profissionalSaude.name }}</p>
     <p>Email: {{ profissionalSaude.email }}</p>
     <p>Tipo: {{ profissionalSaude.tipo }}</p>
-    <nuxt-link to="/profissionaisSaude">Back</nuxt-link>
+    <nuxt-link to="/">Back</nuxt-link>
   </b-container>
 </template>
 <script>
