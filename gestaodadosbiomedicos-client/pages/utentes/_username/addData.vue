@@ -21,8 +21,6 @@ export default {
       utenteUsername: "",
       altura: null,
       peso: null,
-      id: null,
-      date: "",
       errorMsg: false
     };
   },
@@ -57,8 +55,6 @@ export default {
           utenteUsername: this.utenteUsername,
           peso: this.peso,
           altura: this.altura,
-          id: 89,
-          date: ""
         })
         .then(() => {
           this.$router.push("/utentes/" + this.utenteUsername + "/data");
