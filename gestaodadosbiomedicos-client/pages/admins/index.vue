@@ -13,7 +13,7 @@
             >Detalhes</nuxt-link
           >
           </div>
-          <div v-if="$auth.user.groups == 'Admin' || $auth.user.sub == data.item.username">
+          <div v-if=" $auth.user.sub == data.item.username">
           <nuxt-link
             class="btn btn-primary btn-sm"
             :to="`/admins/${data.item.username}/edit`"

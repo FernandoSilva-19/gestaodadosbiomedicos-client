@@ -6,6 +6,12 @@
     "chunkName": "pages/admins/index"
   },
   {
+    "name": "dadosBiomedicos",
+    "path": "/dadosBiomedicos",
+    "component": "C:\\\\Users\\\\ferna\\\\Desktop\\\\uni\\\\2021_2022\\\\projetoDAE\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\dadosBiomedicos\\\\index.vue",
+    "chunkName": "pages/dadosBiomedicos/index"
+  },
+  {
     "name": "profissionaisSaude",
     "path": "/profissionaisSaude",
     "component": "C:\\\\Users\\\\ferna\\\\Desktop\\\\uni\\\\2021_2022\\\\projetoDAE\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\profissionaisSaude\\\\index.vue",
@@ -30,6 +36,12 @@
     "chunkName": "pages/auth/login"
   },
   {
+    "name": "dadosBiomedicos-create",
+    "path": "/dadosBiomedicos/create",
+    "component": "C:\\\\Users\\\\ferna\\\\Desktop\\\\uni\\\\2021_2022\\\\projetoDAE\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\dadosBiomedicos\\\\create.vue",
+    "chunkName": "pages/dadosBiomedicos/create"
+  },
+  {
     "name": "profissionaisSaude-create",
     "path": "/profissionaisSaude/create",
     "component": "C:\\\\Users\\\\ferna\\\\Desktop\\\\uni\\\\2021_2022\\\\projetoDAE\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\profissionaisSaude\\\\create.vue",
@@ -52,6 +64,30 @@
     "path": "/admins/:username/edit",
     "component": "C:\\\\Users\\\\ferna\\\\Desktop\\\\uni\\\\2021_2022\\\\projetoDAE\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\admins\\\\_username\\\\edit.vue",
     "chunkName": "pages/admins/_username/edit"
+  },
+  {
+    "name": "dadosBiomedicos-id-edit",
+    "path": "/dadosBiomedicos/:id/edit",
+    "component": "C:\\\\Users\\\\ferna\\\\Desktop\\\\uni\\\\2021_2022\\\\projetoDAE\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\dadosBiomedicos\\\\_id\\\\edit.vue",
+    "chunkName": "pages/dadosBiomedicos/_id/edit"
+  },
+  {
+    "name": "dadosBiomedicos-username-adicionarDadoAUtente",
+    "path": "/dadosBiomedicos/:username/adicionarDadoAUtente",
+    "component": "C:\\\\Users\\\\ferna\\\\Desktop\\\\uni\\\\2021_2022\\\\projetoDAE\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\dadosBiomedicos\\\\_username\\\\adicionarDadoAUtente.vue",
+    "chunkName": "pages/dadosBiomedicos/_username/adicionarDadoAUtente"
+  },
+  {
+    "name": "dadosBiomedicos-username-removerDadoAUtente",
+    "path": "/dadosBiomedicos/:username/removerDadoAUtente",
+    "component": "C:\\\\Users\\\\ferna\\\\Desktop\\\\uni\\\\2021_2022\\\\projetoDAE\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\dadosBiomedicos\\\\_username\\\\removerDadoAUtente.vue",
+    "chunkName": "pages/dadosBiomedicos/_username/removerDadoAUtente"
+  },
+  {
+    "name": "prescricao-username-receitar",
+    "path": "/prescricao/:username?/receitar",
+    "component": "C:\\\\Users\\\\ferna\\\\Desktop\\\\uni\\\\2021_2022\\\\projetoDAE\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\prescricao\\\\_username\\\\receitar.vue",
+    "chunkName": "pages/prescricao/_username/receitar"
   },
   {
     "name": "profissionaisSaude-username-details",
