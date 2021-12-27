@@ -52,9 +52,9 @@ export default {
   methods: {
     add() {
       this.$axios.$post("/api/dadosutente", { // a testar, depois n vou passar assim o id nem a data como é obvio
-          utenteUsername: this.utenteUsername,
           peso: this.peso,
           altura: this.altura,
+          utenteUsername: this.utenteUsername
         })
         .then(() => {
           this.$router.push("/utentes/" + this.utenteUsername + "/data");

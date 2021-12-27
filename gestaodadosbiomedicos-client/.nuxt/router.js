@@ -17,6 +17,8 @@ const _c56a225e = () => interopDefault(import('../pages/profissionaisSaude/_user
 const _a3ace7ea = () => interopDefault(import('../pages/profissionaisSaude/_username/edit.vue' /* webpackChunkName: "pages/profissionaisSaude/_username/edit" */))
 const _d05224ee = () => interopDefault(import('../pages/utentes/_username/addData.vue' /* webpackChunkName: "pages/utentes/_username/addData" */))
 const _3dbdf67c = () => interopDefault(import('../pages/utentes/_username/data.vue' /* webpackChunkName: "pages/utentes/_username/data" */))
+const _7314b0fc = () => interopDefault(import('../pages/utentes/_username/datagraph.vue' /* webpackChunkName: "pages/utentes/_username/datagraph" */))
+const _1ea4fe70 = () => interopDefault(import('../pages/utentes/_username/datahistory.vue' /* webpackChunkName: "pages/utentes/_username/datahistory" */))
 const _23bf8f40 = () => interopDefault(import('../pages/utentes/_username/details.vue' /* webpackChunkName: "pages/utentes/_username/details" */))
 const _329844dc = () => interopDefault(import('../pages/utentes/_username/edit.vue' /* webpackChunkName: "pages/utentes/_username/edit" */))
 const _5acbdcff = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
@@ -84,6 +86,14 @@ export const routerOptions = {
     path: "/utentes/:username/data",
     component: _3dbdf67c,
     name: "utentes-username-data"
+  }, {
+    path: "/utentes/:username/datagraph",
+    component: _7314b0fc,
+    name: "utentes-username-datagraph"
+  }, {
+    path: "/utentes/:username/datahistory",
+    component: _1ea4fe70,
+    name: "utentes-username-datahistory"
   }, {
     path: "/utentes/:username/details",
     component: _23bf8f40,

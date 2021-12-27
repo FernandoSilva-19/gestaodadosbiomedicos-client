@@ -91,6 +91,20 @@
     "_name": "_3dbdf67c"
   },
   {
+    "name": "utentes-username-datagraph",
+    "path": "/utentes/:username/datagraph",
+    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/utentes/_username/datagraph.vue",
+    "chunkName": "pages/utentes/_username/datagraph",
+    "_name": "_7314b0fc"
+  },
+  {
+    "name": "utentes-username-datahistory",
+    "path": "/utentes/:username/datahistory",
+    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/utentes/_username/datahistory.vue",
+    "chunkName": "pages/utentes/_username/datahistory",
+    "_name": "_1ea4fe70"
+  },
+  {
     "name": "utentes-username-details",
     "path": "/utentes/:username/details",
     "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/utentes/_username/details.vue",
