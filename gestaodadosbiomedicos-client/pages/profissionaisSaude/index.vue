@@ -22,7 +22,7 @@
             >Editar</nuxt-link
           >
           </div>
-          <div v-if="$auth.user.groups == 'Admin' || $auth.user.sub == data.item.username">
+          <div v-if="$auth.user.groups == 'Admin'">
           <b-button class="btn btn-danger btn-sm" @click="remove(data.item.username)">Eliminar</b-button>
           </div>
       </template>

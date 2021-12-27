@@ -14,6 +14,9 @@
           <li class="nav-item" v-if="$auth.user.groups == 'Admin'">
             <nuxt-link class="nav-link" to="/admins">Administradores</nuxt-link>
              </li>
+          <li class="nav-item" v-if="$auth.user.groups == 'Admin'">
+            <nuxt-link class="nav-link" to="/dadosBiomedicos">Dados Biómedicos</nuxt-link>
+             </li>
         </b-navbar-nav>
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
