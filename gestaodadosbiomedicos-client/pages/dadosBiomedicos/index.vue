@@ -31,7 +31,10 @@ export default {
     return {
       fields: [
         "id",
-        "nome",
+        "tipo",
+        "unidadeMedicao",
+        "limiteMinimo",
+        "limiteMaximo",
         "actions",
       ],
       dados: [],

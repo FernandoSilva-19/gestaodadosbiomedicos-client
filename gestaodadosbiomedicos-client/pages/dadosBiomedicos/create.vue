@@ -2,8 +2,14 @@
 <div>
     <h1>Criar um novo dado biómedico</h1>
   <form @submit.prevent="create">
-      <b-input v-model.trim="name" :state="isNameValid" required
-               placeholder="Introduz o novo dado biómedico" />
+      <div>
+        <b-select v-model="selectedOption" :options="options">
+        </b-select>
+      </div>
+      <b-input v-model="limiteMinimo" required :state="isLimiteMinimoValido"
+               placeholder="Introduz o limite minimo" />
+       <b-input v-model="limiteMaximo" required :state="isLimiteMaximoValido"
+               placeholder="Introduz o limite máximo" />
     <p class="text-danger" v-show="errorMsg">{{ errorMsg }}</p>
     <nuxt-link to="/dadosBiomedicos">Return</nuxt-link>
     <button type="reset">Reset</button>
@@ -15,29 +21,53 @@
 export default {
   data() {
     return {
-      name: null,
       id : null,
+      limiteMinimo: null,
+      limiteMaximo: null,
       dados:this.$axios.$get('api/dadosbiomedicos').then(dados => { this.dados = dados}),
+      selectedOption: null,
+      options: [
+        {value: null, text: 'Seleciona um tipo'},
+        {value: 'PERCENTAGEM_ALCOOL_QUARTO_PACIENTE', text: 'Percentagem de alcool no quarto do paciente'},
+        {value: 'TEMPERATURA_QUARTO_PACIENTE', text: 'Temperatura do quarto do paciente'},
+        {value: 'ILUMINACAO_QUARTO_PACIENTE', text: 'Iluminação no quarto do paciente'},
+        {value: 'FREQUENCIA_CARDIACA', text: 'Frequência Cardíaca'},
+        {value: 'TEMPERATURA_CORPORAL', text: 'Temperatura corporal'},
+        {value: 'PERCENTAGEM_DE_OXIGENIO_NO_SANGUE', text: 'Percentagem de oxigénio no sangue'},
+        {value: 'PERCENTAGEM_SUOR_PACIENTE_NO_CORPO', text: 'Percentagem de suor no corpo do paciente'}
+      ],
       errorMsg: false
     };
   },
   computed:{
-    isNameValid () {
-      if (!this.name) {
+    isLimiteMinimoValido () {
+      if (!this.limiteMinimo) {
         return null
       }
-      let nameLen = this.name.length
-      if (nameLen < 5 || nameLen > 100) {
+      if (this.limiteMinimo < 0) {
         return false
       }
       return true
-    }
+    },
+    isLimiteMaximoValido () {
+      if (!this.limiteMaximo) {
+        return null
+      }
+      if (this.limiteMaximo <= this.limiteMinimo) {
+        return false
+      }
+      return true
+    },
   },
   methods: {
     create(dados) {
+      if(this.isLimiteMinimoValido && this.isLimiteMaximoValido){
       this.$axios.$post("/api/dadosbiomedicos", {
           id: dados.length + 1,
-          nome: this.name
+          tipo: this.selectedOption,
+          unidadeMedicao: this.unidade,
+          limiteMinimo: this.limiteMinimo,
+          limiteMaximo: this.limiteMaximo
         })
         .then(() => {
           this.$router.push("/dadosBiomedicos");
@@ -45,6 +75,10 @@ export default {
         .catch(error => {
           this.errorMsg = error.response.data
         })
+      }
+      else{
+         this.errorMsg = "Limites errados"
+      }
     },
   },
 };
