@@ -18,8 +18,12 @@
             Remover Dado Biomédico</nuxt-link
           >
            <nuxt-link
-            class="btn btn-primary btn-sm"  to="/">
+            class="btn btn-primary btn-sm"  :to="`/profissionalSaude/${data.item.username}/prescricaohistory`">
             Receitar Prescrição</nuxt-link
+          >
+          <nuxt-link
+            class="btn btn-primary btn-sm"  :to="`/prescricao/${data.item.username}/receitar`">
+            Histórico de Prescrição</nuxt-link
           >
           </div>
           </template>
