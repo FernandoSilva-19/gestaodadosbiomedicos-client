@@ -38,7 +38,7 @@ export const routerOptions = {
 
   routes: [{
     path: "/admins",
-    component: _78917410,
+    component: _376c7cea,
     name: "admins"
   }, {
     path: "/dadosBiomedicos",
@@ -46,19 +46,19 @@ export const routerOptions = {
     name: "dadosBiomedicos"
   }, {
     path: "/profissionaisSaude",
-    component: _0afe29c7,
+    component: _6e6f408a,
     name: "profissionaisSaude"
   }, {
     path: "/utentes",
-    component: _2f4800be,
+    component: _22e7706c,
     name: "utentes"
   }, {
     path: "/admins/create",
-    component: _4a347874,
+    component: _445129d8,
     name: "admins-create"
   }, {
     path: "/auth/login",
-    component: _fb0abf2a,
+    component: _0aab1065,
     name: "auth-login"
   }, {
     path: "/dadosBiomedicos/create",
@@ -66,19 +66,19 @@ export const routerOptions = {
     name: "dadosBiomedicos-create"
   }, {
     path: "/profissionaisSaude/create",
-    component: _7c7b59d7,
+    component: _77f7e263,
     name: "profissionaisSaude-create"
   }, {
     path: "/utentes/create",
-    component: _3d273c80,
+    component: _0ab0fc34,
     name: "utentes-create"
   }, {
     path: "/admins/:username/details",
-    component: _83856112,
+    component: _508c8500,
     name: "admins-username-details"
   }, {
     path: "/admins/:username/edit",
-    component: _833545b6,
+    component: _b95c5888,
     name: "admins-username-edit"
   }, {
     path: "/dadosBiomedicos/:id/edit",
@@ -98,23 +98,39 @@ export const routerOptions = {
     name: "prescricao-username-receitar"
   }, {
     path: "/profissionaisSaude/:username/details",
-    component: _44d55408,
+    component: _c56a225e,
     name: "profissionaisSaude-username-details"
   }, {
     path: "/profissionaisSaude/:username/edit",
-    component: _55990a34,
+    component: _a3ace7ea,
     name: "profissionaisSaude-username-edit"
   }, {
+    path: "/utentes/:username/addData",
+    component: _d05224ee,
+    name: "utentes-username-addData"
+  }, {
+    path: "/utentes/:username/data",
+    component: _3dbdf67c,
+    name: "utentes-username-data"
+  }, {
+    path: "/utentes/:username/datagraph",
+    component: _7314b0fc,
+    name: "utentes-username-datagraph"
+  }, {
+    path: "/utentes/:username/datahistory",
+    component: _1ea4fe70,
+    name: "utentes-username-datahistory"
+  }, {
     path: "/utentes/:username/details",
-    component: _72b4c671,
+    component: _23bf8f40,
     name: "utentes-username-details"
   }, {
     path: "/utentes/:username/edit",
-    component: _48b7d86b,
+    component: _329844dc,
     name: "utentes-username-edit"
   }, {
     path: "/",
-    component: _b2f17608,
+    component: _5acbdcff,
     name: "index"
   }],
 

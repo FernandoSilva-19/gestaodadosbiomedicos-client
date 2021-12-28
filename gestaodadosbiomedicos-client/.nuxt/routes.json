@@ -102,6 +102,34 @@
     "chunkName": "pages/profissionaisSaude/_username/edit"
   },
   {
+    "name": "utentes-username-addData",
+    "path": "/utentes/:username/addData",
+    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/utentes/_username/addData.vue",
+    "chunkName": "pages/utentes/_username/addData",
+    "_name": "_d05224ee"
+  },
+  {
+    "name": "utentes-username-data",
+    "path": "/utentes/:username/data",
+    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/utentes/_username/data.vue",
+    "chunkName": "pages/utentes/_username/data",
+    "_name": "_3dbdf67c"
+  },
+  {
+    "name": "utentes-username-datagraph",
+    "path": "/utentes/:username/datagraph",
+    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/utentes/_username/datagraph.vue",
+    "chunkName": "pages/utentes/_username/datagraph",
+    "_name": "_7314b0fc"
+  },
+  {
+    "name": "utentes-username-datahistory",
+    "path": "/utentes/:username/datahistory",
+    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/utentes/_username/datahistory.vue",
+    "chunkName": "pages/utentes/_username/datahistory",
+    "_name": "_1ea4fe70"
+  },
+  {
     "name": "utentes-username-details",
     "path": "/utentes/:username/details",
     "component": "C:\\\\Users\\\\ferna\\\\Desktop\\\\uni\\\\2021_2022\\\\projetoDAE\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\utentes\\\\_username\\\\details.vue",
