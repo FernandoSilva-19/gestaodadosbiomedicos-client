@@ -5,16 +5,19 @@
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav v-if="$auth.loggedIn">
-          <li class="nav-item">
+          <li class="nav-item" v-if="$auth.user.groups == 'ProfissionalSaude' || $auth.user.groups == 'Admin'">
             <nuxt-link class="nav-link" to="/utentes">Utentes</nuxt-link>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" v-if="$auth.user.groups == 'ProfissionalSaude' || $auth.user.groups == 'Admin'">
           <nuxt-link class="nav-link" to="/profissionaisSaude">Profissionais de Saúde</nuxt-link>
            </li>
-          <li class="nav-item">
+          <li class="nav-item" v-if="$auth.user.groups == 'Admin'">
             <nuxt-link class="nav-link" to="/admins">Administradores</nuxt-link>
              </li>
-          <li class="nav-item">
+          <li class="nav-item" v-if="$auth.user.groups == 'Admin'">
+            <nuxt-link class="nav-link" to="/dadosBiomedicos">Dados Biómedicos</nuxt-link>
+             </li>
+          <li class="nav-item" v-if="$auth.user.groups == 'Utente'">
             <nuxt-link class="nav-link" :to="{ path: `/utentes/${$auth.user.sub}/data`}">Dados do utilizador</nuxt-link>
              </li>
         </b-navbar-nav>
@@ -26,13 +29,13 @@
               <em>{{ $auth.user.sub }}</em>
             </template>
              <li class="nav-item" v-if="$auth.user.groups == 'ProfissionalSaude'" >
-              <nuxt-link class="dropdown-item" :to="{ path: `profissionaisSaude/${$auth.user.sub}/details`}" >Profile</nuxt-link>
+              <nuxt-link class="dropdown-item" :to="{ path: `/profissionaisSaude/${$auth.user.sub}/details`}" >Profile</nuxt-link>
             </li>
             <li class="nav-item" v-else-if="$auth.user.groups == 'Utente'" >
-               <nuxt-link class="dropdown-item" :to="{ path: `utentes/${$auth.user.sub}/details`}" >Profile</nuxt-link>
+               <nuxt-link class="dropdown-item" :to="{ path: `/utentes/${$auth.user.sub}/details`}" >Profile</nuxt-link>
             </li>
              <li class="nav-item" v-else >
-               <nuxt-link class="dropdown-item" :to="{ path: `admins/${$auth.user.sub}/details`}" >Profile</nuxt-link>
+               <nuxt-link class="dropdown-item" :to="{ path: `/admins/${$auth.user.sub}/details`}" >Profile</nuxt-link>
             </li>
             <b-dropdown-item @click.prevent="signOut">Sign Out</b-dropdown-item>
           </b-nav-item-dropdown>
@@ -52,7 +55,7 @@ export default {
   methods: {
     signOut() {
       this.$auth.logout();
-      this.$router.push("/");
+      this.$router.push("/auth/login");
     },
   },
 };

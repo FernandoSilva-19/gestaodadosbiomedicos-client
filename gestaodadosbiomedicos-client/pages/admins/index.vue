@@ -6,17 +6,23 @@
     <!-- try to remove :fields=”fields” to see the magic -->
     <b-table striped over :items="admins" :fields="fields">
         <template v-slot:cell(actions)="data">
+         <div v-if=" $auth.user.sub == data.item.username">
           <nuxt-link
             class="btn btn-secondary btn-sm"
             :to="`/admins/${data.item.username}/details`"
             >Detalhes</nuxt-link
           >
+          </div>
+          <div v-if=" $auth.user.sub == data.item.username">
           <nuxt-link
             class="btn btn-primary btn-sm"
             :to="`/admins/${data.item.username}/edit`"
-            >Edit</nuxt-link
+            >Editar</nuxt-link
           >
-          <b-button variant="danger" size="sm" @click="remove(data.item.username)">Remover</b-button>
+          </div>
+          <div v-if="$auth.user.sub == data.item.username">
+          <b-button class="btn btn-danger btn-sm" @click="remove(data.item.username)">Eliminar</b-button>
+          </div>
         </template>
       </b-table>
       <nuxt-link to="/">Back</nuxt-link>

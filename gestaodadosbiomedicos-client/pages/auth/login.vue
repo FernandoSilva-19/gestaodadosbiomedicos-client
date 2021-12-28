@@ -47,14 +47,8 @@ export default {
         console.log(this.$auth.user);
         // TODO redirect based on the user role
         // eg:
-        if(this.$auth.user.groups.includes("Admin")){
-          this.$router.push("/admins");
-        }
-        else if (this.$auth.user.groups.includes("ProfissionalSaude")) {
-          this.$router.push("/profissionaisSaude");
-        } else if (this.$auth.user.groups.includes("Utente")) {
-          this.$router.push("/utentes");
-        }
+
+          this.$router.push("/");
       });
       promise.catch(() => {
         this.$toast
