@@ -9,7 +9,7 @@
       <!-- try to remove :fields=”fields” to see the magic -->
       <b-table striped over :items="utentes" :fields="fields">
         <template v-slot:cell(actions)="data">
-          <div v-if="$auth.user.groups == 'Admin' || $auth.user.groups == 'ProfissionalSaude' || $auth.user.sub == data.item.username">
+          <div v-if="$auth.user.groups == 'Admin' || $auth.user.sub == data.item.username || $auth.user.sub == data.item.profissionalSaudeUsername">
           <nuxt-link
             class="btn btn-secondary btn-sm"
             :to="`/utentes/${data.item.username}/details`"
