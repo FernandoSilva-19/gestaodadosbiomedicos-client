@@ -7,10 +7,8 @@
         </b-select>
       </div>
       <div v-if="needLimite(selectedOption)">
-      <div v-if="selectedOption != 'ILUMINACAO_QUARTO_PACIENTE'">
       <b-input v-model="limiteMinimo" required :state="isLimiteMinimoValido"
                placeholder="Introduz o limite minimo" />
-               </div>
        <b-input v-model="limiteMaximo" required :state="isLimiteMaximoValido"
                placeholder="Introduz o limite máximo" />
       </div>
@@ -71,7 +69,7 @@ export default {
           unidadeMedicao: this.unidade,
           limiteMinimo: this.limiteMinimo,
           limiteMaximo: this.limiteMaximo,
-          valor: 1,
+          valor: this.limiteMinimo,
         })
         .then(() => {
           this.$router.push("/dadosBiomedicos");
@@ -81,14 +79,14 @@ export default {
         })
     },
     needLimite(option){
-      if(option == 'TEMPERATURA_CORPORAL' || option ==  'TEMPERATURA_QUARTO_PACIENTE' || option == 'FREQUENCIA_CARDIACA'){
+      if(option == 'TEMPERATURA_CORPORAL' || option ==  'TEMPERATURA_QUARTO_PACIENTE' || option == 'FREQUENCIA_CARDIACA' || option == 'ILUMINACAO_QUARTO_PACIENTE'){
       return true;
       }
-      if(option == 'ILUMINACAO_QUARTO_PACIENTE'){
+      else if (option == 'PERCENTAGEM_ALCOOL_QUARTO_PACIENTE' || option ==  'PERCENTAGEM_DE_OXIGENIO_NO_SANGUE' || option == 'PERCENTAGEM_SUOR_PACIENTE_NO_CORPO') {
         this.limiteMinimo = 0;
-        return true;
+        this.limiteMaximo = 100;
+        return false;
       }
-      return false;
     },
   },
 };
