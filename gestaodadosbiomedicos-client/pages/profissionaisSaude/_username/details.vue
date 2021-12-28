@@ -18,7 +18,7 @@
             Remover Dado Biomédico</nuxt-link
           >
            <nuxt-link
-            class="btn btn-primary btn-sm"  :to="`/dadosBiomedicos/${data.item.username}/adicionarDadoAUtente`">
+            class="btn btn-primary btn-sm"  to="/">
             Receitar Prescrição</nuxt-link
           >
           </div>

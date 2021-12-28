@@ -21,7 +21,7 @@ export default {
     return {
       utente: {},
       dadosBiomedicos: {},
-      fields: ["tipo", "unidadeMedicao", "limiteMinimo", "limiteMaximo"],
+      fields: ["tipo", "unidadeMedicao", "limiteMinimo", "limiteMaximo", "valor"],
     };
   },
   computed: {

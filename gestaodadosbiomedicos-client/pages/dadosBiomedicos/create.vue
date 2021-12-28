@@ -6,10 +6,14 @@
         <b-select v-model="selectedOption" :options="options">
         </b-select>
       </div>
+      <div v-if="needLimite(selectedOption)">
+      <div v-if="selectedOption != 'ILUMINACAO_QUARTO_PACIENTE'">
       <b-input v-model="limiteMinimo" required :state="isLimiteMinimoValido"
                placeholder="Introduz o limite minimo" />
+               </div>
        <b-input v-model="limiteMaximo" required :state="isLimiteMaximoValido"
                placeholder="Introduz o limite máximo" />
+      </div>
     <p class="text-danger" v-show="errorMsg">{{ errorMsg }}</p>
     <nuxt-link to="/dadosBiomedicos">Return</nuxt-link>
     <button type="reset">Reset</button>
@@ -57,17 +61,17 @@ export default {
         return false
       }
       return true
-    },
+    }
   },
   methods: {
     create(dados) {
-      if(this.isLimiteMinimoValido && this.isLimiteMaximoValido){
       this.$axios.$post("/api/dadosbiomedicos", {
           id: dados.length + 1,
           tipo: this.selectedOption,
           unidadeMedicao: this.unidade,
           limiteMinimo: this.limiteMinimo,
-          limiteMaximo: this.limiteMaximo
+          limiteMaximo: this.limiteMaximo,
+          valor: 1,
         })
         .then(() => {
           this.$router.push("/dadosBiomedicos");
@@ -75,10 +79,16 @@ export default {
         .catch(error => {
           this.errorMsg = error.response.data
         })
+    },
+    needLimite(option){
+      if(option == 'TEMPERATURA_CORPORAL' || option ==  'TEMPERATURA_QUARTO_PACIENTE' || option == 'FREQUENCIA_CARDIACA'){
+      return true;
       }
-      else{
-         this.errorMsg = "Limites errados"
+      if(option == 'ILUMINACAO_QUARTO_PACIENTE'){
+        this.limiteMinimo = 0;
+        return true;
       }
+      return false;
     },
   },
 };

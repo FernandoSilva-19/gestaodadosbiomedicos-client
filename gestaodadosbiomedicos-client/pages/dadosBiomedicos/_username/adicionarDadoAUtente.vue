@@ -24,6 +24,7 @@ export default {
       utente: {},
       dadosBiomedicos: [],
       dado: null,
+      valor: null,
       errorMsg: false
     };
   },
