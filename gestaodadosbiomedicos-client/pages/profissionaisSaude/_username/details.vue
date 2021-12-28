@@ -5,6 +5,12 @@
     <p>Name: {{ profissionalSaude.name }}</p>
     <p>Email: {{ profissionalSaude.email }}</p>
     <p>Tipo: {{ profissionalSaude.tipo }}</p>
+    <div>
+      <nuxt-link
+        class="btn btn-primary btn-sm"  :to="`/profissionalSaude/${$auth.user.sub}/prescricaohistory`">
+        Histórico de Prescrição</nuxt-link>
+    </div>
+    <hr>
     <b>Utentes do {{ profissionalSaude.name }}:</b>
         <b-table striped over :items="utentes" :fields="fields">
            <template v-slot:cell(actions)="data">
@@ -17,8 +23,8 @@
             class="btn btn-primary btn-sm"  :to="`/dadosBiomedicos/${data.item.username}/RemoverDadoAUtente`">
             Remover Dado Biomédico</nuxt-link
           >
-           <nuxt-link
-            class="btn btn-primary btn-sm"  to="/">
+          <nuxt-link
+            class="btn btn-primary btn-sm"  :to="`/prescricao/${data.item.username}/receitar`">
             Receitar Prescrição</nuxt-link
           >
           </div>
