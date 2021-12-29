@@ -23,7 +23,6 @@
 export default {
   data() {
     return {
-      id : null,
       limiteMinimo: null,
       limiteMaximo: null,
       dados:this.$axios.$get('api/dadosbiomedicos').then(dados => { this.dados = dados}),
@@ -64,7 +63,6 @@ export default {
   methods: {
     create(dados) {
       this.$axios.$post("/api/dadosbiomedicos", {
-          id: dados.length + 1,
           tipo: this.selectedOption,
           unidadeMedicao: this.unidade,
           limiteMinimo: this.limiteMinimo,
