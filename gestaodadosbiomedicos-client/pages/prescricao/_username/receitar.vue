@@ -1,28 +1,41 @@
 <template>
-<div>
+  <div>
     <h1>Receitar prescrição</h1>
-  <form @submit.prevent="edit">
-      <b-input v-model.trim="nome" :state="isNomeValid" required
-               placeholder="Introduz o nome" />
-      <b-input v-model.trim="dose" :state="isDoseValid" 
-               placeholder="Introduz a dose (se aplicável)" />
-      <b-input v-model.trim="vezesAoDia" :state="isVezesAoDiaValid" required 
-               placeholder="Introduz o número de vezes por dia" />
+    <form @submit.prevent="create">
+      <b-input
+        v-model="nome"
+        :state="isNomeValid"
+        required
+        placeholder="Introduz o nome"
+      />
+      <b-input
+        v-model="dose"
+        :state="isDoseValid"
+        placeholder="Introduz a dose (se aplicável)"
+      />
+      <b-input
+        v-model="vezesAoDia"
+        :state="isVezesAoDiaValid"
+        required
+        placeholder="Introduz o número de vezes por dia"
+      />
 
-    <p class="text-danger" v-show="errorMsg">{{ errorMsg }}</p>
-    <nuxt-link :to="`/profissionaisSaude/${$auth.user.sub}/details`">Return</nuxt-link>
-    <button type="reset">Reset</button>
-    <button @click.prevent="create">Prescrever</button>
-  </form>
-</div>
+      <p class="text-danger" v-show="errorMsg">{{ errorMsg }}</p>
+      <nuxt-link :to="`/profissionaisSaude/${$auth.user.sub}/details`"
+        >Return</nuxt-link
+      >
+      <button type="reset">Reset</button>
+      <button @click.prevent="create">Prescrever</button>
+    </form>
+  </div>
 </template>
 <script>
 export default {
   data() {
     return {
-      nome: "",
-      dose: "",
-      vezesAoDia: "",
+      nome: null,
+      dose: null,
+      vezesAoDia: null,
       errorMsg: false,
     };
   },
@@ -30,50 +43,49 @@ export default {
     username() {
       return this.$route.params.username;
     },
-    isNomeValid () {
+    isNomeValid() {
       if (!this.nome) {
-        return null
+        return null;
       }
-      let nomeLen = this.nome.length
+      let nomeLen = this.nome.length;
       if (nomeLen < 3 || nomeLen > 25) {
-        return false
+        return false;
       }
-      return true
+      return true;
     },
-    isDoseValid () {
+    isDoseValid() {
       if (!this.dose) {
-        return null
+        return null;
       }
-      let doseLen = this.dose.length
+      let doseLen = this.dose.length;
       if (doseLen < 3 || doseLen > 25) {
-        return false
+        return false;
       }
-      return true
+      return true;
     },
-    isVezesAoDiaValid () { //depois ver melhor isto secalahr ainda trocamos para int no backend
+    isVezesAoDiaValid() {
+      //depois ver melhor isto secalahr ainda trocamos para int no backend
       if (!this.vezesAoDia) {
-        return null
+        return null;
       }
-      return true
+      return true;
     },
-
   },
   methods: {
     create() {
-      this.$axios.$post("/prescricao/", {
+      this.$axios
+        .$post("/api/prescricao/", {
           nome: this.nome,
           dose: this.dose,
           vezesAoDia: this.vezesAoDia,
-          utenteUsername: this.$route.params.username,
-          profissionalSaudeUsername: this.$auth.user.sub
+          utenteUsername: this.username,
         })
         .then(() => {
-          this.$router.push(`/profissionaisSaude/${$auth.user.sub}/details`);
+          this.$router.push(`/profissionaisSaude/`);
         })
-        .catch(error => {
-          this.errorMsg = error.response
-        })
-
+        .catch((error) => {
+          this.errorMsg = error.response.data;
+        });
     },
   },
 };

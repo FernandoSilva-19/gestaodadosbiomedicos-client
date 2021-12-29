@@ -5,10 +5,11 @@
     <p>Name: {{ utente.name }}</p>
     <p>Email: {{ utente.email }}</p>
     <p>Profissional de Saúde: {{ utente.profissionalSaudeUsername }}</p>
-    <hr>
     <b>Dados biomedicos do {{ utente.name }}:</b>
+    <hr>
     <b-table striped over :items="dadosBiomedicos" :fields="fields"> </b-table>
     <hr>
+    <b>Peso e altura atual do {{ utente.name }}:</b>
     <div><p>Altura: {{ dados.altura? dados.altura+" cm" : "DESCONHECIDO"}}</p>
     <p>Peso: {{ dados.peso? dados.peso+" KG" : "DESCONHECIDO"}}</p>
     <hr>
@@ -24,6 +25,9 @@
       :to="`/utentes/${$auth.user.sub}/datahistory`"
     >Histórico</nuxt-link></div>
     </div>
+    <b>Prescrições do {{ utente.name }}:</b>
+    <hr>
+    <b-table striped over :items="prescricoes" :fields="fields2"> </b-table>
     <hr>
     <div v-if="$auth.user.groups == 'Utente'">
       <nuxt-link to="/">Back</nuxt-link>
@@ -41,6 +45,8 @@ export default {
       dadosBiomedicos: {},
       fields: ["tipo", "unidadeMedicao", "limiteMinimo", "limiteMaximo", "valor"],
        dados: {},
+       fields2: ["nome", "dose", "vezesAoDia"],
+       prescricoes:{},
       graphEnabled: true
     };
   },
@@ -59,11 +65,14 @@ export default {
           (dadosBiomedicos) => (this.dadosBiomedicos = dadosBiomedicos || {})
         );
         this.$axios
-      .$get(`/api/dadosutente/${this.$auth.user.sub}/latest`)
+      .$get(`/api/dadosutente/${this.username}/latest`)
       .then((dados) => this.dados = dados)
       .catch((err) => {
         if(err.response.status==404) this.graphEnabled = false
-      })
+      });
+      this.$axios
+      .$get(`/api/prescricao/${this.username}`)
+      .then((prescricoes) => (this.prescricoes = prescricoes || {}))
   },
 };
 </script>
