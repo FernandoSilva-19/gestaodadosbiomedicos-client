@@ -3,6 +3,9 @@
     <h1>Atribuir Dado biomédico a {{ utente.name }}</h1>
     <form @submit.prevent="atribuir">
       <b-select v-model="dado">
+         <template v-slot:first>
+        <option :value="null" disabled>-- Selecione o dado biomédico --</option>
+      </template>
         <template v-for="dado in dadosBiomedicos">
               <option :key="dado.id" :value="dado.id">
               {{ dado.tipo }}
@@ -10,7 +13,8 @@
             </option>
         </template>
       </b-select>
-
+        <b-input v-model="valor" required
+               placeholder="Valor (dentro dos limites)" />
       <p class="text-danger" v-show="errorMsg">{{ errorMsg }}</p>
       <nuxt-link to="/profissionaisSaude">Return</nuxt-link>
       <button @click.prevent="atribuir">Atribuir</button>
@@ -24,6 +28,7 @@ export default {
       utente: {},
       dadosBiomedicos: [],
       dado: null,
+      valor: null,
       errorMsg: false
     };
   },
@@ -38,14 +43,17 @@ export default {
   computed: {
     username() {
       return this.$route.params.username;
-    }
+    },
   },
   methods: {
     atribuir() {
       this.$axios
         .$post(
           "/api/dadosbiomedicos/" + this.dado + "/enroll/" + this.username,
-          {}
+          {
+             id: this.dado,
+             valor: this.valor,
+          }
         )
         .then(() => {
           this.$router.push("/profissionaisSaude");

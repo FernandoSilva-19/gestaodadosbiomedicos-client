@@ -6,14 +6,16 @@
         <b-select v-model="selectedOption" :options="options">
         </b-select>
       </div>
+      <div v-if="needLimite(selectedOption)">
       <b-input v-model="limiteMinimo" required :state="isLimiteMinimoValido"
                placeholder="Introduz o limite minimo" />
        <b-input v-model="limiteMaximo" required :state="isLimiteMaximoValido"
                placeholder="Introduz o limite máximo" />
+      </div>
     <p class="text-danger" v-show="errorMsg">{{ errorMsg }}</p>
     <nuxt-link to="/dadosBiomedicos">Return</nuxt-link>
     <button type="reset">Reset</button>
-    <button @click.prevent="create(dados)">Create</button>
+    <button @click.prevent="create">Create</button>
   </form>
 </div>
 </template>
@@ -21,7 +23,6 @@
 export default {
   data() {
     return {
-      id : null,
       limiteMinimo: null,
       limiteMaximo: null,
       dados:this.$axios.$get('api/dadosbiomedicos').then(dados => { this.dados = dados}),
@@ -57,17 +58,16 @@ export default {
         return false
       }
       return true
-    },
+    }
   },
   methods: {
-    create(dados) {
-      if(this.isLimiteMinimoValido && this.isLimiteMaximoValido){
+    create() {
       this.$axios.$post("/api/dadosbiomedicos", {
-          id: dados.length + 1,
           tipo: this.selectedOption,
           unidadeMedicao: this.unidade,
           limiteMinimo: this.limiteMinimo,
-          limiteMaximo: this.limiteMaximo
+          limiteMaximo: this.limiteMaximo,
+          valor: this.limiteMinimo,
         })
         .then(() => {
           this.$router.push("/dadosBiomedicos");
@@ -75,9 +75,15 @@ export default {
         .catch(error => {
           this.errorMsg = error.response.data
         })
+    },
+    needLimite(option){
+      if(option == 'TEMPERATURA_CORPORAL' || option ==  'TEMPERATURA_QUARTO_PACIENTE' || option == 'FREQUENCIA_CARDIACA' || option == 'ILUMINACAO_QUARTO_PACIENTE'){
+      return true;
       }
-      else{
-         this.errorMsg = "Limites errados"
+      else if (option == 'PERCENTAGEM_ALCOOL_QUARTO_PACIENTE' || option ==  'PERCENTAGEM_DE_OXIGENIO_NO_SANGUE' || option == 'PERCENTAGEM_SUOR_PACIENTE_NO_CORPO') {
+        this.limiteMinimo = 0;
+        this.limiteMaximo = 100;
+        return false;
       }
     },
   },

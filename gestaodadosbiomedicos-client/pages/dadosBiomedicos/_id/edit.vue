@@ -2,6 +2,7 @@
   <div>
     <h1>Editar Dado Biómedico</h1>
     <form @submit.prevent="edit">
+       <div v-if="needLimite(dado.tipo)">
       <b-input
         v-model="dado.limiteMinimo"
         required :state="isLimiteMinimoValido"
@@ -10,6 +11,7 @@
         v-model.trim="dado.limiteMaximo"
         required :state="isLimiteMaximoValido"
       />
+       </div>
       <p class="text-danger" v-show="errorMsg">{{ errorMsg }}</p>
       <nuxt-link to="/dadosBiomedicos">Return</nuxt-link>
       <button type="reset">Reset</button>
@@ -23,7 +25,9 @@ export default {
     return {
       dado: {},
       limiteMinimo: null,
-      limiteMaximo: null
+      limiteMaximo: null,
+      valor: null,
+      errorMsg: false
     };
   },
   created() {
@@ -59,14 +63,14 @@ export default {
   },
   methods: {
     edit(dado) {
-      if(dado.limiteMinimo < dado.limiteMaximo){
       this.$axios
         .$put("/api/dadosbiomedicos/" + this.id, {
           id: this.id,
           tipo: dado.tipo,
           unidadeMedicao: this.unidade,
           limiteMinimo: dado.limiteMinimo,
-          limiteMaximo: dado.limiteMaximo
+          limiteMaximo: dado.limiteMaximo,
+          valor: dado.limiteMinimo
         })
         .then(() => {
           this.$router.push("/dadosBiomedicos");
@@ -74,8 +78,15 @@ export default {
         .catch((error) => {
           this.errorMsg = error.response.data;
         });
-      }
       //console.log("received: '"+ this.$route.params.data.email+"'")
+    },
+    needLimite(option){
+      if(option == 'TEMPERATURA_CORPORAL' || option ==  'TEMPERATURA_QUARTO_PACIENTE' || option == 'FREQUENCIA_CARDIACA' || option == 'ILUMINACAO_QUARTO_PACIENTE'){
+      return true;
+      }
+      else if (option == 'PERCENTAGEM_ALCOOL_QUARTO_PACIENTE' || option ==  'PERCENTAGEM_DE_OXIGENIO_NO_SANGUE' || option == 'PERCENTAGEM_SUOR_PACIENTE_NO_CORPO') {
+        return false;
+      }
     },
   },
 };
