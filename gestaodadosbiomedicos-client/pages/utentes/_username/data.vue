@@ -17,7 +17,12 @@
       :class="graphEnabled? 'btn btn-primary' : 'btn btn-danger'"
       :event="graphEnabled? 'click' : ''"
       :to="`/utentes/${$auth.user.sub}/datahistory`"
-    >Histórico</nuxt-link>
+    >Histórico de dados</nuxt-link>
+    <nuxt-link
+      :class="graphEnabled? 'btn btn-primary' : 'btn btn-danger'"
+      :event="graphEnabled? 'click' : ''"
+      :to="`/utentes/${$auth.user.sub}/prescricaohistory`"
+    >Histórico de prescricoes</nuxt-link>
 </div>
 </template>
 <script>

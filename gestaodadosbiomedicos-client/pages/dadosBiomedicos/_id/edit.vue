@@ -3,12 +3,10 @@
     <h1>Editar Dado Biómedico</h1>
     <form @submit.prevent="edit">
        <div v-if="needLimite(dado.tipo)">
-      <div v-if="dado.tipo != 'ILUMINACAO_QUARTO_PACIENTE'">
       <b-input
         v-model="dado.limiteMinimo"
         required :state="isLimiteMinimoValido"
       />
-      </div>
       <b-input
         v-model.trim="dado.limiteMaximo"
         required :state="isLimiteMaximoValido"
@@ -72,7 +70,7 @@ export default {
           unidadeMedicao: this.unidade,
           limiteMinimo: dado.limiteMinimo,
           limiteMaximo: dado.limiteMaximo,
-          valor: dado.valor
+          valor: dado.limiteMinimo
         })
         .then(() => {
           this.$router.push("/dadosBiomedicos");
@@ -83,14 +81,12 @@ export default {
       //console.log("received: '"+ this.$route.params.data.email+"'")
     },
     needLimite(option){
-      if(option == 'TEMPERATURA_CORPORAL' || option ==  'TEMPERATURA_QUARTO_PACIENTE' || option == 'FREQUENCIA_CARDIACA'){
+      if(option == 'TEMPERATURA_CORPORAL' || option ==  'TEMPERATURA_QUARTO_PACIENTE' || option == 'FREQUENCIA_CARDIACA' || option == 'ILUMINACAO_QUARTO_PACIENTE'){
       return true;
       }
-      if(option == 'ILUMINACAO_QUARTO_PACIENTE'){
-        this.limiteMinimo = 0;
-        return true;
+      else if (option == 'PERCENTAGEM_ALCOOL_QUARTO_PACIENTE' || option ==  'PERCENTAGEM_DE_OXIGENIO_NO_SANGUE' || option == 'PERCENTAGEM_SUOR_PACIENTE_NO_CORPO') {
+        return false;
       }
-      return false;
     },
   },
 };
