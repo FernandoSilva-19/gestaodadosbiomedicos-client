@@ -119,13 +119,6 @@
     "_name": "_a3ace7ea"
   },
   {
-    "name": "profissionaisSaude-username-prescricaohistory",
-    "path": "/profissionaisSaude/:username/prescricaohistory",
-    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/profissionaisSaude/_username/prescricaohistory.vue",
-    "chunkName": "pages/profissionaisSaude/_username/prescricaohistory",
-    "_name": "_da3079c8"
-  },
-  {
     "name": "utentes-username-addData",
     "path": "/utentes/:username/addData",
     "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/utentes/_username/addData.vue",
