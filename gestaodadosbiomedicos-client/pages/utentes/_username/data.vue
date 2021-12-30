@@ -1,8 +1,8 @@
 <template>
 <div>
     <h1>Dados do utente '{{utente.username}}'</h1>
-    <p>Altura: {{ dados.altura? dados.altura+" cm" : "DESCONHECIDO"}}</p>
-    <p>Peso: {{ dados.peso? dados.peso+" KG" : "DESCONHECIDO"}}</p>
+    <p>Altura: {{ altura? altura.valor+" cm" : "DESCONHECIDO"}}</p>
+    <p>Peso: {{ peso? peso.valor+" KG" : "DESCONHECIDO"}}</p>
     <hr>
     <nuxt-link
       class="btn btn-primary"
@@ -30,7 +30,8 @@ export default {
   data() {
     return {
       utente: {},
-      dados: {},
+      altura: {},
+      peso: {},
       graphEnabled: true
     };
   },
@@ -45,8 +46,15 @@ export default {
       .then((utente) => (this.utente = utente || {}))
 
     this.$axios
-      .$get(`/api/dadosutente/${this.$auth.user.sub}/latest`)
-      .then((dados) => this.dados = dados)
+      .$get(`/api/observations/${this.$auth.user.sub}/altura/latest`)
+      .then((altura) => this.altura = altura)
+      .catch((err) => {
+        if(err.response.status==404) this.graphEnabled = false
+      })
+
+    this.$axios
+      .$get(`/api/observations/${this.$auth.user.sub}/peso/latest`)
+      .then((peso) => this.peso = peso)
       .catch((err) => {
         if(err.response.status==404) this.graphEnabled = false
       })
