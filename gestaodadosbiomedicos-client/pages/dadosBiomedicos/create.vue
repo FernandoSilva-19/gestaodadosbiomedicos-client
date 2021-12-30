@@ -15,7 +15,7 @@
     <p class="text-danger" v-show="errorMsg">{{ errorMsg }}</p>
     <nuxt-link to="/dadosBiomedicos">Return</nuxt-link>
     <button type="reset">Reset</button>
-    <button @click.prevent="create(dados)">Create</button>
+    <button @click.prevent="create">Create</button>
   </form>
 </div>
 </template>
@@ -61,7 +61,7 @@ export default {
     }
   },
   methods: {
-    create(dados) {
+    create() {
       this.$axios.$post("/api/dadosbiomedicos", {
           tipo: this.selectedOption,
           unidadeMedicao: this.unidade,

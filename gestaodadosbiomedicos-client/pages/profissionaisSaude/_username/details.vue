@@ -5,11 +5,6 @@
     <p>Name: {{ profissionalSaude.name }}</p>
     <p>Email: {{ profissionalSaude.email }}</p>
     <p>Tipo: {{ profissionalSaude.tipo }}</p>
-    <div>
-      <nuxt-link
-        class="btn btn-primary btn-sm"  :to="`/profissionalSaude/${$auth.user.sub}/prescricaohistory`">
-        Histórico de Prescrição</nuxt-link>
-    </div>
     <hr>
     <b>Utentes do {{ profissionalSaude.name }}:</b>
         <b-table striped over :items="utentes" :fields="fields">

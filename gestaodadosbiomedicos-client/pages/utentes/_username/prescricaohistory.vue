@@ -4,7 +4,7 @@
     <b-container>
       <!-- try to remove :fields=”fields” to see the magic -->
       <b-table striped over :items="dados" :fields="fields"/>
-      <nuxt-link :to="`/utentes/${$auth.user.sub}/data`">Back</nuxt-link>
+      <nuxt-link :to="`/utentes/${$auth.user.sub}/details`">Back</nuxt-link>
     </b-container>
 </div>
 </template>
@@ -12,19 +12,12 @@
 export default{
     data(){
         return{
-            fields: [
-                "id",
-                "nome",
-                "dose",
-                "vezesAoDia",
-                "date",
-                "profissionalSaudeUsername"
-            ],
-            dados: [],
+          fields: ["nome", "dose", "vezesAoDia", "data"],
+            dados: {},
         }
     },
     created(){
-        this.$axios.$get(`/api/prescricao/utente/${this.$auth.user.sub}`)
+        this.$axios.$get(`/api/utentes/${this.$auth.user.sub}/historyprescricao`)
             .then((dados) => this.dados = dados)
     },
 
