@@ -21,7 +21,6 @@ const _3647e683 = () => interopDefault(import('../pages/dadosBiomedicos/_usernam
 const _8cb42340 = () => interopDefault(import('../pages/prescricao/_username/receitar.vue' /* webpackChunkName: "pages/prescricao/_username/receitar" */))
 const _c56a225e = () => interopDefault(import('../pages/profissionaisSaude/_username/details.vue' /* webpackChunkName: "pages/profissionaisSaude/_username/details" */))
 const _a3ace7ea = () => interopDefault(import('../pages/profissionaisSaude/_username/edit.vue' /* webpackChunkName: "pages/profissionaisSaude/_username/edit" */))
-const _da3079c8 = () => interopDefault(import('../pages/profissionaisSaude/_username/prescricaohistory.vue' /* webpackChunkName: "pages/profissionaisSaude/_username/prescricaohistory" */))
 const _d05224ee = () => interopDefault(import('../pages/utentes/_username/addData.vue' /* webpackChunkName: "pages/utentes/_username/addData" */))
 const _3dbdf67c = () => interopDefault(import('../pages/utentes/_username/data.vue' /* webpackChunkName: "pages/utentes/_username/data" */))
 const _7314b0fc = () => interopDefault(import('../pages/utentes/_username/datagraph.vue' /* webpackChunkName: "pages/utentes/_username/datagraph" */))
@@ -110,10 +109,6 @@ export const routerOptions = {
     path: "/profissionaisSaude/:username/edit",
     component: _a3ace7ea,
     name: "profissionaisSaude-username-edit"
-  }, {
-    path: "/profissionaisSaude/:username/prescricaohistory",
-    component: _da3079c8,
-    name: "profissionaisSaude-username-prescricaohistory"
   }, {
     path: "/utentes/:username/addData",
     component: _d05224ee,
