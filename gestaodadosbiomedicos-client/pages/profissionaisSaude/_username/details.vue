@@ -18,9 +18,17 @@
             class="btn btn-primary btn-sm"  :to="`/dadosBiomedicos/${data.item.username}/RemoverDadoAUtente`">
             Remover Dado Biomédico</nuxt-link
           >
-          <nuxt-link
+          <!-- <nuxt-link
             class="btn btn-primary btn-sm"  :to="`/prescricao/${data.item.username}/receitar`">
             Receitar Prescrição</nuxt-link
+          > -->
+          <nuxt-link
+            class="btn btn-primary btn-sm"  :to="`/prc/${data.item.username}/create`">
+            Criar PRC</nuxt-link
+          >
+           <nuxt-link
+            class="btn btn-primary btn-sm"  :to="`/prc/${data.item.username}/consultar`">
+            Consultar PRC</nuxt-link
           >
           </div>
           </template>
