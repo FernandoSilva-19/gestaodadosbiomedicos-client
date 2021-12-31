@@ -119,13 +119,6 @@
     "_name": "_cd16fffa"
   },
   {
-    "name": "profissionaisSaude-username-prescricaohistory",
-    "path": "/profissionaisSaude/:username/prescricaohistory",
-    "component": "C:\\\\Users\\\\danie\\\\GitHub\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\profissionaisSaude\\\\_username\\\\prescricaohistory.vue",
-    "chunkName": "pages/profissionaisSaude/_username/prescricaohistory",
-    "_name": "_251b0224"
-  },
-  {
     "name": "utentes-username-addData",
     "path": "/utentes/:username/addData",
     "component": "C:\\\\Users\\\\danie\\\\GitHub\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\utentes\\\\_username\\\\addData.vue",

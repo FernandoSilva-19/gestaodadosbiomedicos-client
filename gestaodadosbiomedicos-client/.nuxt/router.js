@@ -4,32 +4,31 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _6a790107 = () => interopDefault(import('..\\pages\\admins\\index.vue' /* webpackChunkName: "pages/admins/index" */))
-const _2100e9fc = () => interopDefault(import('..\\pages\\dadosBiomedicos\\index.vue' /* webpackChunkName: "pages/dadosBiomedicos/index" */))
-const _47acc656 = () => interopDefault(import('..\\pages\\profissionaisSaude\\index.vue' /* webpackChunkName: "pages/profissionaisSaude/index" */))
-const _60bda78f = () => interopDefault(import('..\\pages\\utentes\\index.vue' /* webpackChunkName: "pages/utentes/index" */))
-const _0c5b6a97 = () => interopDefault(import('..\\pages\\admins\\create.vue' /* webpackChunkName: "pages/admins/create" */))
-const _6584598c = () => interopDefault(import('..\\pages\\auth\\login.vue' /* webpackChunkName: "pages/auth/login" */))
-const _26d0a042 = () => interopDefault(import('..\\pages\\dadosBiomedicos\\create.vue' /* webpackChunkName: "pages/dadosBiomedicos/create" */))
-const _54bf61b0 = () => interopDefault(import('..\\pages\\profissionaisSaude\\create.vue' /* webpackChunkName: "pages/profissionaisSaude/create" */))
-const _42a8d5e2 = () => interopDefault(import('..\\pages\\utentes\\create.vue' /* webpackChunkName: "pages/utentes/create" */))
-const _176244c8 = () => interopDefault(import('..\\pages\\admins\\_username\\details.vue' /* webpackChunkName: "pages/admins/_username/details" */))
-const _6fdfd174 = () => interopDefault(import('..\\pages\\admins\\_username\\edit.vue' /* webpackChunkName: "pages/admins/_username/edit" */))
-const _7b875224 = () => interopDefault(import('..\\pages\\dadosBiomedicos\\_id\\edit.vue' /* webpackChunkName: "pages/dadosBiomedicos/_id/edit" */))
-const _707fcd16 = () => interopDefault(import('..\\pages\\dadosBiomedicos\\_username\\adicionarDadoAUtente.vue' /* webpackChunkName: "pages/dadosBiomedicos/_username/adicionarDadoAUtente" */))
-const _11bd6c63 = () => interopDefault(import('..\\pages\\dadosBiomedicos\\_username\\removerDadoAUtente.vue' /* webpackChunkName: "pages/dadosBiomedicos/_username/removerDadoAUtente" */))
-const _4effe250 = () => interopDefault(import('..\\pages\\prescricao\\_username\\receitar.vue' /* webpackChunkName: "pages/prescricao/_username/receitar" */))
-const _36b0504e = () => interopDefault(import('..\\pages\\profissionaisSaude\\_username\\details.vue' /* webpackChunkName: "pages/profissionaisSaude/_username/details" */))
-const _cd16fffa = () => interopDefault(import('..\\pages\\profissionaisSaude\\_username\\edit.vue' /* webpackChunkName: "pages/profissionaisSaude/_username/edit" */))
-const _251b0224 = () => interopDefault(import('..\\pages\\profissionaisSaude\\_username\\prescricaohistory.vue' /* webpackChunkName: "pages/profissionaisSaude/_username/prescricaohistory" */))
-const _30359f2e = () => interopDefault(import('..\\pages\\utentes\\_username\\addData.vue' /* webpackChunkName: "pages/utentes/_username/addData" */))
-const _5c9cc0c8 = () => interopDefault(import('..\\pages\\utentes\\_username\\data.vue' /* webpackChunkName: "pages/utentes/_username/data" */))
-const _4bfeb262 = () => interopDefault(import('..\\pages\\utentes\\_username\\datagraph.vue' /* webpackChunkName: "pages/utentes/_username/datagraph" */))
-const _381f53a8 = () => interopDefault(import('..\\pages\\utentes\\_username\\datahistory.vue' /* webpackChunkName: "pages/utentes/_username/datahistory" */))
-const _3e2e7b40 = () => interopDefault(import('..\\pages\\utentes\\_username\\details.vue' /* webpackChunkName: "pages/utentes/_username/details" */))
-const _72e82408 = () => interopDefault(import('..\\pages\\utentes\\_username\\edit.vue' /* webpackChunkName: "pages/utentes/_username/edit" */))
-const _54f5d0cb = () => interopDefault(import('..\\pages\\utentes\\_username\\prescricaohistory.vue' /* webpackChunkName: "pages/utentes/_username/prescricaohistory" */))
-const _75bf01ea = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
+const _376c7cea = () => interopDefault(import('../pages/admins/index.vue' /* webpackChunkName: "pages/admins/index" */))
+const _745d6086 = () => interopDefault(import('../pages/dadosBiomedicos/index.vue' /* webpackChunkName: "pages/dadosBiomedicos/index" */))
+const _6e6f408a = () => interopDefault(import('../pages/profissionaisSaude/index.vue' /* webpackChunkName: "pages/profissionaisSaude/index" */))
+const _22e7706c = () => interopDefault(import('../pages/utentes/index.vue' /* webpackChunkName: "pages/utentes/index" */))
+const _445129d8 = () => interopDefault(import('../pages/admins/create.vue' /* webpackChunkName: "pages/admins/create" */))
+const _0aab1065 = () => interopDefault(import('../pages/auth/login.vue' /* webpackChunkName: "pages/auth/login" */))
+const _1c0cf2a1 = () => interopDefault(import('../pages/dadosBiomedicos/create.vue' /* webpackChunkName: "pages/dadosBiomedicos/create" */))
+const _0ab0fc34 = () => interopDefault(import('../pages/utentes/create.vue' /* webpackChunkName: "pages/utentes/create" */))
+const _508c8500 = () => interopDefault(import('../pages/admins/_username/details.vue' /* webpackChunkName: "pages/admins/_username/details" */))
+const _b95c5888 = () => interopDefault(import('../pages/admins/_username/edit.vue' /* webpackChunkName: "pages/admins/_username/edit" */))
+const _3647e683 = () => interopDefault(import('../pages/dadosBiomedicos/_username/removerDadoAUtente.vue' /* webpackChunkName: "pages/dadosBiomedicos/_username/removerDadoAUtente" */))
+const _217cba24 = () => interopDefault(import('../pages/dadosBiomedicos/_id/edit.vue' /* webpackChunkName: "pages/dadosBiomedicos/_id/edit" */))
+const _18d6e8d6 = () => interopDefault(import('../pages/dadosBiomedicos/_username/adicionarDadoAUtente.vue' /* webpackChunkName: "pages/dadosBiomedicos/_username/adicionarDadoAUtente" */))
+const _77f7e263 = () => interopDefault(import('../pages/profissionaisSaude/create.vue' /* webpackChunkName: "pages/profissionaisSaude/create" */))
+const _8cb42340 = () => interopDefault(import('../pages/prescricao/_username/receitar.vue' /* webpackChunkName: "pages/prescricao/_username/receitar" */))
+const _c56a225e = () => interopDefault(import('../pages/profissionaisSaude/_username/details.vue' /* webpackChunkName: "pages/profissionaisSaude/_username/details" */))
+const _a3ace7ea = () => interopDefault(import('../pages/profissionaisSaude/_username/edit.vue' /* webpackChunkName: "pages/profissionaisSaude/_username/edit" */))
+const _3dbdf67c = () => interopDefault(import('../pages/utentes/_username/data.vue' /* webpackChunkName: "pages/utentes/_username/data" */))
+const _7314b0fc = () => interopDefault(import('../pages/utentes/_username/datagraph.vue' /* webpackChunkName: "pages/utentes/_username/datagraph" */))
+const _1ea4fe70 = () => interopDefault(import('../pages/utentes/_username/datahistory.vue' /* webpackChunkName: "pages/utentes/_username/datahistory" */))
+const _d05224ee = () => interopDefault(import('../pages/utentes/_username/addData.vue' /* webpackChunkName: "pages/utentes/_username/addData" */))
+const _23bf8f40 = () => interopDefault(import('../pages/utentes/_username/details.vue' /* webpackChunkName: "pages/utentes/_username/details" */))
+const _329844dc = () => interopDefault(import('../pages/utentes/_username/edit.vue' /* webpackChunkName: "pages/utentes/_username/edit" */))
+const _5acbdcff = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _0035a5eb = () => interopDefault(import('../pages/utentes/_username/prescricaohistory.vue' /* webpackChunkName: "pages/utentes/_username/prescricaohistory" */))
 
 const emptyFn = () => {}
 
@@ -112,7 +111,7 @@ export const routerOptions = {
     name: "profissionaisSaude-username-edit"
   }, {
     path: "/profissionaisSaude/:username/prescricaohistory",
-    component: _251b0224,
+    component: _da3079c8,
     name: "profissionaisSaude-username-prescricaohistory"
   }, {
     path: "/utentes/:username/addData",
