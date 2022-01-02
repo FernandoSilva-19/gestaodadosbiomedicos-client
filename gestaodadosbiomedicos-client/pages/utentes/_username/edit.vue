@@ -19,7 +19,7 @@
         :state="isEmailValid"
         required
       />
-      <div v-if="$auth.user.groups != 'Utente'">
+      <div v-if="$auth.user.groups == 'Admin'">
       <b-select v-model="utente.profissionalSaudeUsername">
 
         <template v-for="profissionalSaudeUsername in profissionaisSaude">
@@ -128,7 +128,7 @@ export default {
           profissionalSaudeUsername: utente.profissionalSaudeUsername,
         })
         .then(() => {
-          this.$router.push("/utentes");
+            this.$router.push("/utentes/");
         })
         .catch((error) => {
           this.errorMsg = error.response.data;

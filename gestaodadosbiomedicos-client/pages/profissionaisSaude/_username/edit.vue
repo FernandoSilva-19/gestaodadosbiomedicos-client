@@ -19,7 +19,7 @@
         :state="isEmailValid"
         required
       />
-      <div>
+      <div v-if="$auth.user.groups == 'Admin'">
         <b-select
           v-model="profissionalSaude.tipo"
           :options="options"
