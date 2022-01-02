@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="profissionalSaude != null">
     <h1>Editar profissional de saúde</h1>
     <form @submit.prevent="edit">
       <b-input
@@ -33,6 +33,9 @@
       <button @click.prevent="edit(profissionalSaude)">Edit</button>
     </form>
   </div>
+  <div v-else>
+    <h1>Sem Acesso</h1>
+  </div>
 </template>
 <script>
 export default {
@@ -51,7 +54,7 @@ export default {
   created() {
     this.$axios
       .$get(`/api/profissionaisSaude/${this.username}`)
-      .then((profissionalSaude) => (this.profissionalSaude = profissionalSaude || {}))
+      .then((profissionalSaude) => (this.profissionalSaude = profissionalSaude || null))
   },
   computed: {
     username() {

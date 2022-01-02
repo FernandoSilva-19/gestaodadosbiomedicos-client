@@ -1,6 +1,14 @@
 <template>
+<div v-if="utente != null">
   <b-container>
     <h4>Detalhes do Utente:</h4>
+        <div align="right">
+        <nuxt-link
+            class="btn btn-primary btn-sm"
+            :to="`/utentes/${utente.username}/edit`"
+            >Editar</nuxt-link
+          >
+          </div>
     <p>Username: {{ utente.username }}</p>
     <p>Name: {{ utente.name }}</p>
     <p>Email: {{ utente.email }}</p>
@@ -55,6 +63,10 @@
       <nuxt-link to="/utentes">Back</nuxt-link>
     </div>
   </b-container>
+      </div>
+    <div v-else>
+      <h1>Sem Acesso</h1>
+    </div>
 </template>
 <script>
 export default {
@@ -96,7 +108,7 @@ export default {
   created() {
     this.$axios
       .$get(`/api/utentes/${this.username}`)
-      .then((utente) => (this.utente = utente || {})),
+      .then((utente) => (this.utente = utente || null)),
      this.$axios
       .$get(`/api/observations/${this.username}`)
       .then(
