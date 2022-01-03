@@ -2,7 +2,7 @@
   <!-- easy components usage, already shipped with bootstrap css-->
   <div>
     <b-container>
-      <div v-if="$auth.user.groups == 'Admin'">
+      <div v-if="$auth.user.groups == 'Admin'" align="right">
       <nuxt-link class="btn btn-success" to="/dadosBiomedicos/create"
       >Criar novo dado biómedico</nuxt-link>
       </div>

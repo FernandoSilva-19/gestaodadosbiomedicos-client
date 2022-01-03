@@ -89,24 +89,11 @@ export default {
   computed: {
     username() {
       return this.$route.params.username;
-    },
-  },
-  methods: {
-    remove(id) {
-      this.$axios
-        .$delete("/api/prescricao/" + id)
-        .then(() => {
-          this.$axios.$get(`/api/prescricao/${this.username}`).then((prescricoes) => {
-            this.prescricoes = prescricoes;
-          });
-        })
-        .catch((error) => {
-          this.errorMsg = error.response.data;
-        });
-    },
+    }
   },
   created() {
-    this.$axios
+    this.$auth.user.sub == this.username ? this.editProfile = "disabled" : this.editProfile = "enabled" // esta maneira nao presta pq vais ao html
+    this.$axios                                                       // poes ativo de novo (o ideal seria depois fazer duas paginas)
       .$get(`/api/utentes/${this.username}`)
       .then((utente) => (this.utente = utente || null)),
      this.$axios

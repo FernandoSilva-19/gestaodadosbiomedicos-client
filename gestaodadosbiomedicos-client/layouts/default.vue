@@ -1,4 +1,4 @@
-<template>
+<template >
   <div id="app">
     <b-navbar toggleable="lg">
       <b-navbar-brand href="/">Gestao de Dados Biomédicos</b-navbar-brand>
@@ -8,7 +8,7 @@
           <li class="nav-item" v-if="$auth.user.groups == 'ProfissionalSaude' || $auth.user.groups == 'Admin'">
             <nuxt-link class="nav-link" to="/utentes">Utentes</nuxt-link>
           </li>
-          <li class="nav-item" v-if="$auth.user.groups == 'ProfissionalSaude' || $auth.user.groups == 'Admin'">
+          <li class="nav-item" v-if="$auth.user.groups == 'Admin'">
           <nuxt-link class="nav-link" to="/profissionaisSaude">Profissionais de Saúde</nuxt-link>
            </li>
           <li class="nav-item" v-if="$auth.user.groups == 'Admin'">
@@ -28,7 +28,7 @@
             <template #button-content>
               <em>{{ $auth.user.sub }}</em>
             </template>
-             <li class="nav-item" v-if="$auth.user.groups == 'ProfissionalSaude'" >
+             <li class="nav-item" v-if="$auth.user.groups == 'ProfissionalSaude'">
               <nuxt-link class="dropdown-item" :to="{ path: `/profissionaisSaude/${$auth.user.sub}/details`}" >Profile</nuxt-link>
             </li>
             <li class="nav-item" v-else-if="$auth.user.groups == 'Utente'" >
@@ -57,6 +57,6 @@ export default {
       this.$auth.logout();
       this.$router.push("/auth/login");
     },
-  },
+  }
 };
 </script>

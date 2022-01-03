@@ -14,6 +14,14 @@
         </template>
       </b-select>
       <button @click.prevent="generateTable">Gerar tabela</button>
+      <vue-excel-xlsx
+        :data="data"
+        :columns="columns"
+        :filename="filename"
+        :sheetname="'sheetname'"
+        >
+        Exportar tabela para excel
+    </vue-excel-xlsx>
       <hr>
       <b-table striped over :items="dados" :fields="fields"/>
       <nuxt-link :to="`/utentes/${$auth.user.sub}/data`">Back</nuxt-link>
@@ -22,6 +30,11 @@
 </div>
 </template>
 <script>
+import VueExcelXlsx from "vue-excel-xlsx";
+import Vue from "vue"
+
+Vue.use(VueExcelXlsx);
+
 export default{
     data(){
         return{
@@ -32,6 +45,18 @@ export default{
                 "date",
             ],
             dados: [],
+            columns : [
+                    {
+                        label: "Valor",
+                        field: "valor",
+                    },
+                    {
+                        label: "Date",
+                        field: "date",
+                    },
+            ],
+            data: [],
+            filename: ""
         }
     },
     created(){
@@ -43,7 +68,16 @@ export default{
         generateTable(){
             if(this.option != null){
                 this.$axios.$get(`/api/observations/${this.$auth.user.sub}/${this.option}`)
-                    .then((dados) => this.dados = dados)
+                    .then((dados) => {
+                        this.filename = this.option
+                        this.data = []
+                        this.dados = dados
+                        dados.forEach((x) => this.data.push({
+                        valor: x.valor,
+                        date: x.date,
+                        }))
+                        console.log(this.data)
+                    })
                     .catch((error) => {
                         this.errorMsg = error.response.data
                     })
