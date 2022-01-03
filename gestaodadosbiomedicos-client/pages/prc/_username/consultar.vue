@@ -8,11 +8,18 @@
         Detalhes do Programa de Reabilitação Cardíaca de {{ utente.name }}:
       </h4>
       <div v-if="prcUtente.duracao == 1">
-      <h5>Duração: {{prcUtente.duracao}} mês</h5>
+        <h5>Duração: {{prcUtente.duracao}} mês</h5>
       </div>
       <div v-else>
         <h5>Duração: {{prcUtente.duracao}} meses</h5>
       </div>
+      <div v-if="prcUtente.duracaoTreinoDiario == 1">
+        <h5>Duração de Treino Físico Diário: {{prcUtente.duracaoTreinoDiario}} hora</h5>
+      </div>
+      <div v-else>
+        <h5>Duração de Treino Físico Diário: {{prcUtente.duracaoTreinoDiario}} horas</h5>
+      </div>
+      <hr>
       <b>Dados biomedicos atuais:</b>
       <div v-if="dadosBiomedicosUtente != null">
         <b-table
@@ -47,7 +54,7 @@
               <b-button
                 class="btn btn-danger btn-sm"
                 @click="remove(data.item.id)"
-                >Eliminar</b-button
+              >Eliminar</b-button
               >
             </div>
           </template>
