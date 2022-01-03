@@ -89,7 +89,7 @@ export default {
           utenteUsername: this.username,
         })
         .then(() => {
-          this.$router.push(`/profissionaisSaude/`);
+          this.$router.push(`/prc/${this.username}/consultar`);
         })
         .catch((error) => {
           this.errorMsg = error.response.data;

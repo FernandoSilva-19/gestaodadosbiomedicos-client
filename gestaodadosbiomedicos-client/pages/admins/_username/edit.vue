@@ -1,5 +1,5 @@
 <template>
-<div>
+<div v-if="admin != null">
     <h1>Editar Admin</h1>
   <form @submit.prevent="edit">
       <b-input v-model="admin.password" :state="isPasswordValid" required
@@ -15,6 +15,9 @@
     <button @click.prevent="edit(admin)">Edit</button>
   </form>
 </div>
+ <div v-else>
+  <h1>Sem Acesso</h1>
+</div>
 </template>
 <script>
 export default {
@@ -27,7 +30,7 @@ export default {
   created() {
     this.$axios
       .$get(`/api/admins/${this.username}`)
-      .then((admin) => (this.admin = admin || {}))
+      .then((admin) => (this.admin = admin || null))
   },
   computed: {
     username() {

@@ -1,4 +1,4 @@
-export { default as LineChart } from '../../components/LineChart.vue'
+export { default as LineChart } from '../..\\components\\LineChart.vue'
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {

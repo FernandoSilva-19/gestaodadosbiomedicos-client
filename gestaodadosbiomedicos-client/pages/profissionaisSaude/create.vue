@@ -1,5 +1,5 @@
 <template>
-<div>
+<div v-if="$auth.user.groups == 'Admin'">
     <h1>Criar um novo profissional de saúde</h1>
   <form @submit.prevent="create">
      <b-input v-model.trim="username" :state="isUsernameValid" required
@@ -20,6 +20,9 @@
     <button type="reset">Reset</button>
     <button @click.prevent="create">Create</button>
   </form>
+</div>
+<div v-else>
+  <h1>Sem Acesso</h1>
 </div>
 </template>
 <script>
@@ -98,7 +101,7 @@ export default {
         .catch(error => {
           this.errorMsg = error.response.data
         })
-        
+
     },
   },
 };

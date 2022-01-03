@@ -1,6 +1,6 @@
 <template>
   <!-- easy components usage, already shipped with bootstrap css-->
-  <div>
+  <div v-if="admins != null">
   <b-container>
      <nuxt-link class="btn btn-success" to="/admins/create">Criar novo Administrador</nuxt-link>
     <!-- try to remove :fields=”fields” to see the magic -->
@@ -28,6 +28,9 @@
       <nuxt-link to="/">Back</nuxt-link>
   </b-container>
   </div>
+  <div v-else>
+      <h1>Sem acesso</h1>
+  </div>
 </template>
 <script>
 export default {
@@ -38,7 +41,7 @@ export default {
     };
   },
   created() {
-    this.$axios.$get('/api/admins').then((admins) => { this.admins = admins })
+    this.$axios.$get('/api/admins').then((admins) => { this.admins = admins  || null })
     //this.$axios.$get("http://localhost:8080/gestaodadosbiomedicos/api/utentes");
   },
   methods: {

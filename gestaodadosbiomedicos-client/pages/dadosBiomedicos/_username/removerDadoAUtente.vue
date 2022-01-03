@@ -2,12 +2,11 @@
   <div>
     <h1>Remover dado biomédico de {{ utente.name }}</h1>
     <form @submit.prevent="remover">
-      <b-select v-model="dado">
-        <template v-for="dado in dadosBiomedicos">
-          <option :key="dado.id" :value="dado.id">
-           {{ dado.tipo }}
-               <p>--- Limites -> {{dado.limiteMinimo}} / {{dado.limiteMaximo}}</p>
-          </option>
+      <b-select v-model="option">
+        <template v-for="option in options">
+              <option :key="option" :value="option">
+              {{ option.phenomenTypeNome }} - {{ option.valor }}
+            </option>
         </template>
       </b-select>
 
@@ -22,8 +21,8 @@ export default {
   data() {
     return {
       utente: {},
-      dadosBiomedicos: {},
-      dado: null,
+      option: null,
+            options: [],
       errorMsg:false
     };
   },
@@ -31,11 +30,9 @@ export default {
     this.$axios
       .$get(`/api/utentes/${this.username}`)
       .then((utente) => (this.utente = utente || {})),
-      this.$axios
-        .$get(`api/utentes/${this.username}/dadosbiomedicos`)
-        .then((dadosBiomedicos) => {
-          this.dadosBiomedicos = dadosBiomedicos;
-        });
+       this.$axios
+            .$get(`/api/observations/${this.username}`)
+            .then((options) => (this.options = options || {}))
   },
   computed: {
     username() {
@@ -45,8 +42,8 @@ export default {
   methods: {
     remover() {
       this.$axios
-        .$post(
-          "/api/dadosbiomedicos/" + this.dado + "/unroll/" + this.username,
+        .$delete(
+          "/api/observations/" + this.option.id,
           {}
         )
         .then(() => {
