@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>Receitar prescrição</h1>
+    
     <form @submit.prevent="create">
       <b-input
         v-model="nome"
@@ -9,6 +10,7 @@
         placeholder="Introduz o nome"
       />
       <b-input
+        v-if="tipo == 'MEDICAMENTO'"
         v-model="dose"
         :state="isDoseValid"
         placeholder="Introduz a dose (se aplicável)"
@@ -35,9 +37,14 @@ export default {
     return {
       nome: null,
       dose: null,
+      tipo: "",
       vezesAoDia: null,
       errorMsg: false,
     };
+  },
+  created(){
+    this.$axios.get(`/api/profissionaisSaude/${this.$auth.user.sub}`)
+    .then((profissionalSaude) => profissionalSaude.data.tipo == 'NUTRICIONISTA'? this.tipo = "DESPORTO" : this.tipo = "MEDICAMENTO")
   },
   computed: {
     username() {
@@ -77,6 +84,7 @@ export default {
         .$post("/api/prescricao/", {
           nome: this.nome,
           dose: this.dose,
+          tipo: this.tipo,
           vezesAoDia: this.vezesAoDia,
           utenteUsername: this.username,
         })

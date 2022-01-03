@@ -50,7 +50,7 @@ export default {
           (this.profissionalSaude = profissionalSaude || {})
       ),
       this.$axios
-        .$get(`/api/profissionaisSaude/${this.username}/utentes`)
+        .$get(`/api/utentes`)
         .then((utentes) => (this.utentes = utentes || {}));
   },
 };

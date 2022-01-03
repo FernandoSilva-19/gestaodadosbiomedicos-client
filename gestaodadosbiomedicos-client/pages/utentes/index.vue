@@ -40,7 +40,6 @@ export default {
         "username",
         "name",
         "email",
-        "profissionalSaudeUsername",
         "actions",
       ],
       utentes: [],

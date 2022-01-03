@@ -77,6 +77,15 @@ export default {
           phenomenTypeNome: "peso",
           utenteUsername: this.utenteUsername
         })
+        .catch(error => {
+          this.errorMsg = error.response.data
+        })
+
+      this.$axios.$post("/api/observations", { 
+          valor: this.peso.valor/((this.altura.valor/100)*(this.altura.valor/100)),
+          phenomenTypeNome: "imc",
+          utenteUsername: this.utenteUsername
+        })
         .then(() => {
           this.$router.push("/utentes/" + this.utenteUsername + "/data");
         })

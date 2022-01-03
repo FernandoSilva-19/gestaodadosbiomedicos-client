@@ -32,7 +32,7 @@
       </b-select>
 
       <p class="text-danger" v-show="errorMsg">{{ errorMsg }}</p>
-      <nuxt-link to="/utentes">Return</nuxt-link>
+      <nuxt-link :to="this.return">Return</nuxt-link>
       <button type="reset">Reset</button>
       <button @click.prevent="edit(utente)">Edit</button>
     </form>
@@ -44,9 +44,11 @@ export default {
     return {
       utente: {},
       profissionaisSaude: [],
+      return: ""
     };
   },
   created() {
+    this.$auth.user.sub == this.username ? this.return = "/utentes/" + this.$auth.user.sub + "/details" : this.return = "/utentes"
     this.$axios
       .$get(`/api/utentes/${this.username}`)
       .then((utente) => (this.utente = utente || {})),
