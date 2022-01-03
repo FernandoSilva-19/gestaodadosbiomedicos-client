@@ -2,14 +2,13 @@
   <div>
     <h1>Atribuir Dado biomédico a {{ utente.name }}</h1>
     <form @submit.prevent="atribuir">
-      <b-select v-model="dado">
+      <b-select v-model="option">
          <template v-slot:first>
-        <option :value="null" disabled>-- Selecione o dado biomédico --</option>
+        <option :value="null" disabled>-- Selecione o dado --</option>
       </template>
-        <template v-for="dado in dadosBiomedicos">
-              <option :key="dado.id" :value="dado.id">
-              {{ dado.tipo }}
-               <p>--- Limites -> {{dado.limiteMinimo}} / {{dado.limiteMaximo}}</p>
+        <template v-for="option in options">
+              <option :key="option" :value="option">
+              {{ option.nome }} -- De {{ option.valorMinimo }} a {{ option.valorMaximo }}({{ option.unidade }})
             </option>
         </template>
       </b-select>
@@ -26,19 +25,16 @@ export default {
   data() {
     return {
       utente: {},
-      dadosBiomedicos: [],
-      dado: null,
       valor: null,
+      option: null,
+            options: [],
       errorMsg: false
     };
   },
   created() {
     this.$axios
-      .$get(`/api/utentes/${this.username}`)
-      .then((utente) => (this.utente = utente || {})),
-      this.$axios.$get("api/dadosbiomedicos").then((dadosBiomedicos) => {
-        this.dadosBiomedicos = dadosBiomedicos;
-      })
+            .$get(`/api/phenomenType`)
+            .then((options) => (this.options = options || {}))
   },
   computed: {
     username() {
@@ -49,10 +45,11 @@ export default {
     atribuir() {
       this.$axios
         .$post(
-          "/api/dadosbiomedicos/" + this.dado + "/enroll/" + this.username,
+          "/api/observations",
           {
-             id: this.dado,
              valor: this.valor,
+             phenomenTypeNome: this.option.nome,
+             utenteUsername: this.username
           }
         )
         .then(() => {

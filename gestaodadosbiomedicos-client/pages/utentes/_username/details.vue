@@ -1,6 +1,14 @@
 <template>
+<div v-if="utente != null">
   <b-container>
     <h4>Detalhes do Utente:</h4>
+        <div align="right">
+        <nuxt-link
+            class="btn btn-primary btn-sm"
+            :to="`/utentes/${utente.username}/edit`"
+            >Editar</nuxt-link
+          >
+          </div>
     <p>Username: {{ utente.username }}</p>
     <p>Name: {{ utente.name }}</p>
     <p>Email: {{ utente.email }}</p>
@@ -11,8 +19,8 @@
     <b>Peso e altura atual do {{ utente.name }}:</b>
     <div>
       <br />
-      <p>Altura: {{ dados.altura ? dados.altura + " cm" : "DESCONHECIDO" }}</p>
-      <p>Peso: {{ dados.peso ? dados.peso + " KG" : "DESCONHECIDO" }}</p>
+     <p>Altura: {{ altura? altura.valor+" cm" : "DESCONHECIDO"}}</p>
+    <p>Peso: {{ peso? peso.valor+" KG" : "DESCONHECIDO"}}</p>
       <hr />
       <div v-if="$auth.user.groups == 'Utente'">
         <nuxt-link
@@ -55,6 +63,10 @@
       <nuxt-link to="/utentes">Back</nuxt-link>
     </div>
   </b-container>
+      </div>
+    <div v-else>
+      <h1>Sem Acesso</h1>
+    </div>
 </template>
 <script>
 export default {
@@ -63,16 +75,15 @@ export default {
       utente: {},
       dadosBiomedicos: {},
       fields: [
-        "tipo",
-        "unidadeMedicao",
-        "limiteMinimo",
-        "limiteMaximo",
+        "phenomenTypeNome",
         "valor",
+        "date",
       ],
-      dados: {},
       fields2: ["nome", "dose", "vezesAoDia", "data", "actions"],
       prescricoes: {},
       graphEnabled: true,
+      altura: {},
+      peso: {},
     };
   },
   computed: {
@@ -97,21 +108,29 @@ export default {
   created() {
     this.$axios
       .$get(`/api/utentes/${this.username}`)
-      .then((utente) => (this.utente = utente || {})),
-      this.$axios
-        .$get(`/api/utentes/${this.username}/dadosbiomedicos`)
-        .then(
-          (dadosBiomedicos) => (this.dadosBiomedicos = dadosBiomedicos || {})
-        );
-    this.$axios
-      .$get(`/api/dadosutente/${this.username}/latest`)
-      .then((dados) => (this.dados = dados))
-      .catch((err) => {
-        if (err.response.status == 404) this.graphEnabled = false;
-      });
+      .then((utente) => (this.utente = utente || null)),
+     this.$axios
+      .$get(`/api/observations/${this.username}`)
+      .then(
+        (dadosBiomedicos) =>
+          (this.dadosBiomedicos = dadosBiomedicos || {})
+      ),
     this.$axios
       .$get(`/api/prescricao/${this.username}`)
       .then((prescricoes) => (this.prescricoes = prescricoes || {}));
+      this.$axios
+      .$get(`/api/observations/${this.$auth.user.sub}/altura/latest`)
+      .then((altura) => this.altura = altura)
+      .catch((err) => {
+        if(err.response.status==404) this.graphEnabled = false
+      })
+
+    this.$axios
+      .$get(`/api/observations/${this.$auth.user.sub}/peso/latest`)
+      .then((peso) => this.peso = peso)
+      .catch((err) => {
+        if(err.response.status==404) this.graphEnabled = false
+      })
   },
 };
 </script>

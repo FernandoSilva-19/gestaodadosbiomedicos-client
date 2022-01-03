@@ -1,8 +1,8 @@
 <template>
   <!-- easy components usage, already shipped with bootstrap css-->
-  <div>
+  <div v-if="utentes != null">
     <b-container>
-      <div v-if="$auth.user.groups == 'Admin' || $auth.user.groups == 'ProfissionalSaude'">
+      <div v-if="$auth.user.groups == 'Admin'">
       <nuxt-link class="btn btn-success" to="utentes/create"
       >Criar novo utente</nuxt-link>
       </div>
@@ -30,6 +30,9 @@
       </b-table>
       <nuxt-link to="/">Back</nuxt-link>
     </b-container>
+  </div>
+  <div v-else>
+    <h1>Sem acesso</h1>
   </div>
 </template>
 <script>
@@ -59,7 +62,7 @@ export default {
   },
   created() {
     this.$axios.$get("/api/utentes").then((utentes) => {
-      this.utentes = utentes;
+      this.utentes = utentes || null
     });
     //this.$axios.$get("http://localhost:8080/gestaodadosbiomedicos/api/utentes");
   },

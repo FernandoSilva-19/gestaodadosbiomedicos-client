@@ -1,4 +1,5 @@
 <template>
+<div v-if="profissionalSaude != null">
   <b-container>
     <h4>Detalhes do Profissional de Saúde:</h4>
     <p>Username: {{ profissionalSaude.username }}</p>
@@ -18,15 +19,25 @@
             class="btn btn-primary btn-sm"  :to="`/dadosBiomedicos/${data.item.username}/RemoverDadoAUtente`">
             Remover Dado Biomédico</nuxt-link
           >
-          <nuxt-link
+          <!-- <nuxt-link
             class="btn btn-primary btn-sm"  :to="`/prescricao/${data.item.username}/receitar`">
             Receitar Prescrição</nuxt-link
+          > -->
+          <nuxt-link
+            class="btn btn-primary btn-sm"  :to="`/prc/${data.item.username}/create`">
+            Criar PRC</nuxt-link
+          >
+           <nuxt-link
+            class="btn btn-primary btn-sm"  :to="`/prc/${data.item.username}/consultar`">
+            Consultar PRC</nuxt-link
           >
           </div>
           </template>
         </b-table>
     <nuxt-link to="/profissionaisSaude">Back</nuxt-link>
   </b-container>
+  </div>
+  <div v-else><h1>Sem acesso</h1></div>
 </template>
 <script>
 export default {
@@ -47,7 +58,7 @@ export default {
       .$get(`/api/profissionaisSaude/${this.username}`)
       .then(
         (profissionalSaude) =>
-          (this.profissionalSaude = profissionalSaude || {})
+          (this.profissionalSaude = profissionalSaude || null)
       ),
       this.$axios
         .$get(`/api/profissionaisSaude/${this.username}/utentes`)
