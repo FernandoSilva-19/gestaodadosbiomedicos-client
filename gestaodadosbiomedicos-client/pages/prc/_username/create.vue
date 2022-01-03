@@ -3,7 +3,7 @@
     <h1>Programa de reabilitação cardíaca de {{this.username}}</h1>
     <form @submit.prevent="create">
       <b-input
-        v-model="duracaoPrograma"
+        v-model="duracao"
         required
         placeholder="Introduza a duracao do programa (meses)"
       />
@@ -11,6 +11,11 @@
         v-model="duracaoTreinoDiario"
         required
         placeholder="Introduza a duracao de treino físico diário (horas)"
+      />
+      <b-input
+        v-model="observacoes"
+        required
+        placeholder="Observações: "
       />
       <p class="text-danger" v-show="errorMsg">{{ errorMsg }}</p>
       <nuxt-link to="/utentes/"
@@ -25,8 +30,9 @@
 export default {
   data() {
     return {
-      duracaoPrograma: null,
+      duracao: null,
       duracaoTreinoDiario: null,
+      observacoes: null,
       errorMsg: false,
     };
   },
@@ -39,15 +45,16 @@ export default {
     create() {
       this.$axios
         .$post("/api/prc/", {
-          duracaoPrograma: this.duracaoPrograma,
+          duracao: this.duracao,
           duracaoTreinoDiario: this.duracaoTreinoDiario,
+          observacoes: this.observacoes,
           utenteUsername: this.username,
         })
         .then(() => {
           this.$router.push(`/utentes/`);
         })
         .catch((error) => {
-          if(this.duracaoPrograma > 0){
+          if(this.duracao > 0){
             this.errorMsg = "Utente already has a prc";
           }
           else this.errorMsg = "Duração has to be bigger than 0"

@@ -19,6 +19,9 @@
       <div v-else>
         <h5>Duração de Treino Físico Diário: {{prcUtente.duracaoTreinoDiario}} horas</h5>
       </div>
+      <div>
+        <h5>Observações: {{prcUtente.observacoes}}</h5>
+      </div>
       <hr>
       <b>Dados biomedicos atuais:</b>
       <div v-if="dadosBiomedicosUtente != null">
