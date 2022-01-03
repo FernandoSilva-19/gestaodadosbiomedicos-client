@@ -34,7 +34,7 @@ export default {
         "valor",
         "date",
       ],
-      fieldsPrescricao: ["nome", "dose", "vezesAoDia", "data", "actions"],
+      fieldsPrescricao: ["nome", "dose", "vezesAoDia", "profissionalSaudeUsername", "tipoPrescricao", "data", "actions"],
       fieldsPRC: ["duracao"],
     };
   },
