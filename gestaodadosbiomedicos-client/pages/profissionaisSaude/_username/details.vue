@@ -2,6 +2,13 @@
 <div v-if="profissionalSaude != null">
   <b-container>
     <h4>Detalhes do Profissional de Saúde:</h4>
+    <div align="right">
+    <nuxt-link
+            class="btn btn-primary btn-sm"
+            :to="`/profissionaisSaude/${this.username}/edit`"
+            >Editar</nuxt-link
+          >
+          </div>
     <p>Username: {{ profissionalSaude.username }}</p>
     <p>Name: {{ profissionalSaude.name }}</p>
     <p>Email: {{ profissionalSaude.email }}</p>

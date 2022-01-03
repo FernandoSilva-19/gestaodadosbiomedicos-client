@@ -53,9 +53,12 @@ export default {
           }
         )
         .then(() => {
-          this.$router.push("/profissionaisSaude");
+          this.$router.push("/utentes/");
         })
         .catch((error) => {
+          if(this.valor < this.option.valorMinimo || this.valor > this.option.valorMinimo){
+            this.errorMsg = "Value out of boundaries";
+          }
           this.errorMsg = error.response.data;
         });
 

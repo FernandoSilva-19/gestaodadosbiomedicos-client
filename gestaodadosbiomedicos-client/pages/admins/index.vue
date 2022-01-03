@@ -2,7 +2,9 @@
   <!-- easy components usage, already shipped with bootstrap css-->
   <div v-if="admins != null">
   <b-container>
+    <div align="right">
      <nuxt-link class="btn btn-success" to="/admins/create">Criar novo Administrador</nuxt-link>
+     </div>
     <!-- try to remove :fields=”fields” to see the magic -->
     <b-table striped over :items="admins" :fields="fields">
         <template v-slot:cell(actions)="data">
