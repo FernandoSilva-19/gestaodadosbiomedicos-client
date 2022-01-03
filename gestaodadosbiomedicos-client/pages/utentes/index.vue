@@ -23,6 +23,24 @@
             >Editar</nuxt-link
           >
           </div>
+          <div v-if="$auth.user.groups == 'ProfissionalSaude'">
+          <nuxt-link
+            class="btn btn-primary btn-sm"  :to="`/dadosBiomedicos/${data.item.username}/adicionarDadoAUtente`">
+            Adicionar Dado Biomédico</nuxt-link
+          >
+          <nuxt-link
+            class="btn btn-primary btn-sm"  :to="`/dadosBiomedicos/${data.item.username}/RemoverDadoAUtente`">
+            Remover Dado Biomédico</nuxt-link
+          >
+          <nuxt-link
+            class="btn btn-primary btn-sm"  :to="`/prc/${data.item.username}/create`">
+            Criar PRC</nuxt-link
+          >
+           <nuxt-link
+            class="btn btn-primary btn-sm"  :to="`/prc/${data.item.username}/consultar`">
+            Consultar PRC</nuxt-link
+          >
+          </div>
           <div v-if="$auth.user.groups == 'Admin'">
           <b-button class="btn btn-danger btn-sm" @click="remove(data.item.username)">Eliminar</b-button>
           </div>

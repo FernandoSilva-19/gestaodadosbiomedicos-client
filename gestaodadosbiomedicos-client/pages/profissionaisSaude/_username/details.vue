@@ -6,34 +6,6 @@
     <p>Name: {{ profissionalSaude.name }}</p>
     <p>Email: {{ profissionalSaude.email }}</p>
     <p>Tipo: {{ profissionalSaude.tipo }}</p>
-    <hr>
-    <b>Utentes do {{ profissionalSaude.name }}:</b>
-        <b-table striped over :items="utentes" :fields="fields">
-           <template v-slot:cell(actions)="data">
-             <div v-if="$auth.user.groups == 'ProfissionalSaude'">
-          <nuxt-link
-            class="btn btn-primary btn-sm"  :to="`/dadosBiomedicos/${data.item.username}/adicionarDadoAUtente`">
-            Adicionar Dado Biomédico</nuxt-link
-          >
-          <nuxt-link
-            class="btn btn-primary btn-sm"  :to="`/dadosBiomedicos/${data.item.username}/RemoverDadoAUtente`">
-            Remover Dado Biomédico</nuxt-link
-          >
-          <!-- <nuxt-link
-            class="btn btn-primary btn-sm"  :to="`/prescricao/${data.item.username}/receitar`">
-            Receitar Prescrição</nuxt-link
-          > -->
-          <nuxt-link
-            class="btn btn-primary btn-sm"  :to="`/prc/${data.item.username}/create`">
-            Criar PRC</nuxt-link
-          >
-           <nuxt-link
-            class="btn btn-primary btn-sm"  :to="`/prc/${data.item.username}/consultar`">
-            Consultar PRC</nuxt-link
-          >
-          </div>
-          </template>
-        </b-table>
     <nuxt-link to="/profissionaisSaude">Back</nuxt-link>
   </b-container>
   </div>

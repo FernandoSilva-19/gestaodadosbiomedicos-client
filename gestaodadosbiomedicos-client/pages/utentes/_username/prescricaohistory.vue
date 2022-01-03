@@ -12,7 +12,7 @@
 export default{
     data(){
         return{
-          fields: ["nome", "dose", "vezesAoDia", "data"],
+          fields: ["nome", "tipo","dose", "vezesAoDia", "profissionalSaude","date"],
             dados: {},
         }
     },
