@@ -19,8 +19,11 @@
           required
         />
       </b-form-group>
-      <b-button type="reset" class="btn-warning">Reset</b-button>
-      <b-button type="submit" class="btn-success">Submit</b-button>
+      <b-button type="reset" class="btn-warning btn-sm">Reset</b-button>
+      <b-button type="submit" class="btn-success btn-sm">Login</b-button>
+     <!--  <nuxt-link class="btn btn-primary btn-sm" to="/utentes/create"
+      >Criar conta</nuxt-link> -->
+      </div>
     </b-form>
   </b-container>
 </template>

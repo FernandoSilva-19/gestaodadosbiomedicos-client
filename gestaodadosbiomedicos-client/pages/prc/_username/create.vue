@@ -5,10 +5,10 @@
       <b-input
         v-model="duracao"
         required
-        placeholder="Introduza a duracao do programa"
+        placeholder="Introduza a duracao do programa(meses)"
       />
       <p class="text-danger" v-show="errorMsg">{{ errorMsg }}</p>
-      <nuxt-link :to="`/profissionaisSaude/${$auth.user.sub}/details`"
+      <nuxt-link to="/utentes/"
         >Return</nuxt-link
       >
       <button type="reset">Reset</button>
@@ -33,14 +33,17 @@ export default {
     create() {
       this.$axios
         .$post("/api/prc/", {
-          durancao: this.duracao,
+          duracao: this.duracao,
           utenteUsername: this.username,
         })
         .then(() => {
-          this.$router.push(`/profissionaisSaude/`);
+          this.$router.push(`/utentes/`);
         })
         .catch((error) => {
-          this.errorMsg = error.response.data;
+          if(this.duracao > 0){
+          this.errorMsg = "Utente already has a prc";
+          }
+          else this.errorMsg = "Duração has to be bigger than 0"
         });
     },
   },

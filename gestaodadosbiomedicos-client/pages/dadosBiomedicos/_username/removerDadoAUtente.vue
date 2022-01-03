@@ -47,7 +47,7 @@ export default {
           {}
         )
         .then(() => {
-          this.$router.push("/profissionaisSaude");
+          this.$router.push("/utentes/");
         })
         .catch((error) => {
           this.errorMsg = error.response.data;

@@ -2,7 +2,7 @@
   <!-- easy components usage, already shipped with bootstrap css-->
   <div v-if="profissionaisSaude != null">
   <b-container>
-    <div v-if=" $auth.user.groups == 'Admin'">
+    <div v-if=" $auth.user.groups == 'Admin'" align="right">
      <nuxt-link class="btn btn-success" to="/profissionaisSaude/create">Criar novo profissional de saúde</nuxt-link>
      </div>
     <!-- try to remove :fields=”fields” to see the magic -->

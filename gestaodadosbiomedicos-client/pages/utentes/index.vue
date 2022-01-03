@@ -2,7 +2,7 @@
   <!-- easy components usage, already shipped with bootstrap css-->
   <div v-if="utentes != null">
     <b-container>
-      <div v-if="$auth.user.groups == 'Admin'">
+      <div v-if="$auth.user.groups == 'Admin' || $auth.user.groups == ''" align="right">
       <nuxt-link class="btn btn-success" to="utentes/create"
       >Criar novo utente</nuxt-link>
       </div>
@@ -29,7 +29,7 @@
             Adicionar Dado Biomédico</nuxt-link
           >
           <nuxt-link
-            class="btn btn-primary btn-sm"  :to="`/dadosBiomedicos/${data.item.username}/RemoverDadoAUtente`">
+            class="btn btn-danger btn-sm"  :to="`/dadosBiomedicos/${data.item.username}/RemoverDadoAUtente`">
             Remover Dado Biomédico</nuxt-link
           >
           <nuxt-link
@@ -37,7 +37,7 @@
             Criar PRC</nuxt-link
           >
            <nuxt-link
-            class="btn btn-primary btn-sm"  :to="`/prc/${data.item.username}/consultar`">
+            class="btn btn-secondary btn-sm"  :to="`/prc/${data.item.username}/consultar`">
             Consultar PRC</nuxt-link
           >
           </div>
