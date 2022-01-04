@@ -91,6 +91,19 @@ export default {
         .catch(error => {
           this.errorMsg = error.response.data
         })
+
+      if(this.peso.valor/((this.altura.valor/100)*(this.altura.valor/100)) < 18.5 || this.peso.valor/((this.altura.valor/100)*(this.altura.valor/100)) >= 30){
+      this.$axios
+        .$post("/api/prescricao/", {
+          nome: "Ginásio",
+          dose: null,
+          tipoPrescricao: "DESPORTO",
+          vezesAoDia: "1",
+          utenteUsername: this.utenteUsername,
+          profissionalSaudeUsername: null,
+          dataValidade: null
+        })
+      }
     },
   },
 };
