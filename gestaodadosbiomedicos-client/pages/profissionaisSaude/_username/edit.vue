@@ -1,6 +1,5 @@
 <template>
-  <div v-if="profissionalSaude != null">
-    <h1>Editar profissional de saúde</h1>
+  <div style="margin: 100px 50px;" v-if="profissionalSaude != null">
     <form @submit.prevent="edit">
       <b-input
         v-model="profissionalSaude.password"
@@ -29,8 +28,8 @@
 
       <p class="text-danger" v-show="errorMsg">{{ errorMsg }}</p>
       <nuxt-link to="/profissionaisSaude">Return</nuxt-link>
-      <button type="reset">Reset</button>
-      <button @click.prevent="edit(profissionalSaude)">Edit</button>
+      <b-button pill variant="dark" size="sm" type="reset">Reset</b-button>
+      <b-button pill variant="dark" size="sm" @click.prevent="edit(profissionalSaude)">Edit</b-button>
     </form>
   </div>
   <div v-else>

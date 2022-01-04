@@ -1,11 +1,10 @@
 <template>
 <div>
-    <h1>Gráfico dos dados</h1>
-    <p>Os valores no eixo yy representam a altura(em 'cm') e o peso(em 'kg')</p>
-    <nuxt-link :to="`/utentes/${$auth.user.sub}/data`">Back</nuxt-link>
     <div class="small">
         <LineChart :chartData="datacollection"/>
     </div>
+    <p style="textAlign: center">Os valores no eixo yy representam a altura(em 'cm') e o peso(em 'kg')</p>
+    <nuxt-link :to="`/utentes/${$auth.user.sub}/data`">Return</nuxt-link>
 </div>
 </template>
 <script>

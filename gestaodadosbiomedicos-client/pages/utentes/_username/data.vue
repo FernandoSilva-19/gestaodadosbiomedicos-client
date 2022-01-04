@@ -1,6 +1,5 @@
 <template>
-<div>
-    <h1>Dados do utente '{{utente.username}}'</h1>
+<div id="mainDivData">
     <p>Altura: {{ altura? altura.valor+" cm" : "DESCONHECIDO"}}</p>
     <p>Peso: {{ peso? peso.valor+" KG" : "DESCONHECIDO"}}</p>
     <p>IMC: {{ imc? imc.valor+" KG/m^2" : "DESCONHECIDO"}}</p>
@@ -9,21 +8,12 @@
     <nuxt-link
       class="btn btn-primary"
       :to="`/utentes/${$auth.user.sub}/addData`"
-    >Adicionar novos dados</nuxt-link>
+    >Atualizar peso e altura</nuxt-link>
     <nuxt-link
       :class="graphEnabled? 'btn btn-primary' : 'btn btn-danger'"
       :event="graphEnabled? 'click' : ''"
       :to="`/utentes/${$auth.user.sub}/datagraph`"
     >Gráfico</nuxt-link>
-    <nuxt-link
-      :class="graphEnabled? 'btn btn-primary' : 'btn btn-danger'"
-      :event="graphEnabled? 'click' : ''"
-      :to="`/utentes/${$auth.user.sub}/datahistory`"
-    >Histórico de dados</nuxt-link>
-    <nuxt-link
-      class="btn btn-primary"
-      :to="`/utentes/${$auth.user.sub}/prescricaohistory`"
-    >Histórico de prescricoes</nuxt-link>
 </div>
 </template>
 <script>
@@ -77,3 +67,8 @@ export default {
   }
 }
 </script>
+<style>
+  #mainDivData {
+   margin: 100px 50px;
+  }
+</style>

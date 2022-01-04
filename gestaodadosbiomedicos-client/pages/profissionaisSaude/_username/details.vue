@@ -1,19 +1,17 @@
 <template>
-<div v-if="profissionalSaude != null">
+<div style="margin: 100px 50px;" v-if="profissionalSaude != null">
   <b-container>
-    <h4>Detalhes do Profissional de Saúde:</h4>
-    <div align="right">
+    <p>Username: {{ profissionalSaude.username }}</p>
+    <p>Name: {{ profissionalSaude.name }}</p>
+    <p>Email: {{ profissionalSaude.email }}</p>
+    <p>Tipo: {{ profissionalSaude.tipo }}</p>
+        <div align="left">
     <nuxt-link
             class="btn btn-primary btn-sm"
             :to="`/profissionaisSaude/${this.username}/edit`"
             >Editar</nuxt-link
           >
           </div>
-    <p>Username: {{ profissionalSaude.username }}</p>
-    <p>Name: {{ profissionalSaude.name }}</p>
-    <p>Email: {{ profissionalSaude.email }}</p>
-    <p>Tipo: {{ profissionalSaude.tipo }}</p>
-    <nuxt-link to="/profissionaisSaude">Back</nuxt-link>
   </b-container>
   </div>
   <div v-else><h1>Sem acesso</h1></div>
