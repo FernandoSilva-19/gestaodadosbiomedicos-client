@@ -19,7 +19,7 @@
       />
       <template>
         <div>
-          <b-form-select v-model="selected" :options="options"></b-form-select>
+          <b-form-select v-model="fase" :options="options"></b-form-select>
         </div>
       </template>
       <p>
@@ -39,6 +39,7 @@ export default {
       duracao: null,
       duracaoTreinoDiario: null,
       observacoes: null,
+      fase: null,
       errorMsg: false,
       selected: null,
       options: [
@@ -62,6 +63,7 @@ export default {
           duracao: this.duracao,
           duracaoTreinoDiario: this.duracaoTreinoDiario,
           observacoes: this.observacoes,
+          fase: this.fase,
           utenteUsername: this.username,
         })
         .then(() => {
