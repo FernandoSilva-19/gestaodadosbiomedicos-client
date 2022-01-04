@@ -19,7 +19,7 @@
       />
       <template>
         <div>
-          <b-form-select v-model="selected" :options="options"></b-form-select>
+          <b-form-select v-model="fase" :options="options"></b-form-select>
         </div>
       </template>
       <p>
@@ -39,14 +39,15 @@ export default {
       duracao: null,
       duracaoTreinoDiario: null,
       observacoes: null,
+      fase:null,
       errorMsg: false,
       selected: null,
       options: [
         { value: null, text: '-- Selecione a fase em que se encontra o utente --' },
-        { value: 'a', text: 'FASE 1: Paciente ainda hospitalizado' },
-        { value: 'b', text: 'FASE 2: Paciente ainda em reabilitação cardiovascular após a alta' },
-        { value: { C: '3PO' }, text: 'FASE 3: Paciente ainda em supervisão, devido a ser um utente de elevado risco' },
-        { value: { C: '3PO' }, text: 'FASE 4: Paciente não supervisionado. Programa dinâmico, sem a regular supervisão de um profissional de saúde' },
+        { value: 'FASE 1: Paciente ainda hospitalizado', text: 'FASE 1: Paciente ainda hospitalizado' },
+        { value: 'FASE 2: Paciente ainda em reabilitação cardiovascular após a alta', text: 'FASE 2: Paciente ainda em reabilitação cardiovascular após a alta' },
+        { value: 'FASE 3: Paciente ainda em supervisão, devido a ser um utente de elevado risco', text: 'FASE 3: Paciente ainda em supervisão, devido a ser um utente de elevado risco' },
+        { value: 'FASE 4: Paciente não supervisionado. Programa dinâmico, sem a regular supervisão de um profissional de saúde', text: 'FASE 4: Paciente não supervisionado. Programa dinâmico, sem a regular supervisão de um profissional de saúde' },
       ]
     };
   },
@@ -62,6 +63,7 @@ export default {
           duracao: this.duracao,
           duracaoTreinoDiario: this.duracaoTreinoDiario,
           observacoes: this.observacoes,
+          fase: this.fase,
           utenteUsername: this.username,
         })
         .then(() => {
