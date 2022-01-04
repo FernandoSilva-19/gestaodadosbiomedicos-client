@@ -1,6 +1,5 @@
 <template>
-  <div v-if="utente != null">
-    <h1>Editar Utente</h1>
+  <div id="mainDivEdit" v-if="utente != null">
     <form @submit.prevent="edit">
       <b-input
         v-model="utente.password"
@@ -19,23 +18,10 @@
         :state="isEmailValid"
         required
       />
-      <div v-if="$auth.user.groups == 'Admin'">
-      <b-select v-model="utente.profissionalSaudeUsername">
-
-        <template v-for="profissionalSaudeUsername in profissionaisSaude">
-          <option
-            :key="profissionalSaudeUsername.username"
-            :value="profissionalSaudeUsername.username"
-          >
-            {{ profissionalSaudeUsername.name }}
-          </option>
-        </template>
-      </b-select>
-      </div>
       <p class="text-danger" v-show="errorMsg">{{ errorMsg }}</p>
       <nuxt-link :to="this.return">Return</nuxt-link>
-      <button type="reset">Reset</button>
-      <button @click.prevent="edit(utente)">Edit</button>
+      <b-button pill variant="dark" size="sm" type="reset">Reset</b-button>
+      <b-button pill variant="dark" size="sm" @click.prevent="edit(utente)">Edit</b-button>
     </form>
   </div>
   <div v-else>
@@ -141,4 +127,8 @@ export default {
   },
 };
 </script>
-
+<style>
+  #mainDivEdit {
+   margin: 100px 50px;
+  }
+</style>

@@ -1,13 +1,13 @@
 <template>
   <!-- easy components usage, already shipped with bootstrap css-->
-  <div v-if="utentes != null">
+  <div style="margin: 100px 50px;" v-if="utentes != null">
     <b-container>
-      <div v-if="$auth.user.groups == 'Admin' || $auth.user.groups == ''" align="right">
+      <div v-if="$auth.user.groups == 'Admin' || $auth.user.groups == ''" align="left">
       <nuxt-link class="btn btn-success" to="utentes/create"
       >Criar novo utente</nuxt-link>
       </div>
-      <!-- try to remove :fields=”fields” to see the magic -->
-      <b-table striped over :items="utentes" :fields="fields">
+      <br>
+      <b-table striped over bordered table-variant="info" head-variant="dark" :items="utentes" :fields="fields">
         <template v-slot:cell(actions)="data">
           <div v-if="$auth.user.groups == 'Admin' || $auth.user.sub == data.item.username || $auth.user.sub == data.item.profissionalSaudeUsername">
           <nuxt-link
@@ -46,7 +46,6 @@
           </div>
         </template>
       </b-table>
-      <nuxt-link to="/">Back</nuxt-link>
     </b-container>
   </div>
   <div v-else>

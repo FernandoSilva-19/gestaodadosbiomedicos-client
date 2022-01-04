@@ -1,6 +1,6 @@
-<template >
+<template>
   <div id="app">
-    <b-navbar toggleable="lg">
+    <b-navbar toggleable="lg" variant="info">
       <b-navbar-brand href="/">Gestao de Dados Biomédicos</b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
@@ -18,8 +18,14 @@
             <nuxt-link class="nav-link" to="/dadosBiomedicos">Dados Biómedicos</nuxt-link>
              </li>
           <li class="nav-item" v-if="$auth.user.groups == 'Utente'">
-            <nuxt-link class="nav-link" :to="{ path: `/utentes/${$auth.user.sub}/data`}">Dados do utilizador</nuxt-link>
-             </li>
+            <nuxt-link class="nav-link" :to="{ path: `/utentes/${$auth.user.sub}/data`}">Composição Corporal</nuxt-link>
+          </li>
+          <li class="nav-item" v-if="$auth.user.groups == 'Utente'">
+            <nuxt-link class="nav-link" :to="{ path: `/utentes/${$auth.user.sub}/datahistory`}">Histórico de Dados Biomédicos</nuxt-link>
+          </li>
+          <li class="nav-item" v-if="$auth.user.groups == 'Utente'">
+            <nuxt-link class="nav-link" :to="{ path: `/utentes/${$auth.user.sub}/prescricaohistory`}">Histórico de Prescrições</nuxt-link>
+          </li>
         </b-navbar-nav>
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
@@ -39,9 +45,9 @@
             </li>
             <b-dropdown-item @click.prevent="signOut">Sign Out</b-dropdown-item>
           </b-nav-item-dropdown>
-          <li class="nav-item" v-else>
-            <nuxt-link class="nav-link" to="/auth/login">Sign In</nuxt-link>
-          </li>
+          <div class="nav-item" v-else>
+            <nuxt-link class="nav-link" to="/auth/register">Sign In</nuxt-link>
+          </div>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>

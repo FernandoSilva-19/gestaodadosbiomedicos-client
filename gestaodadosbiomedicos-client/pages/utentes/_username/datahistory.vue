@@ -1,32 +1,35 @@
 <template>
-<div>
-    <h1>Histórico dos dados</h1>
-    <b-container>
-      <!-- try to remove :fields=”fields” to see the magic -->
-      <b-select v-model="option">
-         <template v-slot:first>
-        <option :value="null" disabled>-- Selecione o dado --</option>
-      </template>
-        <template v-for="option in options">
-              <option :key="option" :value="option">
-              {{ option }}
-            </option>
+<div id="mainDivBiomedicos">
+    <div v-if="options.length > 0">
+        <b-container>
+        <!-- try to remove :fields=”fields” to see the magic -->
+        <b-select v-model="option">
+            <template v-slot:first>
+            <option :value="null" disabled>-- Selecione o dado --</option>
         </template>
-      </b-select>
-      <button @click.prevent="generateTable">Gerar tabela</button>
-      <vue-excel-xlsx
-        :data="data"
-        :columns="columns"
-        :filename="filename"
-        :sheetname="'sheetname'"
-        >
-        Exportar tabela para excel
-    </vue-excel-xlsx>
-      <hr>
-      <b-table striped over :items="dados" :fields="fields"/>
-      <nuxt-link :to="`/utentes/${$auth.user.sub}/data`">Back</nuxt-link>
-
-    </b-container>
+            <template v-for="option in options">
+                <option :key="option" :value="option">
+                {{ option }}
+                </option>
+            </template>
+        </b-select>
+        <b-button pill variant="dark" size="sm" @click.prevent="generateTable">Gerar tabela</b-button>
+        <vue-excel-xlsx
+            class="btn btn-dark btn-sm rounded-pill"
+            :data="data"
+            :columns="columns"
+            :filename="filename"
+            :sheetname="'sheetname'"
+            >
+            Exportar tabela para excel
+        </vue-excel-xlsx>
+        <hr>
+        <b-table striped over bordered table-variant="info" head-variant="dark" fixed :items="dados" :fields="fields"/>
+        </b-container>
+    </div>
+    <div v-else>
+        <b>Atualmente não existem quaisquer dados biomédicos. Verifique mais tarde.</b>
+    </div>
 </div>
 </template>
 <script>
@@ -89,4 +92,10 @@ export default{
 }
 
 </script>
+
+<style>
+  #mainDivBiomedicos {
+   margin: 100px auto;
+  }
+</style>
 

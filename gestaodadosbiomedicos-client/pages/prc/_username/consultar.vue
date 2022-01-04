@@ -2,7 +2,7 @@
   <div v-if="prcUtente == null">
     <h1>Sem Acesso</h1>
   </div>
-  <div v-else-if="prcUtente.duracao != null">
+  <div style="margin: 100px 50px;" v-else-if="prcUtente.duracao != null">
     <b-container>
       <h4>
         Detalhes do Programa de Reabilitação Cardíaca de {{ utente.name }}:
@@ -26,8 +26,7 @@
       <b>Dados biomedicos atuais:</b>
       <div v-if="dadosBiomedicosUtente != null">
         <b-table
-          striped
-          over
+          striped over bordered table-variant="info" head-variant="dark"
           :items="dadosBiomedicosUtente"
           :fields="fieldsDadosBiomedicos"
         >
@@ -47,8 +46,7 @@
       </div>
       <div v-if="prescricoesUtente != null">
         <b-table
-          striped
-          over
+          striped over bordered table-variant="info" head-variant="dark"
           :items="prescricoesUtente"
           :fields="fieldsPrescricao"
         >
@@ -89,6 +87,7 @@ export default {
         "profissionalSaudeUsername",
         "tipoPrescricao",
         "data",
+        "dataValidade",
         "actions",
       ],
     };

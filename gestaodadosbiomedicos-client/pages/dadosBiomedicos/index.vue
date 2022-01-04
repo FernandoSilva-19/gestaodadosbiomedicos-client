@@ -1,13 +1,14 @@
 <template>
   <!-- easy components usage, already shipped with bootstrap css-->
-  <div>
+  <div id="mainDivDadosBiomedicos">
     <b-container>
-      <div v-if="$auth.user.groups == 'Admin'" align="right">
+      <div v-if="$auth.user.groups == 'Admin'" align="left">
       <nuxt-link class="btn btn-success" to="/dadosBiomedicos/create"
       >Criar novo dado biómedico</nuxt-link>
       </div>
+      <br>
       <!-- try to remove :fields=”fields” to see the magic -->
-      <b-table striped over :items="dados" :fields="fields">
+      <b-table striped over bordered table-variant="info" head-variant="dark" :items="dados" :fields="fields">
         <template v-slot:cell(actions)="data">
           <div v-if="$auth.user.groups == 'Admin'">
           <nuxt-link
@@ -21,7 +22,6 @@
           </div>
         </template>
       </b-table>
-      <nuxt-link to="/">Back</nuxt-link>
     </b-container>
   </div>
 </template>
@@ -58,4 +58,8 @@ export default {
   },
 };
 </script>
-<style></style>
+<style>
+  #mainDivDadosBiomedicos {
+   margin: 100px 50px;
+  }
+</style>

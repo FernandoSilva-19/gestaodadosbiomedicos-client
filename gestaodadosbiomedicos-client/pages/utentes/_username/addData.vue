@@ -1,6 +1,5 @@
 <template>
-<div>
-    <h1>Adicionar novos dados no utente</h1>
+<div id="mainDivAddData">
   <form @submit.prevent="add">
      <b-input v-model.trim="altura.valor" :state="isAlturaValid" required
                placeholder="Introduz a tua altura atual (medição: cm)" />
@@ -9,8 +8,8 @@
 
     <p class="text-danger" v-show="errorMsg">{{ errorMsg }}</p>
     <nuxt-link :to="`/utentes/${$auth.user.sub}/data`">Return</nuxt-link>
-    <button type="reset">Reset</button>
-    <button @click.prevent="add">Add</button>
+    <b-button pill variant="dark" size="sm" type="reset">Reset</b-button>
+    <b-button pill variant="dark" size="sm" @click.prevent="add">Add</b-button>
   </form>
 </div>
 </template>
@@ -47,7 +46,7 @@ export default {
         return null
       }
       if (this.altura.valor > this.altura.minimo || this.altura < this.altura.maximo) {
-        return false                             
+        return false
       }
       return true
     },
@@ -56,14 +55,14 @@ export default {
         return null
       }
       if (this.peso.valor > this.peso.minimo || this.peso < this.peso.maximo) {
-        return false                           
-      }                                       
+        return false
+      }
       return true
     },
   },
   methods: {
     add() {
-      this.$axios.$post("/api/observations", { 
+      this.$axios.$post("/api/observations", {
           valor: this.altura.valor,
           phenomenTypeNome: "altura",
           utenteUsername: this.utenteUsername
@@ -72,7 +71,7 @@ export default {
           this.errorMsg = error.response.data
         })
 
-      this.$axios.$post("/api/observations", { 
+      this.$axios.$post("/api/observations", {
           valor: this.peso.valor,
           phenomenTypeNome: "peso",
           utenteUsername: this.utenteUsername
@@ -81,13 +80,13 @@ export default {
           this.errorMsg = error.response.data
         })
 
-      this.$axios.$post("/api/observations", { 
+      this.$axios.$post("/api/observations", {
           valor: this.peso.valor/((this.altura.valor/100)*(this.altura.valor/100)),
           phenomenTypeNome: "imc",
           utenteUsername: this.utenteUsername
         })
         .then(() => {
-          this.$router.push("/utentes/" + this.utenteUsername + "/data");
+          this.$router.push(`"/utentes/"+${this.utenteUsername}+"/data"`);
         })
         .catch(error => {
           this.errorMsg = error.response.data
@@ -96,4 +95,9 @@ export default {
   },
 };
 </script>
+<style>
+  #mainDivAddData {
+   margin: 100px 50px;
+  }
+</style>
 

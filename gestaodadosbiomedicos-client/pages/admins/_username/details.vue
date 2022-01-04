@@ -1,11 +1,9 @@
 <template>
-<div v-if="admin != null">
+<div style="margin: 100px 50px;" v-if="admin != null">
   <b-container>
-    <h4>Detalhes do Administrador:</h4>
     <p>Username: {{ admin.username }}</p>
     <p>Name: {{ admin.name }}</p>
     <p>Email: {{ admin.email }}</p>
-    <nuxt-link to="/admins">Back</nuxt-link>
   </b-container>
   </div>
   <div v-else>

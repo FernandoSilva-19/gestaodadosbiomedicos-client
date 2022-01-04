@@ -22,6 +22,11 @@
         required
         placeholder="Introduz o número de vezes por dia"
       />
+      <b-input
+        v-model="dataValidade"
+        required
+        placeholder="Introduz a data de validade"
+      />
 
       <p class="text-danger" v-show="errorMsg">{{ errorMsg }}</p>
       <nuxt-link :to="`/profissionaisSaude/${$auth.user.sub}/details`"
@@ -40,6 +45,7 @@ export default {
       dose: null,
       tipoPrescricao: "",
       vezesAoDia: null,
+      dataValidade: "",
       errorMsg: false,
     };
   },
@@ -88,7 +94,8 @@ export default {
           tipoPrescricao: this.tipoPrescricao,
           vezesAoDia: this.vezesAoDia,
           utenteUsername: this.username,
-          profissionalSaudeUsername: this.$auth.user.sub
+          profissionalSaudeUsername: this.$auth.user.sub,
+          dataValidade: this.dataValidade
         })
         .then(() => {
           this.$router.push(`/prc/${this.username}/consultar`);

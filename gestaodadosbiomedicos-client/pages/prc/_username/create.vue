@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="margin: 100px 50px;">
     <h1>Programa de reabilitação cardíaca de {{this.username}}</h1>
     <form @submit.prevent="create">
       <b-input
@@ -21,8 +21,8 @@
       <nuxt-link to="/utentes/"
       >Return</nuxt-link
       >
-      <button type="reset">Reset</button>
-      <button @click.prevent="create">Criar Programa</button>
+      <b-button pill variant="dark" size="sm" type="reset">Reset</b-button>
+      <b-button pill variant="dark" size="sm" @click.prevent="create">Criar Programa</b-button>
     </form>
   </div>
 </template>
