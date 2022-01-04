@@ -69,8 +69,7 @@ export default {
         })
         .catch(error => {
           this.errorMsg = error.response.data
-        })
-
+        });
       this.$axios.$post("/api/observations", {
           valor: this.peso.valor,
           phenomenTypeNome: "peso",
@@ -80,30 +79,65 @@ export default {
           this.errorMsg = error.response.data
         })
 
-      this.$axios.$post("/api/observations", {
-          valor: this.peso.valor/((this.altura.valor/100)*(this.altura.valor/100)),
+        if(this.peso.valor/((this.altura.valor/100)*(this.altura.valor/100)) > 50){
+          this.$axios.$post("/api/observations", {
+          valor: 50,
           phenomenTypeNome: "imc",
           utenteUsername: this.utenteUsername
-        })
-        .then(() => {
-          this.$router.push(`"/utentes/"+${this.utenteUsername}+"/data"`);
         })
         .catch(error => {
           this.errorMsg = error.response.data
         })
+        }
+        else{
+        this.$axios.$post("/api/observations", {
+          valor: this.peso.valor/((this.altura.valor/100)*(this.altura.valor/100)),
+          phenomenTypeNome: "imc",
+          utenteUsername: this.utenteUsername
+        })
+        .catch(error => {
+          this.errorMsg = error.response.data
+        })
+        }
 
-      if(this.peso.valor/((this.altura.valor/100)*(this.altura.valor/100)) < 18.5 || this.peso.valor/((this.altura.valor/100)*(this.altura.valor/100)) >= 30){
+      if(this.peso.valor/((this.altura.valor/100)*(this.altura.valor/100)) < 18.5){
+         this.$axios
+        .$post("/api/prescricao/", {
+          nome: "Alimentação reforçada",
+          dose: null,
+          tipoPrescricao: "DESPORTO",
+          vezesAoDia: "3",
+          utenteUsername: this.utenteUsername,
+          profissionalSaudeUsername: "pintassilgo",
+          dataValidade: null
+        })
+        .then(() => {
+          this.$router.push(`/utentes/+${this.utenteUsername}+/data`);
+        })
+        .catch(error => {
+          this.errorMsg = error.response.data
+        })
+      }
+
+      else if(this.peso.valor/((this.altura.valor/100)*(this.altura.valor/100)) >= 30){
       this.$axios
         .$post("/api/prescricao/", {
-          nome: "Ginásio",
+          nome: "Cardio",
           dose: null,
           tipoPrescricao: "DESPORTO",
           vezesAoDia: "1",
           utenteUsername: this.utenteUsername,
-          profissionalSaudeUsername: null,
+          profissionalSaudeUsername: "pintassilgo",
           dataValidade: null
         })
+        .then(() => {
+          this.$router.push(`/utentes/+${this.utenteUsername}+/data`);
+        })
+        .catch(error => {
+          this.errorMsg = error.response.data
+        })
       }
+      this.$router.push(`/utentes/+${this.utenteUsername}+/data`);
     },
   },
 };

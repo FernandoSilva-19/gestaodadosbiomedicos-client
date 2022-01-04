@@ -11,7 +11,7 @@
       </b-select>
 
       <p class="text-danger" v-show="errorMsg">{{ errorMsg }}</p>
-      <nuxt-link to="/profissionaisSaude">Return</nuxt-link>
+      <nuxt-link to="/utentes">Return</nuxt-link>
       <button @click.prevent="remover">Remover</button>
     </form>
   </div>

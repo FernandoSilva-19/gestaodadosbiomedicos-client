@@ -1,5 +1,5 @@
 <template>
-<div style="margin: 100px 50px;" v-if="admin != null">
+<div style="margin: 100px 50px;" v-if="$auth.user.groups == 'Admin'">
   <b-container>
     <p>Username: {{ admin.username }}</p>
     <p>Name: {{ admin.name }}</p>
