@@ -5,6 +5,9 @@
     <p>Name: {{ utente.name }}</p>
     <p>Email: {{ utente.email }}</p>
     <p>Profissional de Saúde: {{ utente.profissionalSaudeUsername }}</p>
+    <div v-if="$auth.user.groups == 'Admin'">
+              <nuxt-link to="/utentes">Return</nuxt-link>
+    </div>
     <nuxt-link
       class="btn btn-primary btn-sm"
       :to="`/utentes/${utente.username}/edit`"

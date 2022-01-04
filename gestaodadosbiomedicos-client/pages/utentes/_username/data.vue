@@ -54,16 +54,15 @@ export default {
 
     this.$axios
       .$get(`/api/observations/${this.$auth.user.sub}/imc/latest`)
-      .then((imc) => (this.imc = imc || {}))
-      .catch((err) =>{
-        if(err.response.status==404) this.calculateIMC()
+      .then((imc) => {
+        this.imc = imc
+        if(this.imc.valor < 18.5) this.classificacao = "Abaixo do peso"
+        else if(this.imc.valor < 25) this.classificacao = "Peso normal"
+        else if(this.imc.valor < 30) this.classificacao = "Acima do peso"
+        else if(this.imc.valor < 35) this.classificacao = "Obesidade classe I"
+        else if(this.imc.valor < 40) this.classificacao = "Obesidade classe II"
+        else if(this.imc.valor >= 40) this.classificacao = "Obesidade classe III"
       })
-  },
-  methods:{
-    calculateIMC(){ // ver depois
-      Object.keys(this.altura).length === 0 && Object.keys(this.peso).length === 0? 
-        this.imc = this.peso.valor/((this.altura.valor/100)*(this.altura.valor/100)) : this.imc = {}
-    }
   }
 }
 </script>

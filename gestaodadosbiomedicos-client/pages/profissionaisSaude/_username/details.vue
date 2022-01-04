@@ -6,12 +6,11 @@
     <p>Email: {{ profissionalSaude.email }}</p>
     <p>Tipo: {{ profissionalSaude.tipo }}</p>
         <div align="left">
-    <nuxt-link
+            <nuxt-link
             class="btn btn-primary btn-sm"
             :to="`/profissionaisSaude/${this.username}/edit`"
-            >Editar</nuxt-link
-          >
-          </div>
+            >Editar</nuxt-link>
+        </div>
   </b-container>
   </div>
   <div v-else><h1>Sem acesso</h1></div>

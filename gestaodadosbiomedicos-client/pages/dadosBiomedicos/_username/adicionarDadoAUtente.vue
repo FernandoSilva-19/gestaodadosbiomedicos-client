@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>Atribuir Dado biomédico a {{ utente.name }}</h1>
+  <div style="margin: 100px 50px;">
+    <h1>Atribuir Dado biomédico a {{ username }}</h1>
     <form @submit.prevent="atribuir">
       <b-select v-model="option">
          <template v-slot:first>
@@ -15,8 +15,14 @@
         <b-input v-model="valor" required
                placeholder="Valor (dentro dos limites)" />
       <p class="text-danger" v-show="errorMsg">{{ errorMsg }}</p>
-      <nuxt-link to="/profissionaisSaude">Return</nuxt-link>
-      <button @click.prevent="atribuir">Atribuir</button>
+      <div v-if="$auth.user.groups == 'Admin'">
+              <nuxt-link to="/profissionaisSaude">Return</nuxt-link>
+      </div>
+      <div v-else>
+            <nuxt-link to="/utentes">Return</nuxt-link>
+      </div>
+
+      <b-button pill variant="dark" size="sm" @click.prevent="atribuir">Atribuir</b-button>
     </form>
   </div>
 </template>
@@ -24,7 +30,6 @@
 export default {
   data() {
     return {
-      utente: {},
       valor: null,
       option: null,
             options: [],
