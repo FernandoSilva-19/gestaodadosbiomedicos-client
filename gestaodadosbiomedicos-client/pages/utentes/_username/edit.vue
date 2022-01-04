@@ -18,19 +18,6 @@
         :state="isEmailValid"
         required
       />
-      <div v-if="$auth.user.groups == 'Admin'">
-      <b-select v-model="utente.profissionalSaudeUsername">
-
-        <template v-for="profissionalSaudeUsername in profissionaisSaude">
-          <option
-            :key="profissionalSaudeUsername.username"
-            :value="profissionalSaudeUsername.username"
-          >
-            {{ profissionalSaudeUsername.name }}
-          </option>
-        </template>
-      </b-select>
-      </div>
       <p class="text-danger" v-show="errorMsg">{{ errorMsg }}</p>
       <nuxt-link :to="this.return">Return</nuxt-link>
       <b-button pill variant="dark" size="sm" type="reset">Reset</b-button>

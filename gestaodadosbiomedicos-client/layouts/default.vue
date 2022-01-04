@@ -45,9 +45,9 @@
             </li>
             <b-dropdown-item @click.prevent="signOut">Sign Out</b-dropdown-item>
           </b-nav-item-dropdown>
-          <li class="nav-item" v-else>
-            <nuxt-link class="nav-link" to="/auth/login">Sign In</nuxt-link>
-          </li>
+          <div class="nav-item" v-else>
+            <nuxt-link class="nav-link" to="/auth/register">Sign In</nuxt-link>
+          </div>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
