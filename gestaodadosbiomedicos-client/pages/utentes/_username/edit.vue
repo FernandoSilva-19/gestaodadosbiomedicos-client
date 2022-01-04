@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <h1>Editar Utente</h1>
+  <div id="mainDivEdit" v-if="utente != null">
     <form @submit.prevent="edit">
       <b-input
         v-model="utente.password"
@@ -19,23 +18,14 @@
         :state="isEmailValid"
         required
       />
-      <b-select v-model="utente.profissionalSaudeUsername">
-
-        <template v-for="profissionalSaudeUsername in profissionaisSaude">
-          <option
-            :key="profissionalSaudeUsername.username"
-            :value="profissionalSaudeUsername.username"
-          >
-            {{ profissionalSaudeUsername.name }}
-          </option>
-        </template>
-      </b-select>
-
       <p class="text-danger" v-show="errorMsg">{{ errorMsg }}</p>
-      <nuxt-link to="/utentes">Return</nuxt-link>
-      <button type="reset">Reset</button>
-      <button @click.prevent="edit(utente)">Edit</button>
+      <nuxt-link :to="this.return">Return</nuxt-link>
+      <b-button pill variant="dark" size="sm" type="reset">Reset</b-button>
+      <b-button pill variant="dark" size="sm" @click.prevent="edit(utente)">Edit</b-button>
     </form>
+  </div>
+  <div v-else>
+    <h1>Sem acesso</h1>
   </div>
 </template>
 <script>
@@ -44,13 +34,15 @@ export default {
     return {
       utente: {},
       profissionaisSaude: [],
+      return: ""
     };
   },
   created() {
+    this.$auth.user.sub == this.username ? this.return = "/utentes/" + this.$auth.user.sub + "/details" : this.return = "/utentes"
     this.$axios
       .$get(`/api/utentes/${this.username}`)
-      .then((utente) => (this.utente = utente || {})),
-      this.$axios.$get('api/profissionaisSaude').then(profissionaisSaude => { this.profissionaisSaude = profissionaisSaude
+      .then((utente) => (this.utente = utente || null)),
+      this.$axios.$get('api/profissionaisSaude').then(profissionaisSaude => { this.profissionaisSaude = profissionaisSaude || null
     })
   },
   computed: {
@@ -124,7 +116,7 @@ export default {
           profissionalSaudeUsername: utente.profissionalSaudeUsername,
         })
         .then(() => {
-          this.$router.push("/utentes");
+            this.$router.push("/utentes/");
         })
         .catch((error) => {
           this.errorMsg = error.response.data;
@@ -135,4 +127,8 @@ export default {
   },
 };
 </script>
-
+<style>
+  #mainDivEdit {
+   margin: 100px 50px;
+  }
+</style>

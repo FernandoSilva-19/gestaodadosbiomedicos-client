@@ -1,6 +1,8 @@
 <template>
   <div>
     <h1>Receitar prescrição</h1>
+    <p>Tipo de prescrição: {{this.tipoPrescricao}}</p>
+    
     <form @submit.prevent="create">
       <b-input
         v-model="nome"
@@ -9,6 +11,7 @@
         placeholder="Introduz o nome"
       />
       <b-input
+        v-if="tipoPrescricao == 'MEDICAMENTO'"
         v-model="dose"
         :state="isDoseValid"
         placeholder="Introduz a dose (se aplicável)"
@@ -18,6 +21,11 @@
         :state="isVezesAoDiaValid"
         required
         placeholder="Introduz o número de vezes por dia"
+      />
+      <b-input
+        v-model="dataValidade"
+        required
+        placeholder="Introduz a data de validade"
       />
 
       <p class="text-danger" v-show="errorMsg">{{ errorMsg }}</p>
@@ -35,9 +43,15 @@ export default {
     return {
       nome: null,
       dose: null,
+      tipoPrescricao: "",
       vezesAoDia: null,
+      dataValidade: "",
       errorMsg: false,
     };
+  },
+  created(){
+    this.$axios.get(`/api/profissionaisSaude/${this.$auth.user.sub}`)
+    .then((profissionalSaude) => profissionalSaude.data.tipo == 'NUTRICIONISTA'? this.tipoPrescricao = "DESPORTO" : this.tipoPrescricao = "MEDICAMENTO")
   },
   computed: {
     username() {
@@ -77,11 +91,14 @@ export default {
         .$post("/api/prescricao/", {
           nome: this.nome,
           dose: this.dose,
+          tipoPrescricao: this.tipoPrescricao,
           vezesAoDia: this.vezesAoDia,
           utenteUsername: this.username,
+          profissionalSaudeUsername: this.$auth.user.sub,
+          dataValidade: this.dataValidade
         })
         .then(() => {
-          this.$router.push(`/profissionaisSaude/`);
+          this.$router.push(`/prc/${this.username}/consultar`);
         })
         .catch((error) => {
           this.errorMsg = error.response.data;

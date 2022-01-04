@@ -1,5 +1,5 @@
 <template>
-<div>
+<div style="margin: 150px 50px;" v-if="admin != null">
     <h1>Editar Admin</h1>
   <form @submit.prevent="edit">
       <b-input v-model="admin.password" :state="isPasswordValid" required
@@ -11,9 +11,12 @@
 
     <p class="text-danger" v-show="errorMsg">{{ errorMsg }}</p>
     <nuxt-link to="/admins">Return</nuxt-link>
-    <button type="reset">Reset</button>
-    <button @click.prevent="edit(admin)">Edit</button>
+    <b-button pill variant="dark" size="sm" type="reset">Reset</b-button>
+    <b-button pill variant="dark" size="sm" @click.prevent="edit(admin)">Edit</b-button>
   </form>
+</div>
+ <div v-else>
+  <h1>Sem Acesso</h1>
 </div>
 </template>
 <script>
@@ -27,7 +30,7 @@ export default {
   created() {
     this.$axios
       .$get(`/api/admins/${this.username}`)
-      .then((admin) => (this.admin = admin || {}))
+      .then((admin) => (this.admin = admin || null))
   },
   computed: {
     username() {

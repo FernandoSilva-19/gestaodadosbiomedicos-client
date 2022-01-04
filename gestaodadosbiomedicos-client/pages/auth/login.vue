@@ -1,5 +1,9 @@
 <template>
-  <b-container>
+<div v-if="$auth.loggedIn">
+  <h1>Sem Acesso</h1>
+</div>
+<div v-else>
+  <b-container style="margin: 100px auto;">
     <h3>Login into Gestão Dados Biomédicos</h3>
     <b-form @submit.prevent="onSubmit" @reset="onReset">
       <b-form-group label="Username" description="Enter your username">
@@ -19,10 +23,13 @@
           required
         />
       </b-form-group>
-      <b-button type="reset" class="btn-warning">Reset</b-button>
-      <b-button type="submit" class="btn-success">Submit</b-button>
+      <b-button type="reset" class="btn-warning btn-sm">Reset</b-button>
+      <b-button type="submit" class="btn-success btn-sm">Login</b-button>
+     <!--  <nuxt-link class="btn btn-primary btn-sm" to="/utentes/create"
+      >Criar conta</nuxt-link> -->
     </b-form>
   </b-container>
+  </div>
 </template>
 <script>
 export default {

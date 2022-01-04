@@ -1,28 +1,19 @@
 <template>
-<div>
-    <h1>Dados do utente '{{utente.username}}'</h1>
-    <p>Altura: {{ dados.altura? dados.altura+" cm" : "DESCONHECIDO"}}</p>
-    <p>Peso: {{ dados.peso? dados.peso+" KG" : "DESCONHECIDO"}}</p>
+<div id="mainDivData">
+    <p>Altura: {{ altura? altura.valor+" cm" : "DESCONHECIDO"}}</p>
+    <p>Peso: {{ peso? peso.valor+" KG" : "DESCONHECIDO"}}</p>
+    <p>IMC: {{ imc? imc.valor+" KG/m^2" : "DESCONHECIDO"}}</p>
+    <p>Classificação do IMC: {{ imc? classificacao : "DESCONHECIDO"}}</p>
     <hr>
     <nuxt-link
       class="btn btn-primary"
       :to="`/utentes/${$auth.user.sub}/addData`"
-    >Adicionar novos dados</nuxt-link>
+    >Atualizar peso e altura</nuxt-link>
     <nuxt-link
       :class="graphEnabled? 'btn btn-primary' : 'btn btn-danger'"
       :event="graphEnabled? 'click' : ''"
       :to="`/utentes/${$auth.user.sub}/datagraph`"
     >Gráfico</nuxt-link>
-    <nuxt-link
-      :class="graphEnabled? 'btn btn-primary' : 'btn btn-danger'"
-      :event="graphEnabled? 'click' : ''"
-      :to="`/utentes/${$auth.user.sub}/datahistory`"
-    >Histórico de dados</nuxt-link>
-    <nuxt-link
-      :class="graphEnabled? 'btn btn-primary' : 'btn btn-danger'"
-      :event="graphEnabled? 'click' : ''"
-      :to="`/utentes/${$auth.user.sub}/prescricaohistory`"
-    >Histórico de prescricoes</nuxt-link>
 </div>
 </template>
 <script>
@@ -30,7 +21,10 @@ export default {
   data() {
     return {
       utente: {},
-      dados: {},
+      altura: {},
+      peso: {},
+      imc: {},
+      classificacao: "",
       graphEnabled: true
     };
   },
@@ -45,12 +39,35 @@ export default {
       .then((utente) => (this.utente = utente || {}))
 
     this.$axios
-      .$get(`/api/dadosutente/${this.$auth.user.sub}/latest`)
-      .then((dados) => this.dados = dados)
+      .$get(`/api/observations/${this.$auth.user.sub}/altura/latest`)
+      .then((altura) => (this.altura = altura || {}))
       .catch((err) => {
         if(err.response.status==404) this.graphEnabled = false
       })
-  },
-};
-</script>
 
+    this.$axios
+      .$get(`/api/observations/${this.$auth.user.sub}/peso/latest`)
+      .then((peso) => (this.peso = peso || {}))
+      .catch((err) => {
+        if(err.response.status==404) this.graphEnabled = false
+      })
+
+    this.$axios
+      .$get(`/api/observations/${this.$auth.user.sub}/imc/latest`)
+      .then((imc) => {
+        this.imc = imc
+        if(this.imc.valor < 18.5) this.classificacao = "Abaixo do peso"
+        else if(this.imc.valor < 25) this.classificacao = "Peso normal"
+        else if(this.imc.valor < 30) this.classificacao = "Acima do peso"
+        else if(this.imc.valor < 35) this.classificacao = "Obesidade classe I"
+        else if(this.imc.valor < 40) this.classificacao = "Obesidade classe II"
+        else if(this.imc.valor >= 40) this.classificacao = "Obesidade classe III"
+      })
+  }
+}
+</script>
+<style>
+  #mainDivData {
+   margin: 100px 50px;
+  }
+</style>

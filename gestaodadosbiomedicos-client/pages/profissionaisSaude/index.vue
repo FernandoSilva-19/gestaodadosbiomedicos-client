@@ -1,12 +1,12 @@
 <template>
-  <!-- easy components usage, already shipped with bootstrap css-->
-  <div>
+  <div id="mainDivProfissionaisSaude">
+    <div v-if="profissionaisSaude != null">
   <b-container>
-    <div v-if=" $auth.user.groups == 'Admin'">
+    <div v-if=" $auth.user.groups == 'Admin'" align="left">
      <nuxt-link class="btn btn-success" to="/profissionaisSaude/create">Criar novo profissional de saúde</nuxt-link>
      </div>
-    <!-- try to remove :fields=”fields” to see the magic -->
-    <b-table striped over :items="profissionaisSaude" :fields="fields">
+    <br>
+    <b-table striped over bordered table-variant="info" head-variant="dark" :items="profissionaisSaude" :fields="fields">
       <template v-slot:cell(actions)="data">
           <div v-if=" $auth.user.groups == 'Admin' || $auth.user.sub == data.item.username">
           <nuxt-link
@@ -27,8 +27,12 @@
           </div>
       </template>
     </b-table>
-     <nuxt-link to="/">Back</nuxt-link>
   </b-container>
+  </div>
+  <div v-else>
+    <h1>Sem Acesso</h1>
+  </div>
+
   </div>
 </template>
 <script>
@@ -41,7 +45,7 @@ export default {
     };
   },
   created() {
-    this.$axios.$get('/api/profissionaisSaude').then((profissionaisSaude) => { this.profissionaisSaude = profissionaisSaude })
+    this.$axios.$get('/api/profissionaisSaude').then((profissionaisSaude) => { this.profissionaisSaude = profissionaisSaude || null })
   },
   methods: {
     edit(data){
@@ -62,4 +66,9 @@ export default {
 
 };
 </script>
-<style></style>
+<style>
+  #mainDivProfissionaisSaude {
+   margin: 100px 50px;
+  }
+</style>
+

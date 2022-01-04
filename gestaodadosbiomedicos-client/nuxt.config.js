@@ -56,7 +56,8 @@ export default {
     redirect: {
       login: '/auth/login',
       logout: '/',
-      home: '/'
+      home: '/',
+      register: '/auth/register'
     },
     watchLoggedIn: true,
     strategies: {
@@ -72,6 +73,10 @@ export default {
           url: '/api/auth/user',
           method: 'get',
           propertyName: ''
+        },
+        register:{
+          url: '/api/auth/register',
+          method: 'post',
         }
       },
       // tokenRequired: true, -> default

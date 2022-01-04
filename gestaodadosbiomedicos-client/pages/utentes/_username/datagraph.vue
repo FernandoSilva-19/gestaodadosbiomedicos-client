@@ -1,11 +1,10 @@
 <template>
 <div>
-    <h1>Gráfico dos dados</h1>
-    <p>Os valores no eixo yy representam a altura(em 'cm') e o peso(em 'kg')</p>
-    <nuxt-link :to="`/utentes/${$auth.user.sub}/data`">Back</nuxt-link>
     <div class="small">
         <LineChart :chartData="datacollection"/>
     </div>
+    <p style="textAlign: center">Os valores no eixo yy representam a altura(em 'cm') e o peso(em 'kg')</p>
+    <nuxt-link :to="`/utentes/${$auth.user.sub}/data`">Return</nuxt-link>
 </div>
 </template>
 <script>
@@ -23,6 +22,16 @@ export default{
         this.fillData()
     },
     methods:{
+        arrayUnique(array) {
+            var a = array.concat();
+            for(var i=0; i<a.length; ++i) {
+                for(var j=i+1; j<a.length; ++j) {
+                    if(a[i] === a[j])
+                        a.splice(j--, 1);
+                }
+            }
+            return a;
+        },
         getFields(input, field) {
             var output = [];
             for (var i=0; i < input.length ; ++i)
@@ -30,24 +39,29 @@ export default{
             return output;
         },
         fillData(){
-            this.$axios
-                .$get(`/api/dadosutente/${this.$auth.user.sub}`)
-                .then((dados) => {
-                    this.datacollection = {
-                        labels: this.getFields(dados,"date"),
+            Promise.all([
+                fetch(`/api/observations/${this.$auth.user.sub}/altura`),
+                fetch(`/api/observations/${this.$auth.user.sub}/peso`)
+            ]).then(async([altura,peso]) =>{
+                const alturaJSON = await altura.json();
+                const pesoJSON = await peso.json();
+
+                this.datacollection = {
+                        labels: this.arrayUnique(this.getFields(alturaJSON,"date").concat(this.getFields(pesoJSON,"date"))),
                         datasets: [
                             {
                             label: 'Altura',
                             backgroundColor: '#4bcc96',
-                            data: this.getFields(dados,"altura")
-                            }, {
+                            data: this.getFields(alturaJSON,"valor")
+                            },
+                            {
                             label: 'Peso',
                             backgroundColor: '#f87979',
-                            data: this.getFields(dados,"peso")
+                            data: this.getFields(pesoJSON,"valor")
                             }
                         ]
                     }
-                })
+            })
         }
     }
 }

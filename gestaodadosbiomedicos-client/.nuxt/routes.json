@@ -2,183 +2,190 @@
   {
     "name": "admins",
     "path": "/admins",
-    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/admins/index.vue",
+    "component": "C:\\\\Users\\\\danie\\\\GitHub\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\admins\\\\index.vue",
     "chunkName": "pages/admins/index",
-    "_name": "_376c7cea"
+    "_name": "_6a790107"
   },
   {
     "name": "dadosBiomedicos",
     "path": "/dadosBiomedicos",
-    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/dadosBiomedicos/index.vue",
+    "component": "C:\\\\Users\\\\danie\\\\GitHub\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\dadosBiomedicos\\\\index.vue",
     "chunkName": "pages/dadosBiomedicos/index",
-    "_name": "_745d6086"
+    "_name": "_2100e9fc"
   },
   {
     "name": "profissionaisSaude",
     "path": "/profissionaisSaude",
-    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/profissionaisSaude/index.vue",
+    "component": "C:\\\\Users\\\\danie\\\\GitHub\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\profissionaisSaude\\\\index.vue",
     "chunkName": "pages/profissionaisSaude/index",
-    "_name": "_6e6f408a"
+    "_name": "_47acc656"
   },
   {
     "name": "utentes",
     "path": "/utentes",
-    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/utentes/index.vue",
+    "component": "C:\\\\Users\\\\danie\\\\GitHub\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\utentes\\\\index.vue",
     "chunkName": "pages/utentes/index",
-    "_name": "_22e7706c"
+    "_name": "_60bda78f"
   },
   {
     "name": "admins-create",
     "path": "/admins/create",
-    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/admins/create.vue",
+    "component": "C:\\\\Users\\\\danie\\\\GitHub\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\admins\\\\create.vue",
     "chunkName": "pages/admins/create",
-    "_name": "_445129d8"
+    "_name": "_0c5b6a97"
   },
   {
     "name": "auth-login",
     "path": "/auth/login",
-    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/auth/login.vue",
+    "component": "C:\\\\Users\\\\danie\\\\GitHub\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\auth\\\\login.vue",
     "chunkName": "pages/auth/login",
-    "_name": "_0aab1065"
+    "_name": "_6584598c"
   },
   {
     "name": "dadosBiomedicos-create",
     "path": "/dadosBiomedicos/create",
-    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/dadosBiomedicos/create.vue",
+    "component": "C:\\\\Users\\\\danie\\\\GitHub\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\dadosBiomedicos\\\\create.vue",
     "chunkName": "pages/dadosBiomedicos/create",
-    "_name": "_1c0cf2a1"
+    "_name": "_26d0a042"
   },
   {
     "name": "profissionaisSaude-create",
     "path": "/profissionaisSaude/create",
-    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/profissionaisSaude/create.vue",
+    "component": "C:\\\\Users\\\\danie\\\\GitHub\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\profissionaisSaude\\\\create.vue",
     "chunkName": "pages/profissionaisSaude/create",
-    "_name": "_77f7e263"
+    "_name": "_54bf61b0"
   },
   {
     "name": "utentes-create",
     "path": "/utentes/create",
-    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/utentes/create.vue",
+    "component": "C:\\\\Users\\\\danie\\\\GitHub\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\utentes\\\\create.vue",
     "chunkName": "pages/utentes/create",
-    "_name": "_0ab0fc34"
+    "_name": "_42a8d5e2"
   },
   {
     "name": "admins-username-details",
     "path": "/admins/:username/details",
-    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/admins/_username/details.vue",
+    "component": "C:\\\\Users\\\\danie\\\\GitHub\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\admins\\\\_username\\\\details.vue",
     "chunkName": "pages/admins/_username/details",
-    "_name": "_508c8500"
+    "_name": "_176244c8"
   },
   {
     "name": "admins-username-edit",
     "path": "/admins/:username/edit",
-    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/admins/_username/edit.vue",
+    "component": "C:\\\\Users\\\\danie\\\\GitHub\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\admins\\\\_username\\\\edit.vue",
     "chunkName": "pages/admins/_username/edit",
-    "_name": "_b95c5888"
+    "_name": "_6fdfd174"
   },
   {
-    "name": "dadosBiomedicos-id-edit",
-    "path": "/dadosBiomedicos/:id/edit",
-    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/dadosBiomedicos/_id/edit.vue",
-    "chunkName": "pages/dadosBiomedicos/_id/edit",
-    "_name": "_217cba24"
+    "name": "dadosBiomedicos-nome-edit",
+    "path": "/dadosBiomedicos/:nome/edit",
+    "component": "C:\\\\Users\\\\danie\\\\GitHub\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\dadosBiomedicos\\\\_nome\\\\edit.vue",
+    "chunkName": "pages/dadosBiomedicos/_nome/edit",
+    "_name": "_6bc089a8"
   },
   {
     "name": "dadosBiomedicos-username-adicionarDadoAUtente",
     "path": "/dadosBiomedicos/:username/adicionarDadoAUtente",
-    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/dadosBiomedicos/_username/adicionarDadoAUtente.vue",
+    "component": "C:\\\\Users\\\\danie\\\\GitHub\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\dadosBiomedicos\\\\_username\\\\adicionarDadoAUtente.vue",
     "chunkName": "pages/dadosBiomedicos/_username/adicionarDadoAUtente",
-    "_name": "_18d6e8d6"
+    "_name": "_707fcd16"
   },
   {
     "name": "dadosBiomedicos-username-removerDadoAUtente",
     "path": "/dadosBiomedicos/:username/removerDadoAUtente",
-    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/dadosBiomedicos/_username/removerDadoAUtente.vue",
+    "component": "C:\\\\Users\\\\danie\\\\GitHub\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\dadosBiomedicos\\\\_username\\\\removerDadoAUtente.vue",
     "chunkName": "pages/dadosBiomedicos/_username/removerDadoAUtente",
-    "_name": "_3647e683"
+    "_name": "_11bd6c63"
+  },
+  {
+    "name": "prc-username-consultar",
+    "path": "/prc/:username?/consultar",
+    "component": "C:\\\\Users\\\\danie\\\\GitHub\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\prc\\\\_username\\\\consultar.vue",
+    "chunkName": "pages/prc/_username/consultar",
+    "_name": "_839f883c"
+  },
+  {
+    "name": "prc-username-create",
+    "path": "/prc/:username?/create",
+    "component": "C:\\\\Users\\\\danie\\\\GitHub\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\prc\\\\_username\\\\create.vue",
+    "chunkName": "pages/prc/_username/create",
+    "_name": "_671d9a07"
   },
   {
     "name": "prescricao-username-receitar",
     "path": "/prescricao/:username?/receitar",
-    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/prescricao/_username/receitar.vue",
+    "component": "C:\\\\Users\\\\danie\\\\GitHub\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\prescricao\\\\_username\\\\receitar.vue",
     "chunkName": "pages/prescricao/_username/receitar",
-    "_name": "_8cb42340"
+    "_name": "_4effe250"
   },
   {
     "name": "profissionaisSaude-username-details",
     "path": "/profissionaisSaude/:username/details",
-    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/profissionaisSaude/_username/details.vue",
+    "component": "C:\\\\Users\\\\danie\\\\GitHub\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\profissionaisSaude\\\\_username\\\\details.vue",
     "chunkName": "pages/profissionaisSaude/_username/details",
-    "_name": "_c56a225e"
+    "_name": "_36b0504e"
   },
   {
     "name": "profissionaisSaude-username-edit",
     "path": "/profissionaisSaude/:username/edit",
-    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/profissionaisSaude/_username/edit.vue",
+    "component": "C:\\\\Users\\\\danie\\\\GitHub\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\profissionaisSaude\\\\_username\\\\edit.vue",
     "chunkName": "pages/profissionaisSaude/_username/edit",
-    "_name": "_a3ace7ea"
-  },
-  {
-    "name": "profissionaisSaude-username-prescricaohistory",
-    "path": "/profissionaisSaude/:username/prescricaohistory",
-    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/profissionaisSaude/_username/prescricaohistory.vue",
-    "chunkName": "pages/profissionaisSaude/_username/prescricaohistory",
-    "_name": "_da3079c8"
+    "_name": "_cd16fffa"
   },
   {
     "name": "utentes-username-addData",
     "path": "/utentes/:username/addData",
-    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/utentes/_username/addData.vue",
+    "component": "C:\\\\Users\\\\danie\\\\GitHub\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\utentes\\\\_username\\\\addData.vue",
     "chunkName": "pages/utentes/_username/addData",
-    "_name": "_d05224ee"
+    "_name": "_30359f2e"
   },
   {
     "name": "utentes-username-data",
     "path": "/utentes/:username/data",
-    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/utentes/_username/data.vue",
+    "component": "C:\\\\Users\\\\danie\\\\GitHub\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\utentes\\\\_username\\\\data.vue",
     "chunkName": "pages/utentes/_username/data",
-    "_name": "_3dbdf67c"
+    "_name": "_5c9cc0c8"
   },
   {
     "name": "utentes-username-datagraph",
     "path": "/utentes/:username/datagraph",
-    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/utentes/_username/datagraph.vue",
+    "component": "C:\\\\Users\\\\danie\\\\GitHub\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\utentes\\\\_username\\\\datagraph.vue",
     "chunkName": "pages/utentes/_username/datagraph",
-    "_name": "_7314b0fc"
+    "_name": "_4bfeb262"
   },
   {
     "name": "utentes-username-datahistory",
     "path": "/utentes/:username/datahistory",
-    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/utentes/_username/datahistory.vue",
+    "component": "C:\\\\Users\\\\danie\\\\GitHub\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\utentes\\\\_username\\\\datahistory.vue",
     "chunkName": "pages/utentes/_username/datahistory",
-    "_name": "_1ea4fe70"
+    "_name": "_381f53a8"
   },
   {
     "name": "utentes-username-details",
     "path": "/utentes/:username/details",
-    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/utentes/_username/details.vue",
+    "component": "C:\\\\Users\\\\danie\\\\GitHub\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\utentes\\\\_username\\\\details.vue",
     "chunkName": "pages/utentes/_username/details",
-    "_name": "_23bf8f40"
+    "_name": "_3e2e7b40"
   },
   {
     "name": "utentes-username-edit",
     "path": "/utentes/:username/edit",
-    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/utentes/_username/edit.vue",
+    "component": "C:\\\\Users\\\\danie\\\\GitHub\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\utentes\\\\_username\\\\edit.vue",
     "chunkName": "pages/utentes/_username/edit",
-    "_name": "_329844dc"
+    "_name": "_72e82408"
   },
   {
     "name": "utentes-username-prescricaohistory",
     "path": "/utentes/:username/prescricaohistory",
-    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/utentes/_username/prescricaohistory.vue",
+    "component": "C:\\\\Users\\\\danie\\\\GitHub\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\utentes\\\\_username\\\\prescricaohistory.vue",
     "chunkName": "pages/utentes/_username/prescricaohistory",
-    "_name": "_0035a5eb"
+    "_name": "_54f5d0cb"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "/home/rxcas/Documents/uni/dae/projeto/gestaodadosbiomedicos-client/gestaodadosbiomedicos-client/pages/index.vue",
+    "component": "C:\\\\Users\\\\danie\\\\GitHub\\\\gestaodadosbiomedicos-client\\\\gestaodadosbiomedicos-client\\\\pages\\\\index.vue",
     "chunkName": "pages/index",
-    "_name": "_5acbdcff"
+    "_name": "_75bf01ea"
   }
 ]

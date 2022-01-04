@@ -1,13 +1,13 @@
 <template>
   <!-- easy components usage, already shipped with bootstrap css-->
-  <div>
+  <div style="margin: 100px 50px;" v-if="utentes != null">
     <b-container>
-      <div v-if="$auth.user.groups == 'Admin' || $auth.user.groups == 'ProfissionalSaude'">
+      <div v-if="$auth.user.groups == 'Admin' || $auth.user.groups == ''" align="left">
       <nuxt-link class="btn btn-success" to="utentes/create"
       >Criar novo utente</nuxt-link>
       </div>
-      <!-- try to remove :fields=”fields” to see the magic -->
-      <b-table striped over :items="utentes" :fields="fields">
+      <br>
+      <b-table striped over bordered table-variant="info" head-variant="dark" :items="utentes" :fields="fields">
         <template v-slot:cell(actions)="data">
           <div v-if="$auth.user.groups == 'Admin' || $auth.user.sub == data.item.username || $auth.user.sub == data.item.profissionalSaudeUsername">
           <nuxt-link
@@ -23,13 +23,33 @@
             >Editar</nuxt-link
           >
           </div>
+          <div v-if="$auth.user.groups == 'ProfissionalSaude'">
+          <nuxt-link
+            class="btn btn-primary btn-sm"  :to="`/dadosBiomedicos/${data.item.username}/adicionarDadoAUtente`">
+            Adicionar Dado Biomédico</nuxt-link
+          >
+          <nuxt-link
+            class="btn btn-danger btn-sm"  :to="`/dadosBiomedicos/${data.item.username}/RemoverDadoAUtente`">
+            Remover Dado Biomédico</nuxt-link
+          >
+          <nuxt-link
+            class="btn btn-primary btn-sm"  :to="`/prc/${data.item.username}/create`">
+            Criar PRC</nuxt-link
+          >
+           <nuxt-link
+            class="btn btn-secondary btn-sm"  :to="`/prc/${data.item.username}/consultar`">
+            Consultar PRC</nuxt-link
+          >
+          </div>
           <div v-if="$auth.user.groups == 'Admin'">
           <b-button class="btn btn-danger btn-sm" @click="remove(data.item.username)">Eliminar</b-button>
           </div>
         </template>
       </b-table>
-      <nuxt-link to="/">Back</nuxt-link>
     </b-container>
+  </div>
+  <div v-else>
+    <h1>Sem acesso</h1>
   </div>
 </template>
 <script>
@@ -40,7 +60,6 @@ export default {
         "username",
         "name",
         "email",
-        "profissionalSaudeUsername",
         "actions",
       ],
       utentes: [],
@@ -59,7 +78,7 @@ export default {
   },
   created() {
     this.$axios.$get("/api/utentes").then((utentes) => {
-      this.utentes = utentes;
+      this.utentes = utentes || null
     });
     //this.$axios.$get("http://localhost:8080/gestaodadosbiomedicos/api/utentes");
   },

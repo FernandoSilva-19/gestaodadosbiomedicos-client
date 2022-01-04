@@ -1,23 +1,28 @@
 <template>
-  <div>
-    <h1>Atribuir Dado biomédico a {{ utente.name }}</h1>
+  <div style="margin: 100px 50px;">
+    <h1>Atribuir Dado biomédico a {{ username }}</h1>
     <form @submit.prevent="atribuir">
-      <b-select v-model="dado">
+      <b-select v-model="option">
          <template v-slot:first>
-        <option :value="null" disabled>-- Selecione o dado biomédico --</option>
+        <option :value="null" disabled>-- Selecione o dado --</option>
       </template>
-        <template v-for="dado in dadosBiomedicos">
-              <option :key="dado.id" :value="dado.id">
-              {{ dado.tipo }}
-               <p>--- Limites -> {{dado.limiteMinimo}} / {{dado.limiteMaximo}}</p>
+        <template v-for="option in options">
+              <option :key="option" :value="option">
+              {{ option.nome }} -- De {{ option.valorMinimo }} a {{ option.valorMaximo }}({{ option.unidade }})
             </option>
         </template>
       </b-select>
         <b-input v-model="valor" required
                placeholder="Valor (dentro dos limites)" />
       <p class="text-danger" v-show="errorMsg">{{ errorMsg }}</p>
-      <nuxt-link to="/profissionaisSaude">Return</nuxt-link>
-      <button @click.prevent="atribuir">Atribuir</button>
+      <div v-if="$auth.user.groups == 'Admin'">
+              <nuxt-link to="/profissionaisSaude">Return</nuxt-link>
+      </div>
+      <div v-else>
+            <nuxt-link to="/utentes">Return</nuxt-link>
+      </div>
+
+      <b-button pill variant="dark" size="sm" @click.prevent="atribuir">Atribuir</b-button>
     </form>
   </div>
 </template>
@@ -25,20 +30,16 @@
 export default {
   data() {
     return {
-      utente: {},
-      dadosBiomedicos: [],
-      dado: null,
       valor: null,
+      option: null,
+            options: [],
       errorMsg: false
     };
   },
   created() {
     this.$axios
-      .$get(`/api/utentes/${this.username}`)
-      .then((utente) => (this.utente = utente || {})),
-      this.$axios.$get("api/dadosbiomedicos").then((dadosBiomedicos) => {
-        this.dadosBiomedicos = dadosBiomedicos;
-      })
+            .$get(`/api/phenomenType`)
+            .then((options) => (this.options = options || {}))
   },
   computed: {
     username() {
@@ -49,16 +50,20 @@ export default {
     atribuir() {
       this.$axios
         .$post(
-          "/api/dadosbiomedicos/" + this.dado + "/enroll/" + this.username,
+          "/api/observations",
           {
-             id: this.dado,
              valor: this.valor,
+             phenomenTypeNome: this.option.nome,
+             utenteUsername: this.username
           }
         )
         .then(() => {
-          this.$router.push("/profissionaisSaude");
+          this.$router.push("/utentes/");
         })
         .catch((error) => {
+          if(this.valor < this.option.valorMinimo || this.valor > this.option.valorMinimo){
+            this.errorMsg = "Value out of boundaries";
+          }
           this.errorMsg = error.response.data;
         });
 

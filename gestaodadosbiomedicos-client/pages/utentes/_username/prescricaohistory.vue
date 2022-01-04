@@ -1,19 +1,21 @@
 <template>
-<div>
-    <h1>Histórico das prescrições</h1>
-    <b-container>
-      <!-- try to remove :fields=”fields” to see the magic -->
-      <b-table striped over :items="dados" :fields="fields"/>
-      <nuxt-link :to="`/utentes/${$auth.user.sub}/details`">Back</nuxt-link>
-    </b-container>
+<div id="mainDivPrescricoes">
+    <div v-if="dados.length > 0">
+        <b-container>
+        <b-table striped over bordered table-variant="info" head-variant="dark" :items="dados" :fields="fields"/>
+        </b-container>
+    </div>
+    <div v-else>
+        <b>Atualmente não existe nenhuma prescrição. Verifique mais tarde.</b>
+    </div>
 </div>
 </template>
 <script>
 export default{
     data(){
         return{
-          fields: ["nome", "dose", "vezesAoDia", "data"],
-            dados: {},
+          fields: ["nome", "tipoPrescricao","dose", "vezesAoDia", "profissionalSaudeUsername","data","dataValidade"],
+            dados: [],
         }
     },
     created(){
@@ -24,4 +26,9 @@ export default{
 }
 
 </script>
+<style>
+  #mainDivPrescricoes {
+   margin: 100px 50px;
+  }
+</style>
 
