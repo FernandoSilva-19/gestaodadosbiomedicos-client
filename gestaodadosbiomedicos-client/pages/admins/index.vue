@@ -1,37 +1,30 @@
 <template>
-  <!-- easy components usage, already shipped with bootstrap css-->
+  <div id="mainDivAdmin">
   <div v-if="admins != null">
   <b-container>
-    <div align="right">
+    <div align="left">
      <nuxt-link class="btn btn-success" to="/admins/create">Criar novo Administrador</nuxt-link>
      </div>
+     <br>
     <!-- try to remove :fields=”fields” to see the magic -->
-    <b-table striped over :items="admins" :fields="fields">
+    <b-table striped over bordered table-variant="info" head-variant="dark" :items="admins" :fields="fields">
         <template v-slot:cell(actions)="data">
-         <div v-if=" $auth.user.sub == data.item.username">
           <nuxt-link
             class="btn btn-secondary btn-sm"
             :to="`/admins/${data.item.username}/details`"
-            >Detalhes</nuxt-link
-          >
-          </div>
-          <div v-if=" $auth.user.sub == data.item.username">
+            >Detalhes</nuxt-link>
           <nuxt-link
             class="btn btn-primary btn-sm"
             :to="`/admins/${data.item.username}/edit`"
-            >Editar</nuxt-link
-          >
-          </div>
-          <div v-if="$auth.user.sub == data.item.username">
+            >Editar</nuxt-link>
           <b-button class="btn btn-danger btn-sm" @click="remove(data.item.username)">Eliminar</b-button>
-          </div>
         </template>
-      </b-table>
-      <nuxt-link to="/">Back</nuxt-link>
+    </b-table>
   </b-container>
   </div>
   <div v-else>
       <h1>Sem acesso</h1>
+  </div>
   </div>
 </template>
 <script>
@@ -72,4 +65,8 @@ export default {
   }
 };
 </script>
-<style></style>
+<style>
+  #mainDivAdmin {
+   margin: 100px 50px;
+  }
+</style>

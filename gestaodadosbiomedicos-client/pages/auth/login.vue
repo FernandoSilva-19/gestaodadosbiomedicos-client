@@ -1,5 +1,5 @@
 <template>
-  <b-container>
+  <b-container style="margin: 100px auto;">
     <h3>Login into Gestão Dados Biomédicos</h3>
     <b-form @submit.prevent="onSubmit" @reset="onReset">
       <b-form-group label="Username" description="Enter your username">
