@@ -39,7 +39,7 @@ export default {
       duracao: null,
       duracaoTreinoDiario: null,
       observacoes: null,
-      fase:null,
+      fase: null,
       errorMsg: false,
       selected: null,
       options: [
