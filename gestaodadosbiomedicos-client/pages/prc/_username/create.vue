@@ -17,6 +17,12 @@
         required
         placeholder="Observações: "
       />
+      <template>
+        <div>
+          <b-form-select v-model="selected" :options="options"></b-form-select>
+        </div>
+      </template>
+      <p>
       <p class="text-danger" v-show="errorMsg">{{ errorMsg }}</p>
       <nuxt-link to="/utentes/"
       >Return</nuxt-link
@@ -34,6 +40,14 @@ export default {
       duracaoTreinoDiario: null,
       observacoes: null,
       errorMsg: false,
+      selected: null,
+      options: [
+        { value: null, text: '-- Selecione a fase em que se encontra o utente --' },
+        { value: 'a', text: 'FASE 1: Paciente ainda hospitalizado' },
+        { value: 'b', text: 'FASE 2: Paciente ainda em reabilitação cardiovascular após a alta' },
+        { value: { C: '3PO' }, text: 'FASE 3: Paciente ainda em supervisão, devido a ser um utente de elevado risco' },
+        { value: { C: '3PO' }, text: 'FASE 4: Paciente não supervisionado. Programa dinâmico, sem a regular supervisão de um profissional de saúde' },
+      ]
     };
   },
   computed: {

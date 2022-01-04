@@ -10,6 +10,7 @@ const _47acc656 = () => interopDefault(import('..\\pages\\profissionaisSaude\\in
 const _60bda78f = () => interopDefault(import('..\\pages\\utentes\\index.vue' /* webpackChunkName: "pages/utentes/index" */))
 const _0c5b6a97 = () => interopDefault(import('..\\pages\\admins\\create.vue' /* webpackChunkName: "pages/admins/create" */))
 const _6584598c = () => interopDefault(import('..\\pages\\auth\\login.vue' /* webpackChunkName: "pages/auth/login" */))
+const _280e793c = () => interopDefault(import('..\\pages\\auth\\register.vue' /* webpackChunkName: "pages/auth/register" */))
 const _26d0a042 = () => interopDefault(import('..\\pages\\dadosBiomedicos\\create.vue' /* webpackChunkName: "pages/dadosBiomedicos/create" */))
 const _54bf61b0 = () => interopDefault(import('..\\pages\\profissionaisSaude\\create.vue' /* webpackChunkName: "pages/profissionaisSaude/create" */))
 const _42a8d5e2 = () => interopDefault(import('..\\pages\\utentes\\create.vue' /* webpackChunkName: "pages/utentes/create" */))
@@ -67,6 +68,10 @@ export const routerOptions = {
     path: "/auth/login",
     component: _6584598c,
     name: "auth-login"
+  }, {
+    path: "/auth/register",
+    component: _280e793c,
+    name: "auth-register"
   }, {
     path: "/dadosBiomedicos/create",
     component: _26d0a042,
