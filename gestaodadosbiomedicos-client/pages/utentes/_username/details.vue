@@ -4,7 +4,6 @@
     <p>Username: {{ utente.username }}</p>
     <p>Name: {{ utente.name }}</p>
     <p>Email: {{ utente.email }}</p>
-    <p>Profissional de Saúde: {{ utente.profissionalSaudeUsername }}</p>
     <div v-if="$auth.user.groups == 'Admin'">
               <nuxt-link to="/utentes">Return</nuxt-link>
     </div>

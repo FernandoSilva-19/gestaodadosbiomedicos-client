@@ -5,11 +5,21 @@
       <b-input
         v-model="duracao"
         required
-        placeholder="Introduza a duracao do programa(meses)"
+        placeholder="Introduza a duracao do programa (meses)"
+      />
+      <b-input
+        v-model="duracaoTreinoDiario"
+        required
+        placeholder="Introduza a duracao de treino físico diário (horas)"
+      />
+      <b-input
+        v-model="observacoes"
+        required
+        placeholder="Observações: "
       />
       <p class="text-danger" v-show="errorMsg">{{ errorMsg }}</p>
       <nuxt-link to="/utentes/"
-        >Return</nuxt-link
+      >Return</nuxt-link
       >
       <b-button pill variant="dark" size="sm" type="reset">Reset</b-button>
       <b-button pill variant="dark" size="sm" @click.prevent="create">Criar Programa</b-button>
@@ -21,6 +31,8 @@ export default {
   data() {
     return {
       duracao: null,
+      duracaoTreinoDiario: null,
+      observacoes: null,
       errorMsg: false,
     };
   },
@@ -34,6 +46,8 @@ export default {
       this.$axios
         .$post("/api/prc/", {
           duracao: this.duracao,
+          duracaoTreinoDiario: this.duracaoTreinoDiario,
+          observacoes: this.observacoes,
           utenteUsername: this.username,
         })
         .then(() => {
@@ -41,7 +55,7 @@ export default {
         })
         .catch((error) => {
           if(this.duracao > 0){
-          this.errorMsg = "Utente already has a prc";
+            this.errorMsg = "Utente already has a prc";
           }
           else this.errorMsg = "Duração has to be bigger than 0"
         });
